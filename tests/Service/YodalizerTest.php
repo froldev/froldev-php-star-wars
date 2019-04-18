@@ -16,7 +16,7 @@ final class YodalizerTest extends TestCase
      * @param string $expected
      * @dataProvider yodaStringProvider
      */
-    public function testHello(string $sample, string $expected): void
+    public function testYodalization(string $sample, string $expected): void
     {
         $this->assertSame($expected, Yodalizer::yodalizeIt($sample));
     }
