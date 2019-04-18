@@ -3,9 +3,4 @@
     <testsuite name="Checkpoint2">
         <directory>./tests</directory>
     </testsuite>
-    <filter>
-        <whitelist proceessUncoveredFromWhitelist="true">
-            <directory suffic=".php">src/</directory>
-        </whitelist>
-    </filter>
 </phpunit>

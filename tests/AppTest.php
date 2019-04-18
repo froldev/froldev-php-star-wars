@@ -2,7 +2,8 @@
 
 namespace Test;
 
-use \PHPUnit\Framework\TestCase;
+use GuzzleHttp\Exception\RequestException;
+use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 
 /**
@@ -12,7 +13,7 @@ use GuzzleHttp\Client;
 class AppTest extends TestCase
 {
     /**
-     * @var \GuzzleHttp\Client
+     * @var Client
      */
     private $client;
 
@@ -24,35 +25,76 @@ class AppTest extends TestCase
     /**
      *
      */
-    public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    public function setUp(): void
     {
         parent::setUp();
-        $this->client = new \GuzzleHttp\Client();
+        $this->client = new Client(['http_errors' => false]);
         libxml_use_internal_errors(true);
     }
+
+
+    /**
+     * @param string $url
+     * @return int
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getStatusCode(string $url):int
+    {
+        return $this->client->request('GET', self::SERVER . $url)->getStatusCode();
+    }
+
 
     /**
      * @param $url
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @dataProvider urlOkProvider
      */
-    public function testStatusSucces($url)
+    public function testStatusSuccess($url)
     {
-        $res = $this->client->request('GET', self::SERVER . $url);
-        $status = $res->getStatusCode();
-        $this->assertEquals(200, $status);
+        $this->assertEquals(200, $this->getStatusCode($url));
+    }
+
+
+    /**
+     * @param $url
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @dataProvider urlBonusOkProvider
+     */
+    public function testStatusSuccessBonus($url)
+    {
+        $this->assertEquals(200, $this->getStatusCode($url));
     }
 
     /**
      * @return array
      *
      */
-    public function urlOkProvider()
+    public function urlOkProvider(): array
     {
         $urls = [
-            '/movie/lists',
-            '/beast/list'
+            ['Home' => '/'],
+            ['Beast index' => '/beast/list'],
+            ['Beast details' => '/beast/details/5'],
+            ['Beast edit' => '/beast/edit/5'],
         ];
         return $urls;
     }
+
+    /**
+     * @return array
+     *
+     */
+    public function urlBonusOkProvider(): array
+    {
+        $urls = [
+            ['Movie index' => '/movie/list'],
+            ['Movie details' => '/movie/details/5'],
+            ['Movie edit' => '/movie/edit/5'],
+            ['Planet index' => '/planet/list'],
+            ['Planet details' => '/planet/details/5'],
+            ['Planet edit' => '/planet/edit/5'],
+        ];
+        return $urls;
+    }
+
 }
