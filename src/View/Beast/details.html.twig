@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12">Beast name </h1>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="#{# url to edition page #}" class="float-right">Edit</a>
+        </div>
+    </div>
+    <div class="row detail">
+        <figure class="col-12 col-md-4">
+            <img src="{# Beast's picture url#}" class="img-fluid"/>
+        </figure>
+        <div class="col-12 col-md-8">
+            <p>Area : Beast's origin area</p>
+            <p>Size : Beast's size m</p>
+            <p>Planet : Beast's planet </p>
+            <p>Movie(s) :Beast's movie</p>
+        </div>
+    </div>
+    <a href="/beast/list">Back</a>
+{% endblock %}

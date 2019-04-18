@@ -11,12 +11,13 @@
     "require": {
         "php" : ">=7.2",
         "ext-pdo" : "*",
+        "ext-libxml" : "*",
         "twig/twig": "^2.4"
     },
     "require-dev": {
-        "phpro/grumphp": "^0.15.0",
-        "phpstan/phpstan": "^0.11.2",
-        "squizlabs/php_codesniffer": "*"
+        "guzzlehttp/guzzle": "^6.3",
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": ">=6"
     },
     "autoload": {
         "psr-4": {

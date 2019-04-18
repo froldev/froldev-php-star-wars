@@ -1,0 +1,268 @@
+@font-face {
+    font-family: starjedi;
+    src: url("../font/Starjedi.cc3019aa.ttf");
+}
+
+@font-face {
+    font-family: starjout;
+    src: url("../font/Starjout.f72f509a.ttf");
+}
+
+@font-face {
+    font-family: biko;
+    src: url("../font/Biko_Regular.7cf27339.otf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+    background-color: #000;
+    background-image: url("../images/stars.6494ab5b.png");
+    background-size: cover;
+    font-family: biko, Arial, Helvetica, sans-serif;
+}
+
+.main {
+    min-height: 80vh;
+    margin-top: 40px;
+}
+
+h1 {
+    color: #FFD200;
+    font-family: starjout;
+    margin: 4vw;
+    text-transform: lowercase;
+}
+
+h2 {
+    margin: 2vw;
+}
+
+h2, strong {
+    text-align: center;
+    color: #FFD200;
+    font-family: starjedi;
+}
+
+a {
+    color: #FFD200;
+    font-family: starjedi;
+}
+
+.main a {
+    font-size: 0.8rem;
+    font-weight: 300;
+    transition: color .3s;
+}
+
+.main a:hover{
+    color:#007591;
+}
+
+samp,
+em {
+    color: #FAC800;
+    font-size: 0.9em;
+}
+
+blockquote {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 1vw;
+    margin: 1rem auto;
+}
+
+code {
+    padding: 0.2vh 1vw;
+    color: #0A9196;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+code.block {
+    margin: 1rem auto;
+    display: block;
+}
+
+button {
+    background-color: #f7e655;
+    color: #000;
+    font-family: starjedi;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active,
+button:disabled {
+    background-color: #f0eab8;
+}
+
+button:disabled {
+    font-style: italic;
+}
+
+.stronger {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+footer,
+header {
+    background-color: #FFD200;
+    padding: 5px 20px;
+    color: #f7e655;
+    text-align: center;
+}
+
+header .dropdown-menu {
+    background-color: #000;
+}
+
+header .dropdown-item {
+    color: #FFD200;
+}
+
+footer {
+    bottom: 0;
+    text-align: center;
+    font-size: 12px;
+    font-family: starjedi;
+    color: #000;
+}
+
+form label {
+    color: #FFD200;
+    font-family: starjedi;
+}
+
+.btn,
+.main input,
+.custom-select {
+    height: 24px;
+    line-height: 1;
+    margin-right: 10px;
+    padding-left: 10px;
+    border: none;
+    border-top: 1px solid #f7e655;
+    border-bottom: 1px solid #f7e655;
+    background-color: transparent;
+    -webkit-transition: padding .2s linear;
+    -o-transition: padding .2s linear;
+    transition: padding .2s linear;
+    color: #f7e655;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.custom-select {
+    height: 28px;
+}
+
+.btn,
+.main input[type="submit"] {
+    text-transform: lowercase;
+    font-family: starjedi;
+    cursor: pointer;
+}
+
+.main .form-control {
+    border-radius: 0;
+}
+
+.main .form-control:focus,
+.main input:focus {
+    color: #f7e655;
+    background-color: transparent;
+    padding: 5px 0 5px 10px;
+    outline: none;
+    border-top: 1px solid #e0d24d;
+    border-bottom: 1px solid #e0d24d;
+    box-shadow: none;
+}
+
+.main ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+
+}
+
+.main ul.list li {
+    width: 33%;
+    text-align: center;
+}
+
+
+.main ul.list li a {
+   font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.main ul li a {
+    font-family: biko;
+}
+
+.main ul li span:last-child {
+    margin-left: 10px;
+    color: #e71919;
+}
+
+.main li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.main ol li {
+    margin: 8px auto 12px;
+    color: #FFD200;
+    border-bottom: 1px solid #e0d24d;
+    font-size: 1.04rem;
+}
+
+.main nav {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main .detail {
+    padding: 2vw 1vw 1vw;
+    background-color: rgba(255, 210, 0, 0.3);
+    border: 1px solid #FFD200;
+    font-size: 1.05rem;
+}
+
+nav.row {
+    background-color: #000;
+    padding: 8px;
+    margin-top: 8vw;
+}
+
+.danger {
+    color: #D62924 !important;
+    border-color: #D62924 !important;
+}
+
+.navbar {
+    background-color: #FFD200;
+}
+
+
+.strikeable > *{
+    cursor: pointer;
+}
+
+.strikeable .striked{
+    text-decoration: line-through;
+}

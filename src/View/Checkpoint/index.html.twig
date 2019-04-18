@@ -1,0 +1,110 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Welcome here Padawan !</h1>
+            <p>Your today's challenge will be about Star Wars universe.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>General instructions</h2>
+            <ol>
+                <li>Your code has to respect good practices and especially PSR-1 and PSR-2. <em>N.B.: Codesniffer is
+                        registered as a dev dependency in this project. You can use it by launching <code>php
+                            ./vendor/bin/phpcs ./src</code> or <code>php
+                            ./vendor/squizlabs/php_codesniffer/bin/phpcs ./src</code> if you are on windows</em>
+                </li>
+                <li>You have to push your code on this project repository. Do it on a branch with your city, firstname
+                    and
+                    lastname as *STRASBOURG_FRANZ_MEYER*. Think about atomic commits
+                </li>
+                <li>You work for yourself, if you need help, you can ask to your trainer.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>1. Algorithm exercise</h2>
+            <p>In <samp>src/Service/Yodalizer.php</samp> you have to write code wich have the same behavior as our great master : <strong>Yoda</strong>
+            <p></p>
+            <p>
+                All your code must be contained in <samp>yodalizeIt()</samp> method.
+
+                When you'll want to test your code, you can run in command lines :
+                <code class="block">
+                    ./vendor/bin/phpunit tests/Service/YodalizerTest
+                </code>
+                If all tests are OK, you can consider your mission is accomplished.
+                You can commit your work and push it on your remote branch.
+            </p>
+        </div>
+
+        <div class="col-12">
+            <h2>2. Application development</h2>
+            Your next mission is to finish the back end part of a Star Wars Wiki. Main routes are availables from the
+            burger menu in navbar above.
+            You can read instructions below to know what we are expecting from you :
+            <ol class="strikeable">
+                <li>
+                    <del>A page which display all beasts from data base. All list items display a link to the beast's
+                        details page.
+                    </del>
+                    <em>Already done !</em>
+                </li>
+                <li>
+                    A page which displays all details of a specific beast, with all information about him :
+                    everything contained in the beast table. As you can see the view already exists but you HAVE TO replace/add missing element or information
+                </li>
+                <li>
+                    The details page also have to display the planet where she/he comes from.<br>
+                    <em>Those information are contained in other tables. <a target="_blank" href="https://dev.mysql.com/doc/refman/5.7/en/join.html">#joins</a></em>
+                </li>
+                <li>
+                    The details page also have to display in which movie she/he can be seen.<br>
+                    <em>You're right, a beast could be seen in multiple movies. But during this checkpoint we will allow only one movie per beast. It will be easier for you !</em>
+                </li>
+                <li>
+                  An edition page where your can edit a selected beast, and update informations about the planet where she/he comes from and the movie where she/he can be seen.
+                </li>
+                <li>
+                  A creation page where your can add a new beast and give informations about : the planet where she/he comes from, the movie where she/he can be seen.
+                </li>
+                <li>
+                  <span class="stronger">BONUS : </span>On the edition page, you can find a delete button, which allow you to remove a beast from the
+                    database.
+                </li>
+                <li>
+                  <span class="stronger">BONUS : </span>On creation page, planets list and movies list are coming from database to feed a select box.
+                </li>
+                <li><span class="stronger">BONUS : </span>A page which display all planets from database.</li>
+                <li><span class="stronger">BONUS : </span>A page which display all movies from database.</li>
+            </ol>
+            <p>If you want to test if all routes are OK, you can try the code below. Your favorite trainer will use this
+                to check if all routes are working :
+                <code class="block">
+                    ./vendor/bin/phpunit tests/AppTest.php
+                </code>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <img src="/assets/images/may_the_force_be_with_you_{{ random(10) }}.gif" alt="may the force be with you"/>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script type="text/javascript">
+    $(document).ready(function(){
+            console.log('plop');
+        $('.strikeable li').click(function(){
+            $(this).toggleClass('striked');
+        });
+
+    });
+</script>
+{% endblock %}

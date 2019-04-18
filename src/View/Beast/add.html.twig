@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12">Add a new beast</h1>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {% include 'Beast/_form.html.twig' %}
+        </div>
+    </div>
+    <div class="row">
+        <a href="/beasts">Back</a>
+    </div>
+{% endblock %}

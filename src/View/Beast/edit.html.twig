@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="row">
+  <h1 class="col-12">Edit beast informations</h1>
+</div>
+<div class="row">
+  <form class="col-12" method="post">
+    <input type="submit" name="delete" value="delete" class="float-right danger">
+  </form>
+</div>
+<div class="row">
+  <div class="col-12">
+    {% include 'Beast/_form.html.twig' %}
+  </div>
+</div>
+<div class="row">
+  <a href="/beasts">Back</a>
+</div>
+{% endblock %}

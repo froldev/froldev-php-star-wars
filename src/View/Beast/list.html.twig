@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12">All Beasts</h1>
+    </div>
+    <div class="row">
+        <ul class="list">
+            {% for beast in beasts %}
+                <li><a href="/beast/details/{{ beast.id }}">{{ beast.id }}. {{ beast.name }}</a></li>
+            {% else %}
+                <li>Nothing to display</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <nav class="row">
+        <a href="/beast/add">Add a beast</a>
+        <a href="/movie/list">Check the movies</a>
+        <a href="/planet/list">Check the planets</a>
+    </nav>
+{% endblock %}
