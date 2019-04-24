@@ -28,6 +28,6 @@ class BeastManager extends AbstractManager
      */
     public function __construct()
     {
-        parent::__construct(self::TABLE, $pdo);
+        parent::__construct(self::TABLE);
     }
 }

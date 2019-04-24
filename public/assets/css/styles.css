@@ -31,7 +31,7 @@ body {
 }
 
 h1 {
-    color: #FFD200;
+    color: #f76c6c;
     font-family: starjout;
     margin: 4vw;
     text-transform: lowercase;
@@ -43,12 +43,12 @@ h2 {
 
 h2, strong {
     text-align: center;
-    color: #FFD200;
+    color: #f76c6c;
     font-family: starjedi;
 }
 
 a {
-    color: #FFD200;
+    color: #f76c6c;
     font-family: starjedi;
 }
 
@@ -59,12 +59,12 @@ a {
 }
 
 .main a:hover{
-    color:#007591;
+    color:#ffd64f;
 }
 
 samp,
 em {
-    color: #FAC800;
+    color: #f99797;
     font-size: 0.9em;
 }
 
@@ -76,7 +76,7 @@ blockquote {
 
 code {
     padding: 0.2vh 1vw;
-    color: #0A9196;
+    color: #ffd64f;
     background-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -86,7 +86,7 @@ code.block {
 }
 
 button {
-    background-color: #f7e655;
+    background-color: #f99797;
     color: #000;
     font-family: starjedi;
     border: none;
@@ -113,9 +113,9 @@ button:disabled {
 
 footer,
 header {
-    background-color: #FFD200;
+    background-color: #f76c6c;
     padding: 5px 20px;
-    color: #f7e655;
+    color: #f99797;
     text-align: center;
 }
 
@@ -124,7 +124,7 @@ header .dropdown-menu {
 }
 
 header .dropdown-item {
-    color: #FFD200;
+    color: #f76c6c;
 }
 
 footer {
@@ -136,7 +136,7 @@ footer {
 }
 
 form label {
-    color: #FFD200;
+    color: #f76c6c;
     font-family: starjedi;
 }
 
@@ -148,13 +148,13 @@ form label {
     margin-right: 10px;
     padding-left: 10px;
     border: none;
-    border-top: 1px solid #f7e655;
-    border-bottom: 1px solid #f7e655;
+    border-top: 1px solid #f99797;
+    border-bottom: 1px solid #f99797;
     background-color: transparent;
     -webkit-transition: padding .2s linear;
     -o-transition: padding .2s linear;
     transition: padding .2s linear;
-    color: #f7e655;
+    color: #f99797;
     border-radius: 0;
     box-shadow: none;
 }
@@ -176,7 +176,7 @@ form label {
 
 .main .form-control:focus,
 .main input:focus {
-    color: #f7e655;
+    color: #f99797;
     background-color: transparent;
     padding: 5px 0 5px 10px;
     outline: none;
@@ -224,8 +224,8 @@ form label {
 
 .main ol li {
     margin: 8px auto 12px;
-    color: #FFD200;
-    border-bottom: 1px solid #e0d24d;
+    color: #f76c6c;
+    border-bottom: 1px solid #ffd64f;
     font-size: 1.04rem;
 }
 
@@ -238,8 +238,8 @@ form label {
 
 .main .detail {
     padding: 2vw 1vw 1vw;
-    background-color: rgba(255, 210, 0, 0.3);
-    border: 1px solid #FFD200;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #f76c6c;
     font-size: 1.05rem;
 }
 
@@ -255,9 +255,13 @@ nav.row {
 }
 
 .navbar {
-    background-color: #FFD200;
+    background-color: #f76c6c;
 }
 
+.navbar-brand img {
+    background: white;
+    border-radius: 5px;
+}
 
 .strikeable > *{
     cursor: pointer;
