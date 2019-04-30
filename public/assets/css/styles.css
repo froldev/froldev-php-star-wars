@@ -229,6 +229,10 @@ form label {
     font-size: 1.04rem;
 }
 
+li.bonus {
+  display: none;  
+}
+
 .main nav {
     margin: 1rem auto;
     display: flex;
