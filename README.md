@@ -11,7 +11,7 @@ For this one, we add our new friend : PHPUnit.
 
 1. Clone this repository from Github.
 2. Run `composer install`.
-3. Create *app/db.php* from *app/db.php.dist* file and add your DB parameters.
+3. Create *config/db.php* from *config/db.php.dist* file and add your DB parameters.
 ```php
 define('APP_DB_HOST', 'your_db_host');
 define('APP_DB_NAME', 'your_db_name');
