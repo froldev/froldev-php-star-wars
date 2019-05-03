@@ -32,7 +32,8 @@ final class YodalizerTest extends TestCase
           'One word string'  => ['Wilder', 'Wilder'],
           'Two letters string'  => ['W C', 'C W'],
           'Two words string'  => ['Wilder forever', 'Forever Wilder'],
-          'Many words string'  => ['You are a Wilder forever', 'Forever Wilder a are You'],
+          'Many words string'  => ['You are a Wilder forever', 'Forever Wilder a are You'],,
+          'Another string with many words'  => ['I love PHP forever', 'Forever PHP love I'],
         ];
     }
 }
