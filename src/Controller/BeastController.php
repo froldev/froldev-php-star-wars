@@ -62,9 +62,9 @@ class BeastController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function edit() : string
+    public function edit(int $id) : string
     {
-      // TODO : An edition page where your can add a new beast.
+      // TODO : An edition page where your can edit a beast.
         return $this->twig->render('Beast/edit.html.twig');
     }
 }
