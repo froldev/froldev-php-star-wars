@@ -17,7 +17,8 @@
     "require-dev": {
         "guzzlehttp/guzzle": "*",
         "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": ">=6"
+        "phpunit/phpunit": ">=6",
+        "filp/whoops": "^2.4"
     },
     "autoload": {
         "psr-4": {
