@@ -18,7 +18,7 @@
         "guzzlehttp/guzzle": "*",
         "squizlabs/php_codesniffer": "*",
         "phpunit/phpunit": ">=6",
-        "filp/whoops": "^2.4"
+        "filp/whoops": "^2.5"
     },
     "autoload": {
         "psr-4": {
