@@ -1,4 +1,4 @@
-# Checkpoint 2 | May the force be with you | PHP0219
+# Checkpoint 2 | May the force be with you | PHP0919
 
 ## Description
 
@@ -22,6 +22,7 @@ define('APP_DB_PWD', 'your_db_password');
 5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter, mean your localhost will target the `/public` folder.
 6. Go to [http://localhost:8000](http://localhost:8000) with your favorite browser.
 7. Follow instructions on the homepage available at `http://localhost:8000` to complete this new big quest !
+8. Commit your changes on a branch named as CAMPUS_NOM_Prenom (i.e. NANTES_LEGUENEC_Erwan)
 
 
 18/04/2019 @wildcodeschool.fr
