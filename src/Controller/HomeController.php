@@ -7,7 +7,7 @@ namespace App\Controller;
  * Class CheckpointController
  * @package Controller
  */
-class CheckpointController extends AbstractController
+class HomeController extends AbstractController
 {
 
     /**
@@ -18,7 +18,7 @@ class CheckpointController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Checkpoint/index.html.twig');
+        return $this->twig->render('Home/index.html.twig');
     }
 
 
@@ -31,6 +31,6 @@ class CheckpointController extends AbstractController
      */
     public function error(int $error)
     {
-        return $this->twig->render('Checkpoint/error.html.twig', ['error' => $error]);
+        return $this->twig->render('Home/error.html.twig', ['error' => $error]);
     }
 }

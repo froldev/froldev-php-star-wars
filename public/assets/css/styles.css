@@ -64,7 +64,7 @@ a {
 
 samp,
 em {
-    color: #f99797;
+    color: #fff;
     font-size: 0.9em;
 }
 
@@ -148,13 +148,13 @@ form label {
     margin-right: 10px;
     padding-left: 10px;
     border: none;
-    border-top: 1px solid #f99797;
-    border-bottom: 1px solid #f99797;
+    border-top: 1px solid #FFDE00;
+    border-bottom: 1px solid #FFDE00;
     background-color: transparent;
     -webkit-transition: padding .2s linear;
     -o-transition: padding .2s linear;
     transition: padding .2s linear;
-    color: #f99797;
+    color: #fff;
     border-radius: 0;
     box-shadow: none;
 }

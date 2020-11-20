@@ -7,7 +7,7 @@
     <div class="row">
         <ul class="list">
             {% for beast in beasts %}
-                <li><a href="/beast/details/{{ beast.id }}">{{ beast.id }} -  {{ beast.name }}</a></li>
+                <li><a href="/beast/details/{{ beast.id }}">{{ beast.id }}. {{ beast.name }}</a></li>
             {% else %}
                 <li>rien à afficher</li>
             {% endfor %}
