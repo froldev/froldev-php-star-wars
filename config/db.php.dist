@@ -5,12 +5,6 @@
  *
  * PHP version 7
  *
- * @category  PHP
- * @package   PHP_SimpleMVC
- * @author    WCS <contact@wildcodeschool.fr>
- * @license  --
- * @link     https://github.com/WildCodeSchool/simple-mvc
- *
  */
 
 define('APP_DB_USER', 'user');
