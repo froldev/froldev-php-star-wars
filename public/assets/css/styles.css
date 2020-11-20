@@ -31,7 +31,7 @@ body {
 }
 
 h1 {
-    color: #f76c6c;
+    color: #FFDE00;
     font-family: starjout;
     margin: 4vw;
     text-transform: lowercase;
@@ -43,12 +43,12 @@ h2 {
 
 h2, strong {
     text-align: center;
-    color: #f76c6c;
+    color: #FFDE00;
     font-family: starjedi;
 }
 
 a {
-    color: #f76c6c;
+    color: #FFDE00;
     font-family: starjedi;
 }
 
@@ -113,9 +113,9 @@ button:disabled {
 
 footer,
 header {
-    background-color: #f76c6c;
+    background-color: #FFDE00;
     padding: 5px 20px;
-    color: #f99797;
+    color: #000;
     text-align: center;
 }
 
@@ -124,7 +124,7 @@ header .dropdown-menu {
 }
 
 header .dropdown-item {
-    color: #f76c6c;
+    color: #FFDE00;
 }
 
 footer {
@@ -136,7 +136,7 @@ footer {
 }
 
 form label {
-    color: #f76c6c;
+    color: #FFDE00;
     font-family: starjedi;
 }
 
@@ -224,13 +224,13 @@ form label {
 
 .main ol li {
     margin: 8px auto 12px;
-    color: #f76c6c;
+    color: #FFDE00;
     border-bottom: 1px solid #ffd64f;
     font-size: 1.04rem;
 }
 
 li.bonus {
-  display: none;  
+  display: none;
 }
 
 .main nav {
@@ -243,7 +243,7 @@ li.bonus {
 .main .detail {
     padding: 2vw 1vw 1vw;
     background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid #f76c6c;
+    border: 1px solid #FFDE00;
     font-size: 1.05rem;
 }
 
@@ -259,12 +259,20 @@ nav.row {
 }
 
 .navbar {
-    background-color: #f76c6c;
+    background-color: #FFDE00;
 }
 
 .navbar-brand img {
-    background: white;
+    background: #000;
     border-radius: 5px;
+}
+
+.navbar-brand span {
+    color: #000;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #000;
 }
 
 .strikeable > *{
