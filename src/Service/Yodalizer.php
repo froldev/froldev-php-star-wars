@@ -10,7 +10,9 @@ class Yodalizer
 
     public static function yodalizeIt(string $str):string
     {
-        //TODO Write your code here,
-        //TODO And return what we are waiting for at the end...
+        $explodeSentence = explode(" ", $str);
+        $reverseArray = array_reverse($explodeSentence);
+        $reverseSentence = implode(" ", $reverseArray);
+        return ucfirst($reverseSentence);
     }
 }
