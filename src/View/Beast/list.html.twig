@@ -4,18 +4,26 @@
     <div class="row">
         <h1 class="col-12">toutes les espèces</h1>
     </div>
-    <div class="row">
-        <ul class="list">
-            {% for beast in beasts %}
-                <li><a href="/beast/details/{{ beast.id }}">{{ beast.id }} -  {{ beast.name }}</a></li>
-            {% else %}
-                <li>rien à afficher</li>
-            {% endfor %}
-        </ul>
-    </div>
     <nav class="row">
-        <a href="/beast/add">ajouter une espèce</a>
-        <a href="/planet/list">voir les personnages</a>
-        <a href="/movie/list">voir les films</a>
+        <a class="button" href="/beast/add">ajouter une espèce</a>
+        <a class="button" href="/characters/list">voir les personnages</a>
+        <a class="button" href="/movie/list">voir les films</a>
     </nav>
+    <div class="row detail">
+        {% for beast in beasts %}
+        <div class="col-12 detail-row">
+            <div class="col-8">
+                <p class=" detail-name">{{ beast.name }}</p>
+            </div>
+            <div class="col-2">
+                <a class="btn jedi" href="/beast/edit/{{beast.id}}" class="float-right">mettre à jour</a>
+            </div>
+            <div class="col-2">
+                <a class="btn sith" href="/beast/delete/{{beast.id}}" class="float-right">supprimer</a>
+            </div>
+        </div>
+        {% else %}
+            <div class="col-12">rien à afficher</div>
+        {% endfor %}
+    </div>
 {% endblock %}

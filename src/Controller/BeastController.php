@@ -12,7 +12,6 @@ use App\Model\BeastManager;
 class BeastController extends AbstractController
 {
 
-
     /**
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -22,8 +21,11 @@ class BeastController extends AbstractController
     public function list() : string
     {
         $beastsManager = new BeastManager();
-        $beasts = $beastsManager->selectAll();
-        return $this->twig->render('Beast/list.html.twig', ['beasts' => $beasts]);
+        $beasts = $beastsManager->selectBeast();
+
+        return $this->twig->render('Beast/list.html.twig', [
+          'beasts' => $beasts
+          ]);
     }
 
 
@@ -36,9 +38,11 @@ class BeastController extends AbstractController
      */
     public function details(int $id)  : string
     {
-      // TODO : A page which displays all details of a specific beasts.
-
-        return $this->twig->render('Beast/details.html.twig');
+      $beastManager = new BeastManager();
+      $beast = $beastManager->selectOneById($id);
+      return $this->twig->render('Beast/details.html.twig', [
+        'beast' => $beast,
+      ]);
     }
 
 
@@ -48,11 +52,27 @@ class BeastController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add()  : string
+    public function add() : string
     {
-      // TODO : A creation page where your can add a new beast.
+      $beastError = null;
+      if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $isValid = true;
+        if (empty($_POST['name']) || !isset($_POST['name'])) {
+          $beastError = "Merci de saisir un nom d'espèces";
+          $isValid = false;
+        }
 
-        return $this->twig->render('Beast/add.html.twig');
+        if ($isValid) {
+          $beastManager = new BeastManager();
+          if ($beastManager->insertBeast($_POST)) {
+            header("Location:/beast/list");
+          }
+        }
+      }
+
+      return $this->twig->render('Beast/add.html.twig', [
+        'beastError' => $beastError,
+      ]);
     }
 
 
@@ -64,7 +84,31 @@ class BeastController extends AbstractController
      */
     public function edit(int $id) : string
     {
-      // TODO : An edition page where your can edit a beast.
-        return $this->twig->render('Beast/edit.html.twig');
+      if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $beastManager = new BeastManager();
+        $beastManager->editBeast($_POST, $id);
+        header('Location:/beast/details/'.$id);
+      }
+
+      $beastManager = new BeastManager();
+      $beast = $beastManager->selectOneById($id);
+
+      return $this->twig->render('Beast/edit.html.twig', [
+        'beast' => $beast,
+      ]);
+    }
+
+
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function delete(int $id): void
+    {
+      $beastManager = new BeastManager();
+      $beast = $beastManager->deleteBeast($id);
+      header('Location: /beast/list/'.$id);
     }
 }

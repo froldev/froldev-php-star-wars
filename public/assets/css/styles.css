@@ -33,7 +33,7 @@ body {
 h1 {
     color: #FFDE00;
     font-family: starjout;
-    margin: 4vw;
+    margin: 40px;
     text-transform: lowercase;
 }
 
@@ -84,6 +84,7 @@ code.block {
     margin: 1rem auto;
     display: block;
 }
+
 
 button {
     background-color: #f99797;
@@ -143,20 +144,22 @@ form label {
 .btn,
 .main input,
 .custom-select {
-    height: 24px;
     line-height: 1;
     margin-right: 10px;
-    padding-left: 10px;
+    padding: 5px;
     border: none;
     border-top: 1px solid #FFDE00;
     border-bottom: 1px solid #FFDE00;
     background-color: transparent;
-    -webkit-transition: padding .2s linear;
-    -o-transition: padding .2s linear;
-    transition: padding .2s linear;
+    -webkit-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
     color: #fff;
     border-radius: 0;
     box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .custom-select {
@@ -168,6 +171,10 @@ form label {
     text-transform: lowercase;
     font-family: starjedi;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #000;
 }
 
 .main .form-control {
@@ -245,17 +252,46 @@ li.bonus {
     background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid #FFDE00;
     font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+.main .detail-row {
+    display: flex;
+    padding: 10px 0;
+}
+
+.main .detail-name {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 nav.row {
     background-color: #000;
     padding: 8px;
-    margin-top: 8vw;
 }
 
-.danger {
-    color: #D62924 !important;
-    border-color: #D62924 !important;
+.jedi {
+    color: #87CEEB !important;
+    border-color: #87CEEB !important;
+}
+.sith {
+    color: #FF5757 !important;
+    border-color: #FF5757 !important;
+}
+.success {
+    color: #4DFF4D !important;
+    border-color: #4DFF4D !important;
+}
+.jedi:hover {
+    color: #000 !important;
+    background-color: #87CEEB !important;
+}
+.sith:hover {
+    color: #000 !important;
+    background-color: #FF5757 !important;
+}
+.success:hover {
+    color: #000 !important;
+    background-color: #4DFF4D !important;
 }
 
 .navbar {
