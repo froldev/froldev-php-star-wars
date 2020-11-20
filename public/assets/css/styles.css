@@ -183,12 +183,12 @@ form label {
 
 .main .form-control:focus,
 .main input:focus {
-    color: #f99797;
+    color: #87CEEB;
     background-color: transparent;
     padding: 5px 0 5px 10px;
     outline: none;
-    border-top: 1px solid #e0d24d;
-    border-bottom: 1px solid #e0d24d;
+    border-top: 1px solid #87CEEB;
+    border-bottom: 1px solid #87CEEB;
     box-shadow: none;
 }
 

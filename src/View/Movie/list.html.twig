@@ -2,18 +2,28 @@
 
 {% block content %}
     <div class="row">
-        <h1 class="col-12">All Movies</h1>
+        <h1 class="col-12">tous les films</h1>
     </div>
-
-    <div class="row">
-        <ul class="list">
-            {# movies #}
-            <li>Movie title</li>
-        </ul>
-    </div>
-
     <nav class="row">
-        <a href="/planet/list">Check the planets</a><br>
-        <a href="/beast/list">Check beasts</a><br>
+        <a class="button" href="/movie/add">ajouter un film</a>
+        <a class="button" href="/characters/list">voir les personnages</a>
+        <a class="button" href="/beast/list">voir les espèces</a>
     </nav>
+    <div class="row detail">
+        {% for movie in movies %}
+        <div class="col-12 detail-row">
+            <div class="col-8">
+                <p class=" detail-name">{{ movie.title }}</p>
+            </div>
+            <div class="col-2">
+                <a class="btn jedi" href="/movie/edit/{{movie.id}}" class="float-right">mettre à jour</a>
+            </div>
+            <div class="col-2">
+                <a class="btn sith" href="/movie/delete/{{movie.id}}" class="float-right">supprimer</a>
+            </div>
+        </div>
+        {% else %}
+            <div class="col-12">rien à afficher</div>
+        {% endfor %}
+    </div>
 {% endblock %}

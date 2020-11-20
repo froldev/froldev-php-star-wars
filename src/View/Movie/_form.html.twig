@@ -1,0 +1,16 @@
+<form method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="title">titre :</label>
+            <input type="text" class="form-control" name="title" value="{{movie.title}}">
+            <div class="invalid-feedback">
+                {{ movieError }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12">
+            <input type="submit" value="Valider" class="float-right success">
+        </div>
+    </div>
+</form>

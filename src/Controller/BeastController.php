@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Model\BeastManager;
@@ -24,7 +23,7 @@ class BeastController extends AbstractController
         $beasts = $beastsManager->selectBeast();
 
         return $this->twig->render('Beast/list.html.twig', [
-          'beasts' => $beasts
+          'beasts' => $beasts,
           ]);
     }
 
@@ -87,7 +86,7 @@ class BeastController extends AbstractController
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $beastManager = new BeastManager();
         $beastManager->editBeast($_POST, $id);
-        header('Location:/beast/details/'.$id);
+        header('Location:/beast/list/');
       }
 
       $beastManager = new BeastManager();
