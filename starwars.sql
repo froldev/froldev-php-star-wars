@@ -123,26 +123,29 @@ INSERT INTO `beast` (`id`, `name`, `picture`, `size`, `area`, `id_movie`, `id_pl
 
 CREATE TABLE `planet` (
   `id` int(11) NOT NULL,
-  `name` varchar(256) NOT NULL
+  `name` varchar(256) NOT NULL,
+  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `planet`
 --
 
-INSERT INTO `planet` (`id`, `name`) VALUES
-(3, 'Mandalore'),
-(4, 'Coruscant'),
-(5, 'Dagobah'),
-(6, 'Geonosis'),
-(7, 'Hoth'),
-(8, 'Jakku'),
-(9, 'Kashyyyk'),
-(10, 'Naboo'),
-(12, 'Tatooine'),
-(13, 'Utapau'),
-(14, 'Endor'),
-(15, 'Ahch-To');
+INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
+(1, 'Nar Kreeta', "https://static.wikia.nocookie.net/frstarwars/images/6/63/Planete_nar_kreeta.jpg"),
+(2, 'Moraband', "https://static.wikia.nocookie.net/frstarwars/images/9/9e/Moraband_Planet.png"),
+(3, 'Mandalore', "https://static.wikia.nocookie.net/frstarwars/images/2/21/ThePlanetMandalore.png"),
+(4, 'Coruscant', "https://static.wikia.nocookie.net/frstarwars/images/4/42/Coruscant.png"),
+(5, 'Dagobah', "https://static.wikia.nocookie.net/frstarwars/images/1/1c/Dagobah.jpg"),
+(6, 'Geonosis', "https://static.wikia.nocookie.net/frstarwars/images/a/a5/Geonosis.png"),
+(7, 'Hoth', "https://static.wikia.nocookie.net/frstarwars/images/d/d1/Hoth.jpg"),
+(8, 'Jakku', "https://static.wikia.nocookie.net/frstarwars/images/f/f4/Jakku_-_full_-_SW_Poe_Dameron_Flight_Log_.png"),
+(9, 'Kashyyyk', "https://static.wikia.nocookie.net/frstarwars/images/f/f7/Kashyyyk.png"),
+(10, 'Naboo', "https://static.wikia.nocookie.net/frstarwars/images/3/3c/Naboo.png"),
+(12, 'Tatooine', "https://static.wikia.nocookie.net/frstarwars/images/f/f6/Tatoooinefull.jpg"),
+(13, 'Utapau', "https://static.wikia.nocookie.net/frstarwars/images/e/e1/Utapau.png"),
+(14, 'Endor', "https://static.wikia.nocookie.net/frstarwars/images/f/f9/Endor_%28planet%29.jpg")
+;
 
 
 -- --------------------------------------------------------
