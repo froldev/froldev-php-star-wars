@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12">les personnages</h1>
+    </div>
+    <nav class="row">
+        <a href="/character/add">ajouter un personnage</a>
+    </nav>
+    <div class="row">
+            {% for character in characters %}
+            <div class="card bg-dark text-white col-3">
+                <img
+                    src="{{character.picture}}"
+                    class="card-img"
+                    alt="{{ character.name }}"
+                />
+                <div class="card-img-overlay">
+                    <h5 class="card-title">{{ character.name }}</h5>
+                    <a class="btn jedi" href="/character/details/{{ character.id }}">détail</a>
+                </div>
+            </div>
+            {% else %}
+                <div>rien à afficher</div>
+            {% endfor %}
+    </div>
+    
+{% endblock %}

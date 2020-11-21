@@ -29,23 +29,6 @@ class BeastController extends AbstractController
 
 
     /**
-     * @param int $id
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
-    public function details(int $id)  : string
-    {
-      $beastManager = new BeastManager();
-      $beast = $beastManager->selectOneById($id);
-      return $this->twig->render('Beast/details.html.twig', [
-        'beast' => $beast,
-      ]);
-    }
-
-
-    /**
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
