@@ -156,17 +156,18 @@ INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
 
 CREATE TABLE `faction` (
   `id` int(11) NOT NULL,
-  `name` varchar(256) NOT NULL
+  `name` varchar(256) NOT NULL,
+  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `faction`
 --
 
-INSERT INTO `faction` (`id`, `name`) VALUES
-(1, "Alliance Rebelle"),
-(2, "Empire"),
-(3, "Aucune")
+INSERT INTO `faction` (`id`, `name`, `picture`) VALUES
+(1, "Alliance Rebelle", "https://vignette.wikia.nocookie.net/club-penguin/images/7/76/PinzR%C3%A9bellion.png"),
+(2, "Empire", "https://vignette.wikia.nocookie.net/club-penguin/images/8/81/120px-Galactic_Empire.svg.png"),
+(3, "Aucune", "")
 ;
 
 -- --------------------------------------------------------
