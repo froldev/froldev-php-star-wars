@@ -27,6 +27,23 @@ class MovieController extends AbstractController
           ]);
     }
 
+     /**
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function details(int $id)  : string
+    {
+      $movieManager = new MovieManager();
+      $movie = $movieManager->selectOneById($id);
+
+      return $this->twig->render('Movie/details.html.twig', [
+        'movie' => $movie,
+      ]);
+    }
+
 
     /**
      * @return string

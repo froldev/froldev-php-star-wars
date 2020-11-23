@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12">{{movie.title}} </h1>
+    </div>
+    <div class="row row-button">
+        <form class="col-12" method="post">
+            <input type="submit" name="delete" value="supprimer" class="float-right btn sith">
+        </form>
+    </div>
+    <div class="row detail">
+        <figure class="col-12 col-md-4 offset-md-4">
+            <img src="{{movie.picture}}" class="img-fluid"/>
+        </figure>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="/movie/edit/{{movie.id}}" class="float-right btn jedi">Mettre à jour</a>
+        </div>
+    </div>
+    <a href="/movie/list">Retour</a>
+{% endblock %}
