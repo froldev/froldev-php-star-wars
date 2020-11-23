@@ -1,0 +1,25 @@
+<form method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="title">nom :</label>
+            <input type="text" class="form-control" name="name" value="{{planet.name}}">
+            <div class="invalid-feedback">
+                {{ planetError }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="area">image :</label>
+            <input type="url" class="form-control" name="picture" id="picture" value="{{planet.picture}}" />
+            <div class="invalid-feedback">
+                {{ planetError }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12">
+            <input type="submit" value="Valider" class="float-right consular">
+        </div>
+    </div>
+</form>

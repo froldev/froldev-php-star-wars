@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12">les planètes</h1>
+    </div>
+    <nav class="row">
+        <a class="button" href="/planet/add">ajouter une planète</a>
+    </nav>
+    <div class="row detail">
+        <ul class="list">
+            {% for planet in planets %}
+                <li><a href="/planet/details/{{planet.id}}">{{ planet.name }}</a></li>
+            {% else %}
+                <li>Rien à voir</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
