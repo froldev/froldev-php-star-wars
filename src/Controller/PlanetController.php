@@ -60,7 +60,10 @@ class PlanetController extends AbstractController
           $planetError = "Merci de saisir un nom de planète";
           $isValid = false;
         }
-
+        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+          $planetError = "Merci d'ajouter une image de planète";
+          $isValid = false;
+        }
         if ($isValid) {
           $planetManager = new PlanetManager();
           if ($planetManager->insertPlanet($_POST)) {
