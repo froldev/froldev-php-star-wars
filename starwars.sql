@@ -109,11 +109,11 @@ INSERT INTO `beast` (`id`, `name`, `picture`, `size`, `area`, `id_movie`, `id_pl
 (8, 'Mandalorien', 'https://static.wikia.nocookie.net/frstarwars/images/b/b7/Mandaloriens_sur_Trask.png', 2, 'Ville', 2, 3),
 (9, 'Kaadu', 'https://static.wikia.nocookie.net/frstarwars/images/d/d3/Jar_Jar_Kaadu.png', 2, 'Plaine', 1, 10),
 (10, 'Sando', 'https://static.wikia.nocookie.net/frstarwars/images/4/4b/Monstre_aquatique_Sando.png', 200, 'Eau', 1, 10),
-(11, 'Bantha', 'https://static.wikia.nocookie.net/frstarwars/images/2/24/Bantha.png', 3, 'Desert', 4, 12),
-(12, 'Dewback', 'https://static.wikia.nocookie.net/frstarwars/images/6/6e/Dewback_trooper.png', 2, 'Desert', 4, 12),
-(13, 'Varactyl', 'https://static.wikia.nocookie.net/frstarwars/images/d/d6/Varactyl.png', 4, 'Caverne', 3, 13),
-(14, 'Ewok', 'https://static.wikia.nocookie.net/frstarwars/images/4/48/Ewoks.jpg', 1, 'Foret', 6, 14),
-(15, 'Porg', 'https://static.wikia.nocookie.net/frstarwars/images/1/1f/Porglets-DK.png', 1, 'Falaises', 8, 15);
+(11, 'Bantha', 'https://static.wikia.nocookie.net/frstarwars/images/2/24/Bantha.png', 3, 'Desert', 4, 11),
+(12, 'Dewback', 'https://static.wikia.nocookie.net/frstarwars/images/6/6e/Dewback_trooper.png', 2, 'Desert', 4, 11),
+(13, 'Varactyl', 'https://static.wikia.nocookie.net/frstarwars/images/d/d6/Varactyl.png', 4, 'Caverne', 3, 12),
+(14, 'Ewok', 'https://static.wikia.nocookie.net/frstarwars/images/4/48/Ewoks.jpg', 1, 'Foret', 6, 13),
+(15, 'Porg', 'https://static.wikia.nocookie.net/frstarwars/images/1/1f/Porglets-DK.png', 1, 'Falaises', 8, 14);
 
 -- --------------------------------------------------------
 
@@ -142,10 +142,10 @@ INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
 (8, 'Jakku', "https://static.wikia.nocookie.net/frstarwars/images/f/f4/Jakku_-_full_-_SW_Poe_Dameron_Flight_Log_.png"),
 (9, 'Kashyyyk', "https://static.wikia.nocookie.net/frstarwars/images/f/f7/Kashyyyk.png"),
 (10, 'Naboo', "https://static.wikia.nocookie.net/frstarwars/images/3/3c/Naboo.png"),
-(12, 'Tatooine', "https://static.wikia.nocookie.net/frstarwars/images/f/f6/Tatoooinefull.jpg"),
-(13, 'Utapau', "https://static.wikia.nocookie.net/frstarwars/images/e/e1/Utapau.png"),
-(14, 'Endor', "https://static.wikia.nocookie.net/frstarwars/images/f/f9/Endor_%28planet%29.jpg")
-;
+(11, 'Tatooine', "https://static.wikia.nocookie.net/frstarwars/images/f/f6/Tatoooinefull.jpg"),
+(12, 'Utapau', "https://static.wikia.nocookie.net/frstarwars/images/e/e1/Utapau.png"),
+(13, 'Endor', "https://static.wikia.nocookie.net/frstarwars/images/f/f9/Endor_%28planet%29.jpg"),
+(14, 'Ahch-To', "https://static.wikia.nocookie.net/frstarwars/images/d/d6/Ahch-To.png");
 
 
 -- --------------------------------------------------------
@@ -184,18 +184,18 @@ ALTER TABLE `character`
   ADD KEY `id_faction` (`id_faction`);
 
 --
--- Index pour la table `movie`
---
-ALTER TABLE `movie`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `beast`
 --
 ALTER TABLE `beast`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_movie` (`id_movie`),
   ADD KEY `id_planet` (`id_planet`);
+
+--
+-- Index pour la table `movie`
+--
+ALTER TABLE `movie`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `faction`
@@ -221,15 +221,15 @@ ALTER TABLE `planet`
 ALTER TABLE `character`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT pour la table `movie`
---
-ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
 -- AUTO_INCREMENT pour la table `beast`
 --
 ALTER TABLE `beast`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT pour la table `movie`
+--
+ALTER TABLE `movie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `faction`
 --
@@ -252,13 +252,11 @@ ALTER TABLE `planet`
 --
 ALTER TABLE `character`
   ADD CONSTRAINT `character_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id`),
-  ADD CONSTRAINT `character_ibfk_3` FOREIGN KEY (`id_faction`) REFERENCES `faction` (`id`)
-  ;
+  ADD CONSTRAINT `character_ibfk_2` FOREIGN KEY (`id_faction`) REFERENCES `faction` (`id`);
 
 --
 -- Contraintes pour la table `beast`
 --
 ALTER TABLE `beast`
   ADD CONSTRAINT `beast_ibfk_1` FOREIGN KEY (`id_planet`) REFERENCES `planet` (`id`),
-  ADD CONSTRAINT `beast_ibfk_2` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id`)
-  ;
+  ADD CONSTRAINT `beast_ibfk_2` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id`);

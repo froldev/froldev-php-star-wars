@@ -255,6 +255,10 @@ li.bonus {
     margin-bottom: 40px;
 }
 
+.main .row-button {
+    margin-bottom: 40px;
+}
+
 .main .detail-row {
     display: flex;
     padding: 10px 0;
@@ -270,28 +274,28 @@ nav.row {
 }
 
 .jedi {
-    color: #87CEEB !important;
-    border-color: #87CEEB !important;
+    color: #9AC3DC !important;
+    border-color: #0A6794 !important;
 }
 .sith {
-    color: #FF5757 !important;
-    border-color: #FF5757 !important;
+    color: #DB8468 !important;
+    border-color: #DF100A !important;
 }
-.success {
-    color: #4DFF4D !important;
-    border-color: #4DFF4D !important;
+.consular {
+    color: #81C47D !important;
+    border-color: #258c1d !important;
 }
 .jedi:hover {
     color: #000 !important;
-    background-color: #87CEEB !important;
+    background-color: #0A6794 !important;
 }
 .sith:hover {
     color: #000 !important;
-    background-color: #FF5757 !important;
+    background-color: #DF100A !important;
 }
-.success:hover {
+.consular:hover {
     color: #000 !important;
-    background-color: #4DFF4D !important;
+    background-color: #258c1d !important;
 }
 
 .navbar {

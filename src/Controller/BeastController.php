@@ -10,13 +10,6 @@ use App\Model\BeastManager;
  */
 class BeastController extends AbstractController
 {
-
-    /**
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
     public function list() : string
     {
         $beastsManager = new BeastManager();
@@ -27,13 +20,15 @@ class BeastController extends AbstractController
           ]);
     }
 
+    public function details(int $id)  : string
+    {
+      $beastsManager = new BeastManager();
+      $beast = $beastsManager->selectBeastJoinMovieAndPlanet($id);
+      return $this->twig->render('Beast/details.html.twig', [
+        'beast' => $beast,
+      ]);
+    }
 
-    /**
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
     public function add() : string
     {
       $beastError = null;
@@ -57,13 +52,6 @@ class BeastController extends AbstractController
       ]);
     }
 
-
-    /**
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
     public function edit(int $id) : string
     {
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -81,12 +69,6 @@ class BeastController extends AbstractController
     }
 
 
-    /**
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
     public function delete(int $id): void
     {
       $beastManager = new BeastManager();

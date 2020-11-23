@@ -20,6 +20,20 @@ class BeastManager extends AbstractManager
         return $request->fetchAll();
     }
 
+    public function selectBeastJoinMovieAndPlanet(int $id): array
+    {
+        $request = $this->pdo->prepare("SELECT
+        b.id, b.name, b.picture, b.size, b.area, p.name AS planet, m.title AS movie 
+        FROM ".self::TABLE." b
+        JOIN planet p ON b.id_planet = p.id
+        JOIN movie m ON b.id_movie = m.id
+        WHERE b.id=:id"
+        );
+        $request->bindValue(':id', $id, \PDO::PARAM_INT);
+        $request->execute();
+        return $request->fetch();
+    }
+
 
     public function insertBeast(array $beast): bool
     {

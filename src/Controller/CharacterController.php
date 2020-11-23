@@ -38,7 +38,7 @@ class CharacterController extends AbstractController
     public function details(int $id)  : string
     {
       $CharacterManager = new CharacterManager();
-      $character = $CharacterManager->selectOneById($id);
+      $character = $CharacterManager->selectCharacterJoinMovieAndFaction($id);
       return $this->twig->render('Character/details.html.twig', [
         'character' => $character,
       ]);
@@ -70,10 +70,6 @@ class CharacterController extends AbstractController
         }
         if (empty($_POST['id_movie']) || !isset($_POST['id_movie'])) {
           $characterError = "Merci de sélectionner un film";
-          $isValid = false;
-        }
-        if (empty($_POST['id_beast']) || !isset($_POST['id_beast'])) {
-          $characterError = "Merci de sélectionner une espèce";
           $isValid = false;
         }
         if (empty($_POST['id_faction']) || !isset($_POST['id_faction'])) {
