@@ -2,18 +2,19 @@
 
 {% block content %}
     <div class="row">
-        <h1 class="col-12">les factions</h1>
+        <h1 class="col-12">les personnages</h1>
     </div>
     <nav class="row">
-        <a class="button" href="/faction/add">ajouter une faction</a>
+        <a href="/figure/add">ajouter un personnage</a>
     </nav>
     <div class="row detail">
         <ul class="list">
-            {% for faction in factions %}
-                <li><a href="/faction/details/{{faction.id}}">{{faction.id}}. {{ faction.name }}</a></li>
+            {% for figure in figures %}
+                <li><a href="/figure/details/{{figure.id}}">{{figure.id}}. {{ figure.name }}</a></li>
             {% else %}
                 <li>Rien à voir</li>
             {% endfor %}
         </ul>
     </div>
+    
 {% endblock %}

@@ -143,6 +143,7 @@ form label {
 
 .btn,
 .main input,
+.main textarea,
 .custom-select {
     line-height: 1;
     margin-right: 10px;
@@ -155,6 +156,7 @@ form label {
     -o-transition: all .5s linear;
     transition: all .5s linear;
     color: #fff;
+    background-color: #000;
     border-radius: 0;
     box-shadow: none;
     display: flex;
@@ -182,7 +184,8 @@ form label {
 }
 
 .main .form-control:focus,
-.main input:focus {
+.main input:focus,
+.main textarea:focus {
     color: #87CEEB;
     background-color: transparent;
     padding: 5px 0 5px 10px;
@@ -199,7 +202,7 @@ form label {
     display: flex;
     flex-wrap: wrap;
     font-size: 1.3rem;
-
+    width: 100%;
 }
 
 .main ul.list li {

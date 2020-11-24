@@ -2,17 +2,17 @@
 
 {% block content %}
     <div class="row">
-        <h1 class="col-12">{{planet.name}} </h1>
+        <h1 class="col-12">{{faction.name}} </h1>
     </div>
     <div class="row detail">
         <figure class="col-12 col-md-4 offset-md-4">
-            <img class="picture-planet" src="{{planet.picture}}" class="img-fluid"/>
+            <img src="{{faction.picture}}" class="img-fluid"/>
         </figure>
     </div>
     <div class="row">
         <div class="col-12">
-            <a href="/planet/edit/{{planet.id}}" class="float-right btn jedi">Mettre à jour</a>
+            <a href="/faction/edit/{{faction.id}}" class="float-right btn jedi">Mettre à jour</a>
         </div>
     </div>
-    <a href="/planet/list">Retour</a>
+    <a href="/faction/list">Retour</a>
 {% endblock %}

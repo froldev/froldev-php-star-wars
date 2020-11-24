@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row">
-        <h1 class="col-12">{{beast.name}} </h1>
+        <h1 class="col-12">{{figure.name}}</h1>
     </div>
     <div class="row row-button">
         <form class="col-12" method="post">
@@ -11,19 +11,18 @@
     </div>
     <div class="row detail">
         <figure class="col-12 col-md-4">
-            <img src="{{beast.picture}}" class="img-fluid"/>
+            <img src="{{figure.picture}}" class="img-fluid"/>
         </figure>
         <div class="col-12 col-md-8">
-            <p>Surface : {{beast.area}}</p>
-            <p>Taille : {{beast.size}}</p>
-            <p>Planète : {{beast.planet}} </p>
-            <p>Première apparition : {{beast.movie}}</p>
+            <p>Biographie : {{figure.bio}}</p>
+            <p>Première apparition : {{figure.movie}}</p>
+            <p>Faction : {{figure.faction}}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <a href="/beast/edit/{{beast.id}}" class="float-right btn jedi">Mettre à jour</a>
+            <a href="/figure/edit/{{figure.id}}" class="float-right btn jedi">mise à jour</a>
         </div>
     </div>
-    <a href="/beast/list">Retour</a>
+    <a href="/figure/list">retour</a>
 {% endblock %}

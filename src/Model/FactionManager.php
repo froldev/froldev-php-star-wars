@@ -16,7 +16,7 @@ class FactionManager extends AbstractManager
 
     public function selectFaction(): array
     {
-        $request = $this->pdo->query("SELECT * FROM " .self::TABLE. " ORDER BY name");
+        $request = $this->pdo->query("SELECT * FROM " .self::TABLE);
         return $request->fetchAll();
     }
 
@@ -46,5 +46,4 @@ class FactionManager extends AbstractManager
         $request->bindValue(":id", $id, \PDO::PARAM_INT);
         $request->execute();
     }
-
 }

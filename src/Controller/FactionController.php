@@ -27,6 +27,24 @@ class FactionController extends AbstractController
           ]);
     }
 
+     /**
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function details(int $id)  : string
+    {
+      $factionManager = new FactionManager();
+      $faction = $factionManager->selectOneById($id);
+
+      return $this->twig->render('Faction/details.html.twig', [
+        'faction' => $faction,
+      ]);
+    }
+
+
     /**
      * @return string
      * @throws \Twig\Error\LoaderError
