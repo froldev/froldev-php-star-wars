@@ -4,10 +4,10 @@
     <div class="row">
         <h1 class="col-12">{{beast.name}} </h1>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <a href="/beast/delete/{{beast.id}}" class="float-right btn row-btn sith">Supprimer</a>
-        </div>
+    <div class="row row-btn">
+        <form class="col-12" method="post" action="/beast/delete/{{figure.id}}">
+            <input type="submit" name="delete" value="supprimer" class="float-right btn sith">
+        </form>
     </div>
     <div class="row detail">
         <figure class="col-12 col-md-4">

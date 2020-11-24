@@ -1,17 +1,17 @@
 <form method="post">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="name">Nom :</label>
-            <input type="text" class="form-control" name="name" value={{figure.name}}>
+            <label for="name">nom :</label>
+            <input type="text" class="form-control" name="name" value="{{figure.name}}" />
         </div>
         <div class="form-group col-md-6">
-            <label for="picture">Image :</label>
+            <label for="picture">image :</label>
             <input type="url" class="form-control" name="picture" id="picture" value="{{figure.picture}}" />
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-12">
-            <label for="bio">Biographie :</label>
+            <label for="bio">biographie :</label>
             <textarea id="bio" name="bio" class="form-control" rows="5" >
                 {{figure.bio}}
             </textarea>
@@ -21,14 +21,16 @@
         <div class="form-group col-md-6">
         <label for="movie">Première apparition :</label>
             <select name="movie" class="custom-select" id="movie">
+                <option value="" ></option>
                 {% for movie in movies %}
-                    <option value="{{movie.id}}" {{ figure.movie == movie.id ? "selected" }}>{{movie.title}}</option>
+                    <option value="{{movie.id}}" {{ figure.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="form-group col-md-6">
             <label for="faction">Faction :</label>
             <select name="faction" class="custom-select" id="faction">
+                <option value="" ></option>
                 {% for faction in factions %}
                     <option value="{{faction.id}}" {{ figure.id_faction == faction.id ? "selected" }}>{{faction.name}}</option>
                 {% endfor %}

@@ -89,8 +89,16 @@ class FigureController extends AbstractController
         }
       }
 
+      $movieManager = new MovieManager();
+      $movies = $movieManager->selectMovie();
+
+      $factionManager = new FactionManager();
+      $factions = $factionManager->selectFaction();
+
       return $this->twig->render('Figure/add.html.twig', [
         'figureError' => $figureError,
+        'movies'      => $movies,
+        'factions'    => $factions,
       ]);
     }
 

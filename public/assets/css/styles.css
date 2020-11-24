@@ -156,7 +156,7 @@ form label {
     -o-transition: all .5s linear;
     transition: all .5s linear;
     color: #fff;
-    background-color: transparent;
+    background-color: #000;
     border-radius: 0;
     box-shadow: none;
     display: flex;

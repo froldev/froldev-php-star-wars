@@ -5,7 +5,7 @@
         <h1 class="col-12">{{figure.name}}</h1>
     </div>
     <div class="row row-btn">
-        <form class="col-12" method="post">
+        <form class="col-12" method="post" action="/figure/delete/{{figure.id}}">
             <input type="submit" name="delete" value="supprimer" class="float-right btn sith">
         </form>
     </div>
