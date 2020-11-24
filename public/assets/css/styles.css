@@ -145,7 +145,8 @@ form label {
 .main input,
 .main textarea,
 .custom-select {
-    line-height: 1;
+    /* line-height: 1; */
+    font-size: 14px;
     margin-right: 10px;
     padding: 5px;
     border: none;
@@ -162,10 +163,6 @@ form label {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.custom-select {
-    height: 28px;
 }
 
 .btn,
@@ -256,6 +253,18 @@ li.bonus {
     border: 1px solid #FFDE00;
     font-size: 1.05rem;
     margin-bottom: 40px;
+}
+
+.title {
+    color: #000;
+    background-color: #FFDE00;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.figure-data .title,
+.figure-data p {
+    padding: 0 20px;
 }
 
 .main .row-btn {
