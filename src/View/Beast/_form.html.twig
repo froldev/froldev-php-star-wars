@@ -5,35 +5,37 @@
             <input type="text" class="form-control" name="name" value="{{beast.name}}" >
         </div>
         <div class="form-group col-md-6">
-            <label for="area">Zone :</label>
-            <input type="text" class="form-control" name="area" value="{{beast.name}}" >
+            <label for="picture">image :</label>
+            <input type="url" class="form-control" name="picture" id="picture" value="{{beast.picture}}" />
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="area">Image :</label>
-            <input type="url" class="form-control" name="picture" id="picture" value="{{beast.picture}}" />
+            <label for="area">zone :</label>
+            <input type="text" class="form-control" name="area" value="{{beast.area}}" >
         </div>
         <div class="form-group col-md-6">
-            <label for="size">Taille (en mètre):</label>
+            <label for="size">taille (en mètre):</label>
             <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="planet">Planet :</label>
+            <label for="planet">planète :</label>
             <select name="planet" class="custom-select" id="planet">
-                <option value="Planet">Planet name</option>
-                <option value="Planet">Planet name</option>
-                <option value="Planet">Planet name</option>
+                <option value=""></option>
+                {% for planet in planets %}
+                <option value="{{planet.id}}" {{ beast.id_planet == planet.id ? "selected" }}>{{planet.name}}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label for="movies">Movie :</label>
-            <select name="movie" class="custom-select" id="movies">
-                <option value="Movie">Movie title</option>
-                <option value="Movie">Movie title</option>
-                <option value="Movie">Movie title</option>
+            <label for="movies">première apparition :</label>
+            <select name="movie" class="custom-select" id="movie">
+                <option value=""></option>
+                {% for movie in movies %}
+                <option value="{{movie.id}}" {{ beast.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
+                {% endfor %}
             </select>
         </div>
     </div>

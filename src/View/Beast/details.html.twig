@@ -5,19 +5,31 @@
         <h1 class="col-12">{{beast.name}} </h1>
     </div>
     <div class="row row-btn">
-        <form class="col-12" method="post" action="/beast/delete/{{figure.id}}">
+        <form class="col-12" method="post" action="/beast/delete/{{beast.id}}">
             <input type="submit" name="delete" value="supprimer" class="float-right btn sith">
         </form>
     </div>
     <div class="row detail">
-        <figure class="col-12 col-md-4">
-            <img src="{{beast.picture}}" class="img-fluid"/>
+        <figure class="col-12 col-md-4 text-center">
+            <img src="{{beast.picture}}" alt="{{beast.name}}" class="img-fluid"/>
         </figure>
         <div class="col-12 col-md-8">
-            <p>Surface : {{beast.area}}</p>
-            <p>Taille : {{beast.size}}</p>
-            <p>Planète : {{beast.planet}} </p>
-            <p>Première apparition : {{beast.movie}}</p>
+        <div class="figure-data">
+                <h3 class="title">Surface : </h3>
+                <p>{{beast.area}}</p>
+            </div>
+            <div class="figure-data">
+                <h3 class="title">Taille (en mètres) : </h3>
+                <p>{{beast.size}}</p>
+            </div>
+            <div class="figure-data">
+                <h3 class="title">Planète : </h3>
+                <p>{{beast.planet}}</p>
+            </div>
+            <div class="figure-data">
+                <h3 class="title">Première apparition : </h3>
+                <p>{{beast.movie}}</p>
+            </div>
         </div>
     </div>
     <div class="row">

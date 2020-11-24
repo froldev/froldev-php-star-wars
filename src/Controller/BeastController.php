@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Model\BeastManager;
+use App\Model\MovieManager;
+use App\Model\PlanetManager;
 
 /**
  * Class BeastController
@@ -63,8 +65,16 @@ class BeastController extends AbstractController
         }
       }
 
+      $movieManager = new MovieManager();
+      $movies = $movieManager->selectMovie();
+
+      $planetManager = new PlanetManager();
+      $planets = $planetManager->selectPlanet();
+
       return $this->twig->render('Beast/add.html.twig', [
-        'beastError' => $beastError,
+        'beastError'  => $beastError,
+        'movies'      => $movies,
+        'planets'     => $planets,
       ]);
     }
 
@@ -79,8 +89,16 @@ class BeastController extends AbstractController
       $beastManager = new BeastManager();
       $beast = $beastManager->selectOneById($id);
 
+      $movieManager = new MovieManager();
+      $movies = $movieManager->selectMovie();
+
+      $planetManager = new PlanetManager();
+      $planets = $planetManager->selectPlanet();
+
       return $this->twig->render('Beast/edit.html.twig', [
-        'beast' => $beast,
+        'beast'   => $beast,
+        'movies'  => $movies,
+        'planets' => $planets,
       ]);
     }
 
