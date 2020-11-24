@@ -86,7 +86,7 @@ code.block {
 }
 
 
-button {
+/* button {
     background-color: #f99797;
     color: #000;
     font-family: starjedi;
@@ -106,7 +106,7 @@ button:disabled {
 button:disabled {
     font-style: italic;
 }
-
+ */
 .stronger {
     font-size: 1.2em;
     font-weight: bold;
@@ -156,7 +156,7 @@ form label {
     -o-transition: all .5s linear;
     transition: all .5s linear;
     color: #fff;
-    background-color: #000;
+    background-color: transparent;
     border-radius: 0;
     box-shadow: none;
     display: flex;
@@ -258,7 +258,7 @@ li.bonus {
     margin-bottom: 40px;
 }
 
-.main .row-button {
+.main .row-btn {
     margin-bottom: 40px;
 }
 
@@ -280,25 +280,36 @@ nav.row {
     color: #9AC3DC !important;
     border-color: #0A6794 !important;
 }
-.sith {
-    color: #DB8468 !important;
-    border-color: #DF100A !important;
-}
-.consular {
-    color: #81C47D !important;
-    border-color: #258c1d !important;
-}
 .jedi:hover {
     color: #000 !important;
     background-color: #0A6794 !important;
+}
+
+.sith {
+    color: #DB8468 !important;
+    border-color: #DF100A !important;
 }
 .sith:hover {
     color: #000 !important;
     background-color: #DF100A !important;
 }
+
+.consular {
+    color: #81C47D !important;
+    border-color: #258c1d !important;
+}
 .consular:hover {
     color: #000 !important;
     background-color: #258c1d !important;
+}
+
+.sentinel {
+    color: #fff !important;
+    border-color: #FFDE00 !important;
+}
+.sentinel:hover {
+    color: #000 !important;
+    background-color: #FFDE00 !important;
 }
 
 .navbar {

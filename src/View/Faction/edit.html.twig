@@ -1,15 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="row">
-  <h1 class="col-12">mise à jour : {{faction.name}}</h1>
-</div>
-<div class="row">
-  <div class="col-12">
-    {% include 'Faction/_form.html.twig' %}
+  <div class="row">
+    <h1 class="col-12">mise à jour : {{faction.name}}</h1>
   </div>
-</div>
-<div class="row">
-  <a href="/faction/list">Retour</a>
-</div>
+  <div class="row">
+    <div class="col-12">
+      {% include 'Faction/_form.html.twig' %}
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <a href="/faction/list" class="float-left btn sentinel row-btn" >Retour</a>
+      </div>
+  </div>
 {% endblock %}

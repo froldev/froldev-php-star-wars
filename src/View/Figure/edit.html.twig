@@ -1,15 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="row">
-  <h1 class="col-12">mise à jour : {{figure.name}}</h1>
-</div>
-<div class="row">
-  <div class="col-12">
-    {% include 'Figure/_form.html.twig' %}
+  <div class="row">
+    <h1 class="col-12">mise à jour : {{figure.name}}</h1>
   </div>
-</div>
-<div class="row">
-  <a href="/figure/list">retour</a>
-</div>
+  <div class="row">
+    <div class="col-12">
+      {% include 'Figure/_form.html.twig' %}
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <a href="/figure/list" class="float-left btn sentinel row-btn" >Retour</a>
+      </div>
+  </div>
 {% endblock %}

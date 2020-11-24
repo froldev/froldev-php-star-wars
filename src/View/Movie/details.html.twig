@@ -4,6 +4,11 @@
     <div class="row">
         <h1 class="col-12">{{movie.title}} </h1>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="/movie/delete/{{movie.id}}" class="float-right btn row-btn sith">Supprimer</a>
+        </div>
+    </div>
     <div class="row detail">
         <figure class="col-12 col-md-4 offset-md-4">
             <img src="{{movie.picture}}" class="img-fluid"/>
@@ -16,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <a href="/movie/list" class="float-left btn row-button" >Retour</a>
+            <a href="/movie/list" class="float-left btn row-btn sentinel" >Retour</a>
         </div>
     </div>
 {% endblock %}

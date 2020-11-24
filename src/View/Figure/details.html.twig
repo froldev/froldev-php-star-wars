@@ -4,7 +4,7 @@
     <div class="row">
         <h1 class="col-12">{{figure.name}}</h1>
     </div>
-    <div class="row row-button">
+    <div class="row row-btn">
         <form class="col-12" method="post">
             <input type="submit" name="delete" value="supprimer" class="float-right btn sith">
         </form>
@@ -24,5 +24,9 @@
             <a href="/figure/edit/{{figure.id}}" class="float-right btn jedi">mise à jour</a>
         </div>
     </div>
-    <a href="/figure/list">retour</a>
+    <div class="row">
+      <div class="col-12">
+          <a href="/figure/list" class="float-left btn sentinel row-btn" >Retour</a>
+      </div>
+  </div>
 {% endblock %}

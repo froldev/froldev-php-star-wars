@@ -1,20 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="row">
-  <h1 class="col-12">mise à jour : {{movie.title}}</h1>
-</div>
-<div class="row">
-  <form class="col-12" method="post">
-    <input type="submit" name="delete" value="delete" class="float-right sith">
-  </form>
-</div>
-<div class="row">
-  <div class="col-12">
-    {% include 'Movie/_form.html.twig' %}
+  <div class="row">
+    <h1 class="col-12">mise à jour : {{movie.title}}</h1>
   </div>
-</div>
-<div class="row">
-  <a href="/movie/list">Back</a>
-</div>
+  <div class="row">
+    <div class="col-12">
+      {% include 'Movie/_form.html.twig' %}
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <a href="/movie/list" class="float-left btn sentinel row-btn" >Retour</a>
+      </div>
+  </div>
 {% endblock %}
