@@ -38,8 +38,14 @@ class FigureManager extends AbstractManager
 
     public function insertFigure(array $figure): bool
     {
-        $request = $this->pdo->prepare("INSERT INTO " .self::TABLE. " (name, picture, bio, id_movie, id_faction) VALUES (:name, :picture, :bio, :idMovie, :idFaction)");
+        $request = $this->pdo->prepare("INSERT INTO " .self::TABLE. 
+        " (name, picture, bio, id_movie, id_faction) 
+        VALUES (:name, :picture, :bio, :movie, :faction)");
         $request->bindValue(':name', $figure['name'], \PDO::PARAM_STR);
+        $request->bindValue(':picture', $figure['picture'], \PDO::PARAM_STR);
+        $request->bindValue(':bio', $figure['bio'], \PDO::PARAM_STR);
+        $request->bindValue(':movie', $figure['movie'], \PDO::PARAM_INT);
+        $request->bindValue(':faction', $figure['faction'], \PDO::PARAM_INT);
         return $request->execute();
     }
 

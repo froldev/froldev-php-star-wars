@@ -35,7 +35,23 @@ class BeastController extends AbstractController
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
         if (empty($_POST['name']) || !isset($_POST['name'])) {
-          $beastError = "Merci de saisir un nom d'espèces";
+          $beastError = "Merci de saisir un nom de race ou d'espèce";
+          $isValid = false;
+        }
+        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+          $beastError = "Merci d'indiquer une image'";
+          $isValid = false;
+        }
+        if (empty($_POST['bio']) || !isset($_POST['bio'])) {
+          $beastError = "Merci de saisir une biographie";
+          $isValid = false;
+        }
+        if (empty($_POST['id_movie']) || !isset($_POST['id_movie'])) {
+          $beastError = "Merci de saisir le fim de la première apparition";
+          $isValid = false;
+        }
+        if (empty($_POST['id_planet']) || !isset($_POST['id_planet'])) {
+          $beastError = "Merci de saisir une planète";
           $isValid = false;
         }
 
