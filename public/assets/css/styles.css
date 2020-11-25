@@ -176,6 +176,171 @@ form label {
     background-color: #000;
 }
 
+
+.jedi {
+    color: #3784d6 !important;
+    border-color: #3784d6 !important;
+}
+.jedi:hover {
+    color: #000 !important;
+    background-color: #3784d6 !important;
+    animation: jedi 2s infinite;
+    -moz-animation: jedi 2s infinite;
+    -webkit-animation: jedi 2s infinite;
+    -o-animation: jedi 2s infinite;
+    -ms-animation: jedi 2s infinite;
+}
+
+.sith {
+    color: #e51115 !important;
+    border-color: #e51115 !important;
+}
+.sith:hover {
+    color: #000 !important;
+    background-color: #e51115 !important;
+    animation: sith 2s infinite;
+    -moz-animation: sith 2s infinite;
+    -webkit-animation: sith 2s infinite;
+    -o-animation: sith 2s infinite;
+    -ms-animation: sith 2s infinite;
+}
+
+.consular {
+    color: #87dc5a !important;
+    border-color: #87dc5a !important;
+}
+.consular:hover {
+    color: #000 !important;
+    background-color: #87dc5a !important;
+    animation: consular 2s infinite;
+    -moz-animation: consular 2s infinite;
+    -webkit-animation: consular 2s infinite;
+    -o-animation: consular 2s infinite;
+    -ms-animation: consular 2s infinite;
+}
+
+.sentinel {
+    color: #fff !important;
+    border-color: #FFDE00 !important;
+}
+.sentinel:hover {
+    color: #000 !important;
+    background-color: #FFDE00 !important;
+    animation: sentinel 2s infinite;
+    -moz-animation: sentinel 2s infinite;
+    -webkit-animation: sentinel 2s infinite;
+    -o-animation: sentinel 2s infinite;
+    -ms-animation: sentinel 2s infinite;
+}
+
+/* Animations */
+@keyframes jedi {
+	from { box-shadow: 0 0 20px #3784d6; }
+	50% { box-shadow: 0 0 60px #3784d6; }
+	to { box-shadow: 0 0 20px #3784d6; }
+}
+@-moz-keyframes jedi {
+	from { box-shadow: 0 0 20px #3784d6; }
+	50% { box-shadow: 0 0 60px #3784d6; }
+	to { box-shadow: 0 0 20px #3784d6; }
+}
+@-webkit-keyframes jedi {
+	from { box-shadow: 0 0 20px #3784d6; }
+	50% { box-shadow: 0 0 60px #3784d6; }
+	to { box-shadow: 0 0 20px #3784d6; }
+}
+@-o-keyframes jedi {
+	from { box-shadow: 0 0 20px #3784d6; }
+	50% { box-shadow: 0 0 60px #3784d6; }
+	to { box-shadow: 0 0 20px #3784d6; }
+}
+@-ms-keyframes jedi {
+	from { box-shadow: 0 0 20px #3784d6; }
+	50% { box-shadow: 0 0 60px #3784d6; }
+	to { box-shadow: 0 0 20px #3784d6; }
+}
+
+@keyframes sith {
+	from { box-shadow: 0 0 20px #e51115; }
+	50% { box-shadow: 0 0 60px #e51115; }
+	to { box-shadow: 0 0 20px #e51115; }
+}
+@-moz-keyframes sith {
+	from { box-shadow: 0 0 20px #e51115; }
+	50% { box-shadow: 0 0 60px #e51115; }
+	to { box-shadow: 0 0 20px #e51115; }
+}
+@-webkit-keyframes sith {
+	from { box-shadow: 0 0 20px #e51115; }
+	50% { box-shadow: 0 0 60px #e51115; }
+	to { box-shadow: 0 0 20px #e51115; }
+}
+@-o-keyframes sith {
+	from { box-shadow: 0 0 20px #e51115; }
+	50% { box-shadow: 0 0 60px #e51115; }
+	to { box-shadow: 0 0 20px #e51115; }
+}
+@-ms-keyframes sith {
+	from { box-shadow: 0 0 20px #e51115; }
+	50% { box-shadow: 0 0 60px #e51115; }
+	to { box-shadow: 0 0 20px #e51115; }
+}
+
+@keyframes consular {
+	from { box-shadow: 0 0 20px #7EC855; }
+	50% { box-shadow: 0 0 60px #7EC855; }
+	to { box-shadow: 0 0 20px #7EC855; }
+}
+@-moz-keyframes consular {
+	from { box-shadow: 0 0 20px #7EC855; }
+	50% { box-shadow: 0 0 60px #7EC855; }
+	to { box-shadow: 0 0 20px #7EC855; }
+}
+@-webkit-keyframes consular {
+	from { box-shadow: 0 0 20px #7EC855; }
+	50% { box-shadow: 0 0 60px #7EC855; }
+	to { box-shadow: 0 0 20px #7EC855; }
+}
+@-o-keyframes consular {
+	from { box-shadow: 0 0 20px #7EC855; }
+	50% { box-shadow: 0 0 60px #7EC855; }
+	to { box-shadow: 0 0 20px #7EC855; }
+}
+@-ms-keyframes consular {
+	from { box-shadow: 0 0 20px #7EC855; }
+	50% { box-shadow: 0 0 60px #7EC855; }
+	to { box-shadow: 0 0 20px #7EC855; }
+}
+
+@keyframes sentinel {
+	from { box-shadow: 0 0 20px #FFF205; }
+	50% { box-shadow: 0 0 60px #FFF205; }
+	to { box-shadow: 0 0 20px #FFF205; }
+}
+@-moz-keyframes sentinel {
+	from { box-shadow: 0 0 20px #FFF205; }
+	50% { box-shadow: 0 0 60px #FFF205; }
+	to { box-shadow: 0 0 20px #FFF205; }
+}
+@-webkit-keyframes sentinel {
+	from { box-shadow: 0 0 20px #FFF205; }
+	50% { box-shadow: 0 0 60px #FFF205; }
+	to { box-shadow: 0 0 20px #FFF205; }
+}
+@-o-keyframes sentinel {
+	from { box-shadow: 0 0 20px #FFF205; }
+	50% { box-shadow: 0 0 60px #FFF205; }
+	to { box-shadow: 0 0 20px #FFF205; }
+}
+@-ms-keyframes sentinel {
+	from { box-shadow: 0 0 20px #FFF205; }
+	50% { box-shadow: 0 0 60px #FFF205; }
+	to { box-shadow: 0 0 20px #FFF205; }
+}
+
+
+
+
 .main .form-control {
     border-radius: 0;
 }
@@ -283,42 +448,6 @@ li.bonus {
 nav.row {
     background-color: #000;
     padding: 8px;
-}
-
-.jedi {
-    color: #9AC3DC !important;
-    border-color: #0A6794 !important;
-}
-.jedi:hover {
-    color: #000 !important;
-    background-color: #0A6794 !important;
-}
-
-.sith {
-    color: #DB8468 !important;
-    border-color: #DF100A !important;
-}
-.sith:hover {
-    color: #000 !important;
-    background-color: #DF100A !important;
-}
-
-.consular {
-    color: #81C47D !important;
-    border-color: #258c1d !important;
-}
-.consular:hover {
-    color: #000 !important;
-    background-color: #258c1d !important;
-}
-
-.sentinel {
-    color: #fff !important;
-    border-color: #FFDE00 !important;
-}
-.sentinel:hover {
-    color: #000 !important;
-    background-color: #FFDE00 !important;
 }
 
 /* Navbar */
