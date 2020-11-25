@@ -166,7 +166,7 @@ CREATE TABLE `faction` (
 INSERT INTO `faction` (`id`, `name`, `picture`) VALUES
 (1, "Alliance Rebelle", "https://vignette.wikia.nocookie.net/club-penguin/images/7/76/PinzR%C3%A9bellion.png"),
 (2, "Empire", "https://vignette.wikia.nocookie.net/club-penguin/images/8/81/120px-Galactic_Empire.svg.png"),
-(3, "Aucune", "")
+(3, "Aucune", "http://via.placeholder.com/350x300")
 ;
 
 -- --------------------------------------------------------
