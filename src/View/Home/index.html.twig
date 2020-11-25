@@ -1,132 +1,253 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="row">
-  <div class="col-12 text-center">
-    <h1>Welcome here Padawan !</h1>
-    <p>Your today's challenge will be about Star Wars universe.</p>
+<div id="universe" class="row text-center">
+  <img src="https://s3.amazonaws.com/csstarwars/starwars-logo.png" alt="Star Wars" class="logo-star-wars" />
+
+  <p id="far-far-away">
+    Il y a bien longtemps, dans une galaxie lointaine,<br> très lointaine...
+  </p>
+
+  <div id="board">
+    <div id="board-content">
+
+      <p class="episode">Épisode I</p>
+      <p class="subtitle">LA MENACE FANTÔME</p>
+
+      <p>La République Galactique est en
+      pleine ébullition. La taxation
+      des routes commerciales reliant
+      les systèmes éloignés provoque
+      la discorde.</p>
+
+      <p>Pour régler la question, la
+      cupide Fédération du Commerce
+      et ses redoutables vaisseaux de
+      guerre imposent un blocus à la
+      petite planète Naboo.</p>
+  
+      <p>Face à ce dangereux engrenage,
+      alors que le Congrès de la
+      République s'enlise dans des
+      débats sans fin, le Chancelier
+      Suprême charge en secret deux
+      Chevaliers Jedi, gardiens de la
+      paix et de la justice dans la
+      galaxie, de résoudre le conflit....</p>
+
+      <p class="episode">Épisode II</p>
+      <p class="subtitle">L'ATTAQUE DES CLONES</p>
+
+      <p>L'agitation règne au Sénat
+      Galactique. Des milliers de
+      systèmes solaires ont annoncé
+      leur intention de quitter la
+      République.</p>
+
+      <p>Confrontés à ce mouvement
+      séparatiste mené par le
+      mystérieux Comte Dooku, les
+      chevaliers Jedi, en nombre
+      limité, ont du mal à maintenir
+      la paix et l'ordre dans la
+      galaxie.</p>
+
+      <p>La sénatrice Amidala,
+      ancienne reine de Naboo,
+      revient au Sénat Galactique
+      participer à un vote crucial
+      sur la création d'une ARMÉE
+      DE LA RÉPUBLIQUE pour
+      aider les Jedi débordés...</p>
+
+      <p class="episode">Épisode III</p>
+      <p class="subtitle">LA REVANCHE DES SITH</p>
+
+      <p>C'est la guerre ! La République
+      croule sous les attaques de
+      l'impitoyable Sith, le Comte
+      Dooku. Il y a des héros dans
+      les deux camps. Le Mal est
+      partout.</p>
+
+      <p>Avec une audace stupéfiante,
+      le Général Grievous, diabolique
+      chef droïde, est entré dans
+      la capitale pour enlever le
+      Chancelier Palpatine, chef
+      suprême du Sénat Galactique.</p>
+
+      <p>Alors que l'Armée Séparatiste
+      Droïde tente de quitter la
+      capitale assiégée avec son
+      précieux otage, deux Chevaliers
+      Jedi mènent une mission
+      désespérée pour secourir le
+      chancelier captif....</p>
+
+      <p class="episode">Épisode IV</p>
+      <p class="subtitle">UN NOUVEL ESPOIR</p>
+
+      <p>C'est une époque de guerre
+      civile. À bord de vaisseaux
+      spatiaux opérant à partir
+      d'une base cachée, les
+      Rebelles ont remporté
+      leur première victoire sur
+      le maléfique Empire
+      Galactique.</p>
+
+      <p>Au cours de la bataille,
+      des espions Rebelles ont
+      réussi à dérober les plans
+      secrets de l'arme absolue
+      de l'Empire : l'ÉTOILE DE
+      LA MORT, une station
+      spatiale blindée dotée d'un
+      armement assez puissant
+      pour annihiler une planète
+      tout entière.</p>
+
+      <p>Poursuivie par les sbires
+      sinistres de l'Empire, la
+      Princesse Leia file vers sa
+      base dans son vaisseau
+      cosmique, porteuse des
+      plans volés à l'ennemi qui
+      pourront sauver son
+      peuple et restaurer la
+      liberté dans la galaxie....</p>
+
+      <p class="episode">Épisode V</p>
+      <p class="subtitle">L'EMPIRE CONTRE-ATTAQUE</p>
+
+      <p>Le temps du péril a commencé
+      pour la rébellion. Malgré la
+      destruction de l'Étoile de la
+      Mort, l'armée impériale a
+      chassé les rebelles de leur
+      base cachée et les poursuit
+      à travers la galaxie.</p>
+
+      <p>Après avoir échappé à
+      la redoutable escadrille
+      cosmique de l'Empire, un
+      groupe de résistants mené
+      par Luke Skywalker a établi
+      une nouvelle base secrète
+      sur Hoth, la lointaine planète
+      des glaces.</p>
+
+      <p>Dark Vador, le maléfique,
+      hanté par l'idée de retrouver
+      le jeune Luke, lance des
+      milliers de sondes téléguidées
+      aux confins de l'espace....</p>
+
+      <p class="episode">Épisode VI</p>
+      <p class="subtitle">LE RETOUR DU JEDI</p>
+
+      <p>Luke Skywalker est retourné
+      parmi les siens sur la planète
+      Tatooine pour tenter d'arracher
+      son ami Han Solo aux griffes de
+      l'ignoble bandit Jabba le Hutt.</p>
+
+      <p>Luke ne peut pas savoir que
+      l'EMPIRE GALACTIQUE a
+      commencé à construire en secret
+      une nouvelle station spatiale
+      blindée bien plus puissante
+      que la première et terrifiante
+      Étoile de la Mort.</p>
+
+      <p>Quand cette arme absolue
+      sera achevée, ce sera la fin
+      du petit groupe de résistants
+      qui luttent pour ramener
+      la liberté dans la galaxie....</p>
+
+      <p class="episode">Épisode VII</p>
+      <p class="subtitle">LE RÉVEIL DE LA FORCE</p>
+
+      <p>Luke Skywalker a disparu.
+      En son absence, le sinistre
+      PREMIER ORDRE est né
+      des cendres de l'Empire et
+      cherche à éliminer Luke
+      Skywalker, le dernier Jedi.</p>
+
+      <p>Avec le soutien de la RÉPUBLIQUE,
+      la générale Leia Organa
+      mène la RÉSISTANCE et
+      tente désespérément de
+      retrouver son frère, Luke,
+      pour obtenir son aide et
+      restaurer la paix et la justice
+      dans la galaxie.</p>
+
+      <p>Leia a envoyé secrètement
+      son pilote le plus audacieux
+      en mission sur Jakku,
+      où un vieil allié détient
+      un indice permettant
+      de localiser Luke....</p>
+
+      <p class="episode">Épisode VIII</p>
+      <p class="subtitle">LES DERNIERS JEDI</p>
+
+      <p>Le PREMIER ORDRE règne.
+      Après avoir décimé la pacifique
+      République, le Suprême Leader Snoke
+      déploie maintenant ses impitoyables
+      légions pour prendre le contrôle
+      militaire de la galaxie.</p>
+
+      <p>Seule la générale Leia Organa
+      et les chasseurs de la RÉSISTANCE
+      s'opposent à la tyrannie naissante,
+      convaincus que le Maître Jedi
+      Luke Skywalker reviendra
+      pour redonner une étincelle
+      d'espoir au combat.</p>
+
+      <p>Mais la Résistance s'est
+      laissé surprendre. Tandis que
+      le Premier Ordre fond sur
+      la base rebelle, les courageux
+      héros tentent une évasion
+      désespérée....</p>
+
+      <p class="episode">Épisode IX</p>
+      <p class="subtitle">L'ASCENSION DE SKYWALKER</p>
+      
+      <p>Les morts parlent ! La galaxie
+      a entendu un mystérieux
+      communiqué, une menace
+      de VENGEANCE de la
+      sinistre voix du défunt
+      EMPEREUR PALPATINE.</p>
+
+      <p>La GÉNÉRALE LEIA ORGANA
+      envoie des agents recueillir
+      des renseignements, tandis
+      que REY, le dernier espoir
+      des Jedi, s'entraîne pour
+      affronter le diabolique
+      PREMIER ORDRE.</p>
+
+      <p>Pendant ce temps, le
+      Suprême Leader KYLO REN
+      part à la recherche de
+      l'Empereur fantôme, résolu
+      à éliminer tout ce qui
+      menace son pouvoir....</p>
+    
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-12">
-    <h2>General instructions</h2>
-    <ol>
-      <li>Your code has to respect good practices and especially PSR-1 and PSR-2. <em>N.B.: Codesniffer is
-        registered as a dev dependency in this project. You can use it by launching <code>php
-          ./vendor/bin/phpcs ./src</code> or <code>php
-            ./vendor/squizlabs/php_codesniffer/bin/phpcs ./src</code> if you are on windows</em>
-          </li>
-          <li>You have to push your code on this project repository. Do it on a branch with your <strong>school city</strong>, firstname
-            and
-            lastname as *STRASBOURG_MEYER_Hanz*. Think about atomic commits
-          </li>
-          <li>You work for yourself, if you need help, you can ask to your trainer.</li>
-        </ol>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h2>1. Algorithm exercise</h2>
-        <p>In <samp>src/Service/Yodalizer.php</samp> you have to write code wich have the same behavior as our great master : <strong>Yoda</strong>
-          <br>
-           - All words are in the reverse order,<br>
-          - The first letter of the sentence is uppercase,<br>
-          - Pre-existing uppercase are still in uppercase.<br>
-        </p>
-        <p>
-          This method will take a string as parameter and have to return the same sentence with all words in the reverse order.
-          For example, if you give <em>"I feel fear here"</em> as parameter, the method will give you back <em>"Here fear feel I"</em>.
-        </p>
-        <p>
-          All your code must be contained in <samp>yodalizeIt()</samp> method.
-        </p>
-        <p>
-          When you'll want to test your code, and see if it works as expected by your favorites trainer, you can run this command line below :
-          <code class="block">
-            ./vendor/bin/phpunit tests/Service/YodalizerTest
-          </code>
-          If all tests are OK, you can consider your mission is accomplished :
 
-          You can commit your work and push it on your remote branch.
-        </p>
-      </div>
+{% endblock %}
 
-      <div class="col-12">
-        <h2>2. Application development</h2>
-        Your next mission is to finish the back end part of a Star Wars Wiki. Main routes are availables from the
-        burger menu in navbar above.
-        You can read instructions below to know what we are expecting from you :
-        <ol class="strikeable">
-          <li>
-            <del>A page which display all beasts from data base. All list items display a link to the beast's
-              details page.
-            </del>
-            <em>Already done !</em>
-          </li>
-          <li>
-            A page which displays all details of a specific beast, with all information about him :
-            everything contained in the beast table. As you can see the view already exists but you HAVE TO replace/add missing element or information
-          </li>
-          <li>
-            The details page also have to display the planet where she/he comes from.<br>
-            <em>Those information are contained in other tables. <a target="_blank" href="https://dev.mysql.com/doc/refman/5.7/en/join.html">#joins</a></em>
-          </li>
-          <li>
-            The details page also have to display in which movie she/he can be seen.<br>
-            <em>You're right, a beast could be seen in multiple movies. But during this checkpoint we will allow only one movie per beast. It will be easier for you !</em>
-          </li>
-          <li>
-            An edition page where your can edit a selected beast, and update informations about the planet where she/he comes from and the movie where she/he can be seen.
-          </li>
-          <li>
-            A creation page where your can add a new beast and give informations about : the planet where she/he comes from, the movie where she/he can be seen.
-          </li>
-          <li class="bonus">
-            <span class="stronger">BONUS : </span>On the edition page, you can find a delete button, which allow you to remove a beast from the
-            database.
-          </li>
-          <li class="bonus">
-            <span class="stronger">BONUS : </span>On creation page, planets list and movies list are coming from database to feed a select box.
-          </li>
-          <li class="bonus"><span class="stronger">BONUS : </span>A page which display all planets from database.</li>
-          <li class="bonus"><span class="stronger">BONUS : </span>A page which display all movies from database.</li>
-        </ol>
-        <p>If you want to test if all routes are OK, you can try the code below. Your favorite trainer will use this
-          to check if all routes are working :
-          <code class="block">
-            ./vendor/bin/phpunit tests/AppTest.php
-          </code>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <p>
-          <img src="/assets/images/may_the_force_be_with_you_{{ random(10) }}.gif" alt="may the force be with you"/>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <p>
-          If you want more, <a class="btn btn-danger">click here to show bonuses !</a>
-        </p>
-      </div>
-    </div>
-    {% endblock %}
-
-    {% block javascript %}
-    {{ parent() }}
-    <script>
-    $(document).ready(function(){
-      $('.strikeable li').click(function(){
-        $(this).toggleClass('striked');
-      });
-
-      $('a.btn.btn-danger').click(function(){
-        $('.bonus').show();
-      });
-
-    });
-    </script>
-    {% endblock %}
+{% block javascript %}
+{% endblock %}

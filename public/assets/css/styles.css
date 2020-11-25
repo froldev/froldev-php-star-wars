@@ -20,7 +20,8 @@ body {
     color: #fff;
     letter-spacing: 1px;
     background-color: #000;
-    background-image: url("../images/stars.6494ab5b.png");
+    background-image: url("../images/stars.6494ab5b.png") no-repeat center fixed;
+    -webkit-background-size: cover;
     background-size: cover;
     font-family: biko, Arial, Helvetica, sans-serif;
 }
@@ -145,7 +146,6 @@ form label {
 .main input,
 .main textarea,
 .custom-select {
-    /* line-height: 1; */
     font-size: 14px;
     margin-right: 10px;
     padding: 5px;
@@ -321,6 +321,7 @@ nav.row {
     background-color: #FFDE00 !important;
 }
 
+/* Navbar */
 .navbar {
     background-color: #FFDE00;
 }
@@ -346,10 +347,122 @@ nav.row {
     background-color: #000;
 }
 
-.strikeable > *{
-    cursor: pointer;
+/* Home */
+#universe {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 
-.strikeable .striked{
-    text-decoration: line-through;
+#far-far-away {
+    position: absolute;
+    z-index: 1;
+    animation: intro 6s ease-out 1s;
+    color: rgb(75, 213, 238);
+    font-weight: 400;
+    font-size: 300%;
+    opacity: 0;
+    top: 40%;
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#universe .logo-star-wars {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 40%;
+    animation: logo 9s ease-out 9s;
+    opacity: 0;
+}
+
+  @keyframes logo {
+    0% {
+        width: 18em;
+        transform: scale(2.75);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        width: 18em;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.1);
+        width: 18em;
+    }
+}
+
+#board {
+    transform: perspective(300px) rotateX(25deg);
+    transform-origin: 50% 100%;
+    text-align: justify;
+    position: absolute;
+    margin-left: -9em;
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 350%;
+    height: 50em;
+    width: 18em;
+    bottom: 0;
+    left: 50%;
+}
+
+#board:after {
+    position: absolute;
+    content: ' ';
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+/* Set the scrolling animation and position it */
+#board-content {
+    animation: scroll 150s linear infinite 16s;
+    position: absolute;
+    top: 100%;
+}
+
+#board .episode, #board .subtitle {
+    text-align:center;
+}
+
+#board .episode {
+    margin-top: 200px;
+}
+
+#board .subtitle {
+    margin-bottom: 75px;
+}
+
+#board p {
+    color: #FFDE00;
+    margin-bottom: 50px;
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
 }
