@@ -520,8 +520,8 @@ li.bonus {
     border-bottom: 1px solid #000;
 }
 
-.figure-data .title,
-.figure-data p {
+.wrapper-data .title,
+.wrapper-data p {
     padding: 0 20px;
 }
 
