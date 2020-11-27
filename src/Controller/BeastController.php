@@ -40,10 +40,6 @@ class BeastController extends AbstractController
           $beastError = "Merci de saisir un nom de race ou d'espèce";
           $isValid = false;
         }
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $beastError = "Merci d'indiquer une image'";
-          $isValid = false;
-        }
         if (empty($_POST['bio']) || !isset($_POST['bio'])) {
           $beastError = "Merci de saisir une biographie";
           $isValid = false;
@@ -58,6 +54,9 @@ class BeastController extends AbstractController
         }
 
         if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
           $beastManager = new BeastManager();
           if ($beastManager->insertBeast($_POST)) {
             header("Location:/beast/list");
@@ -81,6 +80,9 @@ class BeastController extends AbstractController
     public function edit(int $id) : string
     {
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+          $_POST["picture"] = self::EMPTY_PICTURE;
+        }
         $beastManager = new BeastManager();
         $beastManager->editBeast($_POST, $id);
         header('Location:/beast/list/');

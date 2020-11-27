@@ -63,10 +63,6 @@ class FigureController extends AbstractController
           $figureError = "Merci de saisir un nom de personnage";
           $isValid = false;
         }
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $figureError = "Merci de saisir une url valide pour l'image";
-          $isValid = false;
-        }
         if (empty($_POST['bio']) || !isset($_POST['bio'])) {
           $figureError = "Merci de saisir une biographie";
           $isValid = false;
@@ -80,8 +76,10 @@ class FigureController extends AbstractController
           $isValid = false;
         }
 
-
         if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
           $figureManager = new FigureManager();
           if ($figureManager->insertFigure($_POST)) {
             header("Location:/Figure/list");
@@ -113,6 +111,9 @@ class FigureController extends AbstractController
     {
 
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
         $figureManager = new FigureManager();
         $figureManager->editFigure($_POST, $id);
         header('Location:/Figure/list/');

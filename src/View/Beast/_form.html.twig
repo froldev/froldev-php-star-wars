@@ -1,12 +1,24 @@
 <form method="post">
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="title">Nom :</label>
-            <input type="text" class="form-control" name="name" value="{{beast.name}}" >
+
+        <div class="col-md-6">
+            <div class="picture-container">
+                <div class="picture">
+                    <img src="{{beast.picture}}" class="picture-src" title="{{beast.name}}">
+                    <input type="file" id="wizard-picture">
+                </div>
+                <h6>Modifier l'image</h6>
+            </div>
         </div>
         <div class="form-group col-md-6">
-            <label for="picture">image :</label>
-            <input type="url" class="form-control" name="picture" id="picture" value="{{beast.picture}}" />
+            <div class="form-group">
+                <label for="title">Nom :</label>
+                <input type="text" class="form-control" name="name" value="{{beast.name}}" >
+            </div>
+            <div class="form-group">
+                <label for="picture">image (minimum 350 x 350 pixels) : </label>
+                <input type="text" class="form-control" name="picture" id="picture" value="{{beast.picture}}" />
+            </div>
         </div>
     </div>
     <div class="form-row">

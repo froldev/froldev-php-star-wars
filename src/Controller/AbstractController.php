@@ -16,6 +16,8 @@ abstract class AbstractController
      */
     protected $twig;
 
+    const EMPTY_PICTURE = "http://via.placeholder.com/350x300";
+
 
     /**
      *  Initializes this class.

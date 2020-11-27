@@ -60,11 +60,10 @@ class FactionController extends AbstractController
           $factionError = "Merci de saisir un nom de faction";
           $isValid = false;
         }
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $factionError = "Merci d'ajouter une image de faction";
-          $isValid = false;
-        }
         if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
           $factionManager = new FactionManager();
           if ($factionManager->insertFaction($_POST)) {
             header("Location:/faction/list");
@@ -87,6 +86,9 @@ class FactionController extends AbstractController
     public function edit(int $id) : string
     {
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+          $_POST["picture"] = self::EMPTY_PICTURE;
+        }
         $factionManager = new FactionManager();
         $factionManager->editFaction($_POST, $id);
         header('Location:/faction/list/');

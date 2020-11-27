@@ -20,7 +20,7 @@ body {
     color: #fff;
     letter-spacing: 1px;
     background-color: #000;
-    background-image: url("../images/stars.6494ab5b.png") no-repeat center fixed;
+    background-image: url("../images/stars.png") no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     font-family: biko, Arial, Helvetica, sans-serif;
@@ -141,6 +141,51 @@ form label {
     color: #FFDE00;
     font-family: starjedi;
 }
+
+
+
+
+
+
+.picture-container {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+.picture {
+    width: 140px;
+    height: 120px;
+    background-color:black;
+    border: 4px solid #FFDE00;
+    color: #FFDE00 !important;
+    margin: 5px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+
+.picture-src {
+    width: 100%;
+    height: 100%;
+}
+
+.picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+
+
+
+
 
 .btn,
 .main input,

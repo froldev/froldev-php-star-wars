@@ -62,6 +62,9 @@ class MovieController extends AbstractController
         }
 
         if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
           $movieManager = new MovieManager();
           if ($movieManager->insertMovie($_POST)) {
             header("Location:/movie/list");
@@ -84,6 +87,9 @@ class MovieController extends AbstractController
     public function edit(int $id) : string
     {
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+          $_POST["picture"] = self::EMPTY_PICTURE;
+        }
         $movieManager = new MovieManager();
         $movieManager->editMovie($_POST, $id);
         header('Location:/movie/list/');

@@ -52,9 +52,16 @@ class BeastManager extends AbstractManager
 
     public function editBeast(array $beast, int $id): bool
     {
-        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name = :name WHERE " . self::TABLE . ".id=:id");
+        $request = $this->pdo->prepare("UPDATE " .self::TABLE. 
+        " SET name =:name, picture=:picture, size=:size, area=:area, id_movie=:movie, id_planet=:planet 
+        WHERE " .self::TABLE. ".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $beast['name'], \PDO::PARAM_STR);
+        $request->bindValue(':picture', $beast['picture'], \PDO::PARAM_STR);
+        $request->bindValue(':size', $beast['size'], \PDO::PARAM_STR);
+        $request->bindValue(':area', $beast['area'], \PDO::PARAM_STR);
+        $request->bindValue(':movie', $beast['movie'], \PDO::PARAM_INT);
+        $request->bindValue(':planet', $beast['planet'], \PDO::PARAM_INT);
         return $request->execute();
     }
 
