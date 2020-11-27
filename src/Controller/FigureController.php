@@ -56,23 +56,23 @@ class FigureController extends AbstractController
      */
     public function add() : string
     {
-      $figureError = null;
+      $nameError = $bioError = $movieError = $factionError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
         if (empty($_POST['name']) || !isset($_POST['name'])) {
-          $figureError = "Merci de saisir un nom de personnage";
+          $nameError = "Merci de saisir un nom de personnage";
           $isValid = false;
         }
         if (empty($_POST['bio']) || !isset($_POST['bio'])) {
-          $figureError = "Merci de saisir une biographie";
+          $bioError = "Merci de saisir une biographie";
           $isValid = false;
         }
         if (empty($_POST['movie']) || !isset($_POST['movie'])) {
-          $figureError = "Merci de sélectionner un film";
+          $movieError = "Merci de sélectionner un film";
           $isValid = false;
         }
         if (empty($_POST['faction']) || !isset($_POST['faction'])) {
-          $figureError = "Merci de sélectionner une faction";
+          $factionError = "Merci de sélectionner une faction";
           $isValid = false;
         }
 
@@ -94,9 +94,12 @@ class FigureController extends AbstractController
       $factions = $factionManager->selectFaction();
 
       return $this->twig->render('Figure/add.html.twig', [
-        'figureError' => $figureError,
-        'movies'      => $movies,
-        'factions'    => $factions,
+        'nameError'     => $nameError,
+        'bioError'      => $bioError,
+        'movieError'    => $movieError,
+        'factionError'  => $factionError,
+        'movies'        => $movies,
+        'factions'      => $factions,
       ]);
     }
 
@@ -110,13 +113,34 @@ class FigureController extends AbstractController
     public function edit(int $id) : string
     {
 
+      $nameError = $bioError = $movieError = $factionError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-            $_POST["picture"] = self::EMPTY_PICTURE;
-          }
-        $figureManager = new FigureManager();
-        $figureManager->editFigure($_POST, $id);
-        header('Location:/Figure/list/');
+        $isValid = true;
+        if (empty($_POST['name']) || !isset($_POST['name'])) {
+          $nameError = "Merci de saisir un nom de personnage";
+          $isValid = false;
+        }
+        if (empty($_POST['bio']) || !isset($_POST['bio'])) {
+          $bioError = "Merci de saisir une biographie";
+          $isValid = false;
+        }
+        if (empty($_POST['movie']) || !isset($_POST['movie'])) {
+          $movieError = "Merci de sélectionner un film";
+          $isValid = false;
+        }
+        if (empty($_POST['faction']) || !isset($_POST['faction'])) {
+          $factionError = "Merci de sélectionner une faction";
+          $isValid = false;
+        }
+
+        if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+              $_POST["picture"] = self::EMPTY_PICTURE;
+            }
+          $figureManager = new FigureManager();
+          $figureManager->editFigure($_POST, $id);
+          header('Location:/Figure/list/');
+        }
       }
 
       $figureManager = new FigureManager();
@@ -129,6 +153,10 @@ class FigureController extends AbstractController
       $factions = $factionManager->selectFaction();
 
       return $this->twig->render('Figure/edit.html.twig', [
+        'nameError'     => $nameError,
+        'bioError'      => $bioError,
+        'movieError'    => $movieError,
+        'factionError'  => $factionError,
         'figure'  => $figure,
         'movies'  => $movies,
         'factions' => $factions,

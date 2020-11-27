@@ -33,23 +33,27 @@ class BeastController extends AbstractController
 
     public function add() : string
     {
-      $beastError = null;
+      $nameError = $sizeError = $areaError = $movieError = $planetError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
         if (empty($_POST['name']) || !isset($_POST['name'])) {
-          $beastError = "Merci de saisir un nom de race ou d'espèce";
+          $nameError = "Merci de saisir un nom";
           $isValid = false;
         }
-        if (empty($_POST['bio']) || !isset($_POST['bio'])) {
-          $beastError = "Merci de saisir une biographie";
+        if (empty($_POST['size']) || !isset($_POST['size'])) {
+          $sizeError = "Merci de saisir une taille en mètres";
           $isValid = false;
         }
-        if (empty($_POST['id_movie']) || !isset($_POST['id_movie'])) {
-          $beastError = "Merci de saisir le fim de la première apparition";
+        if (empty($_POST['area']) || !isset($_POST['area'])) {
+          $areaError = "Merci de saisir une surface";
           $isValid = false;
         }
-        if (empty($_POST['id_planet']) || !isset($_POST['id_planet'])) {
-          $beastError = "Merci de saisir une planète";
+        if (empty($_POST['movie']) || !isset($_POST['movie'])) {
+          $movieError = "Merci de sélectionner le film de la première apparition";
+          $isValid = false;
+        }
+        if (empty($_POST['planet']) || !isset($_POST['planet'])) {
+          $planetError = "Merci de sélectionner une planète";
           $isValid = false;
         }
 
@@ -71,7 +75,11 @@ class BeastController extends AbstractController
       $planets = $planetManager->selectPlanet();
 
       return $this->twig->render('Beast/add.html.twig', [
-        'beastError'  => $beastError,
+        'nameError'   => $nameError,
+        'sizeError'   => $sizeError,
+        'areaError'   => $areaError,
+        'movieError'  => $movieError,
+        'planetError' => $planetError,
         'movies'      => $movies,
         'planets'     => $planets,
       ]);
@@ -79,13 +87,38 @@ class BeastController extends AbstractController
 
     public function edit(int $id) : string
     {
+      $nameError = $sizeError = $areaError = $movieError = $planetError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $_POST["picture"] = self::EMPTY_PICTURE;
+        $isValid = true;
+        if (empty($_POST['name']) || !isset($_POST['name'])) {
+          $nameError = "Merci de saisir un nom";
+          $isValid = false;
         }
-        $beastManager = new BeastManager();
-        $beastManager->editBeast($_POST, $id);
-        header('Location:/beast/list/');
+        if (empty($_POST['size']) || !isset($_POST['size'])) {
+          $sizeError = "Merci de saisir une taille en mètres";
+          $isValid = false;
+        }
+        if (empty($_POST['area']) || !isset($_POST['area'])) {
+          $areaError = "Merci de saisir une surface";
+          $isValid = false;
+        }
+        if (empty($_POST['movie']) || !isset($_POST['movie'])) {
+          $movieError = "Merci de sélectionner le film de la première apparition";
+          $isValid = false;
+        }
+        if (empty($_POST['planet']) || !isset($_POST['planet'])) {
+          $planetError = "Merci de sélectionner une planète";
+          $isValid = false;
+        }
+
+        if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
+          $beastManager = new BeastManager();
+          $beastManager->editBeast($_POST, $id);
+          header('Location:/beast/list/');
+        }
       }
 
       $beastManager = new BeastManager();
@@ -98,9 +131,14 @@ class BeastController extends AbstractController
       $planets = $planetManager->selectPlanet();
 
       return $this->twig->render('Beast/edit.html.twig', [
-        'beast'   => $beast,
-        'movies'  => $movies,
-        'planets' => $planets,
+        'nameError'   => $nameError,
+        'sizeError'   => $sizeError,
+        'areaError'   => $areaError,
+        'movieError'  => $movieError,
+        'planetError' => $planetError,
+        'beast'       => $beast,
+        'movies'      => $movies,
+        'planets'     => $planets,
       ]);
     }
 

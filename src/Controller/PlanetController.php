@@ -53,11 +53,11 @@ class PlanetController extends AbstractController
      */
     public function add() : string
     {
-      $planetError = null;
+      $nameError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
         if (empty($_POST['name']) || !isset($_POST['name'])) {
-          $planetError = "Merci de saisir un nom de planète";
+          $nameError = "Merci de saisir un nom de planète";
           $isValid = false;
         }
 
@@ -73,7 +73,7 @@ class PlanetController extends AbstractController
       }
 
       return $this->twig->render('Planet/add.html.twig', [
-        'planetError' => $planetError,
+        'nameError' => $nameError,
       ]);
     }
 
@@ -86,19 +86,29 @@ class PlanetController extends AbstractController
      */
     public function edit(int $id) : string
     {
+      $nameError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $_POST["picture"] = self::EMPTY_PICTURE;
+        $isValid = true;
+        if (empty($_POST['name']) || !isset($_POST['name'])) {
+          $nameError = "Merci de saisir un nom de planète";
+          $isValid = false;
         }
-        $planetManager = new PlanetManager();
-        $planetManager->editPlanet($_POST, $id);
-        header('Location:/planet/list/');
+
+        if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
+          $planetManager = new PlanetManager();
+          $planetManager->editPlanet($_POST, $id);
+          header('Location:/planet/list/');
+        }
       }
 
       $planetManager = new PlanetManager();
       $planet = $planetManager->selectOneById($id);
 
       return $this->twig->render('Planet/edit.html.twig', [
+        'nameError' => $nameError,
         'planet' => $planet,
       ]);
     }

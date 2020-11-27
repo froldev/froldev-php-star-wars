@@ -1,55 +1,60 @@
 <form method="post">
     <div class="form-row">
-
         <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
             <div class="picture-container">
                 <div class="picture">
                     <img src="{{beast.picture}}" class="picture-src" title="{{beast.name}}">
-                    <input type="file" id="wizard-picture">
+                    <input type="file" name="picture" id="picture" value="{{beast.picture}}">
                 </div>
-                <h6>Modifier l'image</h6>
+                <h6 class="btn jedi">Modifier l'image</h6>
             </div>
         </div>
-        <div class="form-group col-md-8 d-flex justify-content-center align-items-center">
+        <div class="form-group col-12 col-md-8">
             <div class="form-group">
                 <label for="title">Nom :</label>
                 <input type="text" class="form-control" name="name" value="{{beast.name}}" >
-            </div>
-            <div class="form-group">
-                <label for="picture">image (minimum 350 x 350 pixels) : </label>
-                <input type="text" class="form-control" name="picture" id="picture" value="{{beast.picture}}" />
-            </div>
-            <div class="form-group">
-                <label for="area">zone :</label>
-                <input type="text" class="form-control" name="area" value="{{beast.area}}" >
+                <div class="invalid-feedback sith">
+                    {{ nameError }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="size">taille (en mètre):</label>
                 <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
+                <div class="invalid-feedback sith">
+                    {{ sizeError }}
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-row">
-        
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="planet">planète :</label>
-            <select name="planet" class="custom-select" id="planet">
-                <option value=""></option>
-                {% for planet in planets %}
-                <option value="{{planet.id}}" {{ beast.id_planet == planet.id ? "selected" }}>{{planet.name}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="movies">première apparition :</label>
-            <select name="movie" class="custom-select" id="movie">
-                <option value=""></option>
-                {% for movie in movies %}
-                <option value="{{movie.id}}" {{ beast.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
-                {% endfor %}
-            </select>
+            <div class="form-group">
+                <label for="planet">planète :</label>
+                <select name="planet" class="custom-select" id="planet">
+                    <option value=""></option>
+                    {% for planet in planets %}
+                    <option value="{{planet.id}}" {{ beast.id_planet == planet.id ? "selected" }}>{{planet.name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback sith">
+                    {{ planetError }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="area">surface :</label>
+                <input type="text" class="form-control" name="area" value="{{beast.area}}" >
+                <div class="invalid-feedback sith">
+                    {{ areaError }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="movies">première apparition :</label>
+                <select name="movie" class="custom-select" id="movie">
+                    <option value=""></option>
+                    {% for movie in movies %}
+                    <option value="{{movie.id}}" {{ beast.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback sith">
+                    {{ movieError }}
+                </div>
+            </div>
         </div>
     </div>
     <div class="form-row">

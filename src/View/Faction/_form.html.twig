@@ -1,19 +1,19 @@
 <form method="post">
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="title">nom :</label>
-            <input type="text" class="form-control" name="name" value="{{faction.name}}">
-            <div class="invalid-feedback">
-                {{ factionError }}
+    <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div class="picture-container">
+                <div class="picture">
+                    <img src="{{faction.picture}}" class="picture-src" title="{{faction.name}}">
+                    <input type="file" name="picture" id="picture" value="{{faction.picture}}">
+                </div>
+                <h6 class="btn jedi">Modifier l'image</h6>
             </div>
         </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="area">image :</label>
-            <input type="url" class="form-control" name="picture" id="picture" value="{{faction.picture}}" />
-            <div class="invalid-feedback">
-                {{ factionError }}
+        <div class="form-group col-12 col-md-8">
+            <label for="title">nom :</label>
+            <input type="text" class="form-control" name="name" value="{{faction.name}}">
+            <div class="invalid-feedback sith">
+                {{ nameError }}
             </div>
         </div>
     </div>

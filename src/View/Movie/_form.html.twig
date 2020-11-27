@@ -1,17 +1,20 @@
 <form method="post">
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="title">titre :</label>
-            <input type="text" class="form-control" name="title" value="{{movie.title}}">
-            <div class="invalid-feedback">
-                {{ movieError }}
+    <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div class="picture-container">
+                <div class="picture">
+                    <img src="{{movie.picture}}" class="picture-src" title="{{movie.name}}">
+                    <input type="file" name="picture" id="picture" value="{{movie.picture}}">
+                </div>
+                <h6 class="btn jedi">Modifier l'image</h6>
             </div>
         </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="area">image :</label>
-            <input type="url" class="form-control" name="picture" id="picture" value="{{movie.picture}}" />
+        <div class="form-group col-12 col-md-8">
+            <label for="title">titre :</label>
+            <input type="text" class="form-control" name="title" value="{{movie.title}}">
+            <div class="invalid-feedback sith">
+                {{ titleError }}
+            </div>
         </div>
     </div>
     <div class="form-row">

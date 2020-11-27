@@ -53,11 +53,11 @@ class FactionController extends AbstractController
      */
     public function add() : string
     {
-      $factionError = null;
+      $nameError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
         if (empty($_POST['name']) || !isset($_POST['name'])) {
-          $factionError = "Merci de saisir un nom de faction";
+          $nameError = "Merci de saisir un nom de faction";
           $isValid = false;
         }
         if ($isValid) {
@@ -72,7 +72,7 @@ class FactionController extends AbstractController
       }
 
       return $this->twig->render('Faction/add.html.twig', [
-        'factionError' => $factionError,
+        'nameError' => $nameError,
       ]);
     }
 
@@ -85,19 +85,28 @@ class FactionController extends AbstractController
      */
     public function edit(int $id) : string
     {
+      $nameError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $_POST["picture"] = self::EMPTY_PICTURE;
+        $isValid = true;
+        if (empty($_POST['name']) || !isset($_POST['name'])) {
+          $nameError = "Merci de saisir un nom de faction";
+          $isValid = false;
         }
-        $factionManager = new FactionManager();
-        $factionManager->editFaction($_POST, $id);
-        header('Location:/faction/list/');
+        if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
+          $factionManager = new FactionManager();
+          $factionManager->editFaction($_POST, $id);
+          header('Location:/faction/list/');
+        }
       }
 
       $factionManager = new FactionManager();
       $faction = $factionManager->selectOneById($id);
 
       return $this->twig->render('Faction/edit.html.twig', [
+        'nameError' => $nameError,
         'faction' => $faction,
       ]);
     }

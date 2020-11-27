@@ -53,11 +53,11 @@ class MovieController extends AbstractController
      */
     public function add() : string
     {
-      $movieError = null;
+      $titleError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
         if (empty($_POST['title']) || !isset($_POST['title'])) {
-          $movieError = "Merci de saisir un titre de Star Wars";
+          $titleError = "Merci de saisir un titre de Star Wars";
           $isValid = false;
         }
 
@@ -73,7 +73,7 @@ class MovieController extends AbstractController
       }
 
       return $this->twig->render('Movie/add.html.twig', [
-        'movieError' => $movieError,
+        'titleError' => $titleError,
       ]);
     }
 
@@ -86,19 +86,29 @@ class MovieController extends AbstractController
      */
     public function edit(int $id) : string
     {
+      $titleError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-          $_POST["picture"] = self::EMPTY_PICTURE;
+        $isValid = true;
+        if (empty($_POST['title']) || !isset($_POST['title'])) {
+          $titleError = "Merci de saisir un titre de Star Wars";
+          $isValid = false;
         }
-        $movieManager = new MovieManager();
-        $movieManager->editMovie($_POST, $id);
-        header('Location:/movie/list/');
+
+        if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
+          $movieManager = new MovieManager();
+          $movieManager->editMovie($_POST, $id);
+          header('Location:/movie/list/');
+        }
       }
 
       $movieManager = new MovieManager();
       $movie = $movieManager->selectOneById($id);
 
       return $this->twig->render('Movie/edit.html.twig', [
+        'titleError' => $titleError,
         'movie' => $movie,
       ]);
     }

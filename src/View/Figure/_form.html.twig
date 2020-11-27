@@ -1,40 +1,55 @@
 <form method="post">
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="name">nom :</label>
-            <input type="text" class="form-control" name="name" value="{{figure.name}}" />
+    <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div class="picture-container">
+                <div class="picture">
+                    <img src="{{figure.picture}}" class="picture-src" title="{{figure.name}}">
+                    <input type="file" name="picture" id="picture" value="{{figure.picture}}">
+                </div>
+                <h6 class="btn jedi">Modifier l'image</h6>
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            <label for="picture">image :</label>
-            <input type="url" class="form-control" name="picture" id="picture" value="{{figure.picture}}" />
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-12">
-            <label for="bio">biographie :</label>
-            <textarea id="bio" name="bio" class="form-control" rows="5" >
-                {{figure.bio}}
-            </textarea>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-        <label for="movie">Première apparition :</label>
-            <select name="movie" class="custom-select" id="movie">
-                <option value="" ></option>
-                {% for movie in movies %}
-                    <option value="{{movie.id}}" {{ figure.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="faction">Faction :</label>
-            <select name="faction" class="custom-select" id="faction">
-                <option value="" ></option>
-                {% for faction in factions %}
-                    <option value="{{faction.id}}" {{ figure.id_faction == faction.id ? "selected" }}>{{faction.name}}</option>
-                {% endfor %}
-            </select>
+        <div class="form-group col-12 col-md-8">
+            <div class="form-group">
+                <label for="name">nom :</label>
+                <input type="text" class="form-control" name="name" value="{{figure.name}}" />
+                <div class="invalid-feedback sith">
+                    {{ nameError }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bio">biographie :</label>
+                <textarea id="bio" name="bio" class="form-control" rows="8" >
+                    {{figure.bio}}
+                </textarea>
+                <div class="invalid-feedback sith">
+                    {{ bioError }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="faction">Faction :</label>
+                <select name="faction" class="custom-select" id="faction">
+                    <option value="" ></option>
+                    {% for faction in factions %}
+                        <option value="{{faction.id}}" {{ figure.id_faction == faction.id ? "selected" }}>{{faction.name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback sith">
+                    {{ factionError }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="movie">Première apparition :</label>
+                <select name="movie" class="custom-select" id="movie">
+                    <option value="" ></option>
+                    {% for movie in movies %}
+                        <option value="{{movie.id}}" {{ figure.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback sith">
+                    {{ movieError }}
+                </div>
+            </div>
         </div>
     </div>
     <div class="form-row">
