@@ -1,7 +1,7 @@
 <form method="post">
     <div class="form-row">
 
-        <div class="col-md-6">
+        <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
             <div class="picture-container">
                 <div class="picture">
                     <img src="{{beast.picture}}" class="picture-src" title="{{beast.name}}">
@@ -10,7 +10,7 @@
                 <h6>Modifier l'image</h6>
             </div>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-8 d-flex justify-content-center align-items-center">
             <div class="form-group">
                 <label for="title">Nom :</label>
                 <input type="text" class="form-control" name="name" value="{{beast.name}}" >
@@ -19,17 +19,18 @@
                 <label for="picture">image (minimum 350 x 350 pixels) : </label>
                 <input type="text" class="form-control" name="picture" id="picture" value="{{beast.picture}}" />
             </div>
+            <div class="form-group">
+                <label for="area">zone :</label>
+                <input type="text" class="form-control" name="area" value="{{beast.area}}" >
+            </div>
+            <div class="form-group">
+                <label for="size">taille (en mètre):</label>
+                <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
+            </div>
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="area">zone :</label>
-            <input type="text" class="form-control" name="area" value="{{beast.area}}" >
-        </div>
-        <div class="form-group col-md-6">
-            <label for="size">taille (en mètre):</label>
-            <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
-        </div>
+        
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
