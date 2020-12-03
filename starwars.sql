@@ -131,20 +131,20 @@ CREATE TABLE `planet` (
 --
 
 INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
-(1, 'Nar Kreeta', "https://static.wikia.nocookie.net/frstarwars/images/6/63/Planete_nar_kreeta.jpg"),
-(2, 'Moraband', "https://static.wikia.nocookie.net/frstarwars/images/9/9e/Moraband_Planet.png"),
-(3, 'Mandalore', "https://static.wikia.nocookie.net/frstarwars/images/2/21/ThePlanetMandalore.png"),
-(4, 'Coruscant', "https://static.wikia.nocookie.net/frstarwars/images/4/42/Coruscant.png"),
-(5, 'Dagobah', "https://static.wikia.nocookie.net/frstarwars/images/1/1c/Dagobah.jpg"),
-(6, 'Geonosis', "https://static.wikia.nocookie.net/frstarwars/images/a/a5/Geonosis.png"),
-(7, 'Hoth', "https://static.wikia.nocookie.net/frstarwars/images/d/d1/Hoth.jpg"),
-(8, 'Jakku', "https://static.wikia.nocookie.net/frstarwars/images/f/f4/Jakku_-_full_-_SW_Poe_Dameron_Flight_Log_.png"),
-(9, 'Kashyyyk', "https://static.wikia.nocookie.net/frstarwars/images/f/f7/Kashyyyk.png"),
-(10, 'Naboo', "https://static.wikia.nocookie.net/frstarwars/images/3/3c/Naboo.png"),
-(11, 'Tatooine', "https://static.wikia.nocookie.net/frstarwars/images/f/f6/Tatoooinefull.jpg"),
-(12, 'Utapau', "https://static.wikia.nocookie.net/frstarwars/images/e/e1/Utapau.png"),
-(13, 'Endor', "https://static.wikia.nocookie.net/frstarwars/images/f/f9/Endor_%28planet%29.jpg"),
-(14, 'Ahch-To', "https://static.wikia.nocookie.net/frstarwars/images/d/d6/Ahch-To.png");
+(1, 'Nar Kreeta', "/assets/images/beast/beast-5fc8139388a16.jpg"),
+(2, 'Moraband', "/assets/images/beast/beast-5fc81374babe7.png"),
+(3, 'Mandalore', "/assets/images/beast/beast-5fc81358eb087.png"),
+(4, 'Coruscant', "/assets/images/beast/beast-5fc7fcbd68197.png"),
+(5, 'Dagobah', "/assets/images/beast/beast-5fc7ffb9827a3.jpg"),
+(6, 'Geonosis', "/assets/images/beast/beast-5fc8004f2f166.png"),
+(7, 'Hoth', "/assets/images/beast/beast-5fc80124a412b.jpg"),
+(8, 'Jakku', "/assets/images/beast/beast-5fc81319e26ff.png"),
+(9, 'Kashyyyk', "/assets/images/beast/beast-5fc8133a65a7b.png"),
+(10, 'Naboo', "/assets/images/beast/beast-5fc7fc45d9333.png"),
+(11, 'Tatooine', "/assets/images/beast/beast-5fc813bedfa40.jpg"),
+(12, 'Utapau', "/assets/images/beast/beast-5fc813dddf3a2.png"),
+(13, 'Endor', "/assets/images/beast/beast-5fc800174825e.jpg"),
+(14, 'Ahch-To', "/assets/images/beast/beast-5fc7fc7a00750.png");
 
 
 -- --------------------------------------------------------

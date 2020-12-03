@@ -4,7 +4,7 @@
 
 {% block content %}
   <div class="row">
-    <h1 class="col-12">mise à jour : <br>{{planet.name}}</h1>
+    <h1 class="col-12 d-flex justify-content-center">mise à jour :  {{planet.name}}</h1>
   </div>
   <div class="row">
     <div class="col-12">
@@ -16,4 +16,9 @@
           <a href="/planet/list" class="float-left btn sentinel row-btn" >Retour</a>
       </div>
   </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+</script>
 {% endblock %}

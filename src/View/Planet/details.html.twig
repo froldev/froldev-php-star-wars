@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="row">
-        <h1 class="col-12">{{planet.name}} </h1>
+        <h1 class="col-12 d-flex justify-content-center">{{planet.name}} </h1>
     </div>
     <div class="row row-btn">
         <form class="col-12" method="post" action="/planet/delete/{{figure.id}}">
@@ -13,7 +13,9 @@
     </div>
     <div class="row detail">
         <figure class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <img src="{{planet.picture}}" alt="{{planet.name}}" class="img-fluid"/>
+            <div class="col-8 offset-2">
+                <img src="{{planet.picture}}" alt="{{planet.name}}" class="img-fluid"/>
+            </div>
         </figure>
         <div class="col-12 col-md-8 d-flex justify-content-center align-items-center">
             <div class="wrapper-data">

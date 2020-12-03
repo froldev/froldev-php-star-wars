@@ -20,7 +20,10 @@ body {
     color: #fff;
     letter-spacing: 1px;
     background-color: #000;
-    background-image: url("../images/stars.png") no-repeat center fixed;
+    background-image: url("../images/stars.png");
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center center;
     -webkit-background-size: cover;
     background-size: cover;
     font-family: biko, Arial, Helvetica, sans-serif;
@@ -150,18 +153,16 @@ form label {
 }
 
 .picture {
+    width: 100%;
+    height: 100%;
     background-color:black;
-    border: 4px solid #FFDE00;
+    border-top: 2px solid #FFDE00;
+    border-bottom: 2px solid #FFDE00;
     color: #FFDE00 !important;
     margin: 5px auto;
     overflow: hidden;
     transition: all 0.2s;
     -webkit-transition: all 0.2s;
-}
-
-.picture-src {
-    width: 100%;
-    height: 100%;
 }
 
 .picture input[type="file"] {
@@ -380,7 +381,7 @@ form label {
     perspective: 1000px;
 }
 
-  .card-view img {
+.card-view img {
     width: 280px;
     height: 240px;
     background: #FFDE00;
@@ -448,7 +449,7 @@ form label {
     left: 0;
     height: 40px;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+    background: grey;
     -webkit-transform: rotateX(90deg);
     -moz-transform: rotateX(90deg);
     -ms-transform: rotateX(90deg);

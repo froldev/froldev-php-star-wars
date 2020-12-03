@@ -30,12 +30,19 @@ class PlanetManager extends AbstractManager
     }
 
 
-    public function editPlanet(array $planet, int $id): bool
+    public function editPicturePlanet(array $planet, int $id): bool
     {
-        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name=:name, picture=:picture WHERE " . self::TABLE . ".id=:id");
+        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET picture=:picture WHERE " . self::TABLE . ".id=:id");
+        $request->bindValue(':id', $id, \PDO::PARAM_INT);
+        $request->bindValue(':picture', $planet['picture'], \PDO::PARAM_STR);
+        return $request->execute();
+    }
+
+    public function editDataPlanet(array $planet, int $id): bool
+    {
+        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name=:name WHERE " . self::TABLE . ".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $planet['name'], \PDO::PARAM_STR);
-        $request->bindValue(':picture', $planet['picture'], \PDO::PARAM_STR);
         return $request->execute();
     }
 
