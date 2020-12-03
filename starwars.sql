@@ -29,7 +29,7 @@ USE starwars;
 CREATE TABLE `figure` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
-  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300',
+  `picture` varchar(255) NOT NULL DEFAULT '/assets/images/no-picture.jpg',
   `bio` text NOT NULL,
   `id_movie` int(11) NOT NULL,
   `id_faction` int(11) NOT NULL
@@ -62,7 +62,7 @@ INSERT INTO `figure` (`id`, `name`, `picture`, `bio`, `id_movie`, `id_faction`) 
 CREATE TABLE `movie` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300'
+  `picture` varchar(255) NOT NULL DEFAULT '/assets/images/no-picture.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,7 +86,7 @@ INSERT INTO `movie` (`id`, `title`, `picture`) VALUES
 CREATE TABLE `beast` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
-  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300',
+  `picture` varchar(255) NOT NULL DEFAULT '/assets/images/no-picture.jpg',
   `size` int(11) NOT NULL,
   `area` varchar(255) NOT NULL,
   `id_movie` int(11) NOT NULL,
@@ -123,7 +123,7 @@ INSERT INTO `beast` (`id`, `name`, `picture`, `size`, `area`, `id_movie`, `id_pl
 CREATE TABLE `planet` (
   `id` int(11) NOT NULL,
   `name` varchar(256) NOT NULL,
-  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300'
+  `picture` varchar(255) NOT NULL DEFAULT '/assets/images/no-picture.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -156,7 +156,7 @@ INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
 CREATE TABLE `faction` (
   `id` int(11) NOT NULL,
   `name` varchar(256) NOT NULL,
-  `picture` varchar(255) NOT NULL DEFAULT 'http://via.placeholder.com/350x300'
+  `picture` varchar(255) NOT NULL DEFAULT '/assets/images/no-picture.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -164,9 +164,9 @@ CREATE TABLE `faction` (
 --
 
 INSERT INTO `faction` (`id`, `name`, `picture`) VALUES
-(1, "Alliance Rebelle", "https://vignette.wikia.nocookie.net/club-penguin/images/7/76/PinzR%C3%A9bellion.png"),
-(2, "Empire", "https://vignette.wikia.nocookie.net/club-penguin/images/8/81/120px-Galactic_Empire.svg.png"),
-(3, "Aucune", "http://via.placeholder.com/350x300")
+(1, "Alliance Rebelle", "/assets/images/faction/faction-5fc94ab583658.png"),
+(2, "Empire", "/assets/images/faction/faction-5fc94a76976b9.png"),
+(3, "Aucune", "/assets/images/no-picture.jpg")
 ;
 
 -- --------------------------------------------------------

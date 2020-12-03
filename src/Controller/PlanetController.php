@@ -91,6 +91,7 @@ class PlanetController extends AbstractController
         $isValid = true;
         
         if (isset($_POST['modify-data'])) { // data
+
           if (empty($_POST['name']) || !isset($_POST['name'])) {
             $nameError = "Merci de saisir un nom de planète";
             $isValid = false;
@@ -101,7 +102,9 @@ class PlanetController extends AbstractController
             $planetManager->editDataPlanet($_POST, $id);
             header('Location:/planet/list/');
           }
+
         } else { // picture
+          
           if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
             $folder = 'beast';
 
