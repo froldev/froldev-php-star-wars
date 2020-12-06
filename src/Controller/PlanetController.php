@@ -104,9 +104,9 @@ class PlanetController extends AbstractController
           }
 
         } else { // picture
-          
+
           if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-            $folder = 'beast';
+            $folder = 'planet';
 
             $allowed = array('png', 'jpg', 'jpeg', 'gif');
             $file_ext = explode('.', $_FILES['new-picture']['name']);
