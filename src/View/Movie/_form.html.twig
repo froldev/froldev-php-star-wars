@@ -1,25 +1,39 @@
-<form method="post">
-    <div class="form-row">
-    <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <div class="picture-container">
-                <div class="picture">
-                    <img src="{{movie.picture}}" class="picture-src" title="{{movie.name}}">
-                    <input type="file" name="picture" id="picture" value="{{movie.picture}}">
+<div class="row mb-4">
+    <form method="post" enctype="multipart/form-data" class="col-12 col-md-4 d-flex flex-column">
+        <div class="form-row">
+            <div class="form-group col-8 offset-2">
+                <img src="{{movie.picture}}" class="picture" title="{{movie.name}}">
+                <input type="hidden" id="picture" name="picture" value="{{movie.picture}}" >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-12 d-flex flex-column">
+                <input type="file" id="new-picture" name="new-picture" />
+                <div class="invalid-feedback sith">
+                    {{ nameError }}
                 </div>
-                <h6 class="btn jedi">Modifier l'image</h6>
             </div>
         </div>
-        <div class="form-group col-12 col-md-8">
-            <label for="title">titre :</label>
-            <input type="text" class="form-control" name="title" value="{{movie.title}}">
-            <div class="invalid-feedback sith">
-                {{ titleError }}
+        <div class="form-row">
+            <div class="form-group col-12 d-flex justify-content-center">
+                <input type="submit" value="Modifier l'image" class="btn consular"/>
             </div>
         </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-12">
-            <input type="submit" value="Valider" class="float-right consular">
+    </form>
+    <form method="post" class="col-12 col-md-8 d-flex flex-column">
+        <div class="form-row">
+            <div class="form-group col-12">
+                <label for="title">nom :</label>
+                <input type="text" class="form-control" name="title" value="{{movie.title}}">
+                <div class="invalid-feedback sith">
+                    {{ titleError }}
+                </div>
+            </div>
         </div>
-    </div>
-</form>
+        <div class="form-row">
+            <div class="form-group col-12 d-flex justify-content-center">
+                <input type="submit" name="modify-data" value="Modifier les données" class="consular">
+            </div>
+        </div>
+    </form>
+</div>
