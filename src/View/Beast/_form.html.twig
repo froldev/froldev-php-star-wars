@@ -1,30 +1,46 @@
-<form method="post">
-    <div class="form-row">
-        <div class="form-group col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <div class="picture-container">
-                <div class="picture">
-                    <img src="{{beast.picture}}" class="picture-src" title="{{beast.name}}">
-                    <input type="file" name="picture" id="picture" value="{{beast.picture}}">
-                </div>
-                <h6 class="btn jedi">Modifier l'image</h6>
+<div class="row mb-4">
+    <form method="post" enctype="multipart/form-data" class="col-12 col-md-4 d-flex flex-column">
+        <div class="form-row">
+            <div class="form-group col-8 offset-2">
+                {% if beast.picture %}
+                    <img src="{{beast.picture}}" class="picture" alt="{{beast.name}}" title="{{beast.name}}">
+                {% else %}
+                    <img src="{{noPicture}}" class="picture" alt="Pas d'image" title="Pas d'image" >
+                {% endif %}
+                <input type="hidden" id="picture" name="picture" value="{{beast.picture}}" >
             </div>
         </div>
-        <div class="form-group col-12 col-md-8">
-            <div class="form-group">
+        <div class="form-row">
+            <div class="form-group col-12 d-flex flex-column">
+                <input type="file" id="new-picture" name="new-picture" />
+                <div class="invalid-feedback sith">
+                    {{ nameError }}
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-12 d-flex justify-content-center">
+                <input type="submit" value="Modifier l'image" class="btn consular"/>
+            </div>
+        </div>
+    </form>
+    <form method="post" class="col-12 col-md-8 d-flex flex-column">
+        <div class="form-row">
+            <div class="form-group col-12">
                 <label for="title">Nom :</label>
                 <input type="text" class="form-control" name="name" value="{{beast.name}}" >
                 <div class="invalid-feedback sith">
                     {{ nameError }}
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-12">
                 <label for="size">taille (en mètre):</label>
                 <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
                 <div class="invalid-feedback sith">
                     {{ sizeError }}
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-12">
                 <label for="planet">planète :</label>
                 <select name="planet" class="custom-select" id="planet">
                     <option value=""></option>
@@ -36,14 +52,14 @@
                     {{ planetError }}
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-12">
                 <label for="area">surface :</label>
                 <input type="text" class="form-control" name="area" value="{{beast.area}}" >
                 <div class="invalid-feedback sith">
                     {{ areaError }}
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-12">
                 <label for="movies">première apparition :</label>
                 <select name="movie" class="custom-select" id="movie">
                     <option value=""></option>
@@ -56,10 +72,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-12">
-            <input type="submit" value="Valider" class="float-right consular">
+        <div class="form-row">
+            <div class="form-group col-12 d-flex justify-content-center">
+                <input type="submit" name="modify-data" value="Modifier les données" class="consular">
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

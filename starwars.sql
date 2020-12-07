@@ -62,7 +62,7 @@ INSERT INTO `figure` (`id`, `name`, `picture`, `bio`, `id_movie`, `id_faction`) 
 CREATE TABLE `movie` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL DEFAULT '/assets/images/no-picture.jpg'
+  `picture` varchar(255) NOT NULL DEFAULT "/assets/images/no-picture.jpg"
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -98,21 +98,21 @@ CREATE TABLE `beast` (
 --
 
 INSERT INTO `beast` (`id`, `name`, `picture`, `size`, `area`, `id_movie`, `id_planet`) VALUES
-(1, 'Orray', '', 2, 'Desert', 2, 6),
-(2, 'Massiff', '', 1, 'Desert', 2, 6),
-(3, 'Wampa', '', 3, 'Caverne', 5, 7),
-(4, 'Tauntaun', '', 2, 'Desert de Glace', 5, 7),
-(5, 'Happabore', '', 4, 'Desert', 7, 8),
-(6, 'Luggabeast', '', 2, 'Desert', 7, 8),
-(7, 'Wookie', '', 2, 'Foret', 3, 9),
-(8, 'Mandalorien', '', 2, 'Ville', 2, 3),
-(9, 'Kaadu', '', 2, 'Plaine', 1, 10),
-(10, 'Sando', '', 200, 'Eau', 1, 10),
-(11, 'Bantha', '', 3, 'Desert', 4, 11),
-(12, 'Dewback', '', 2, 'Desert', 4, 11),
-(13, 'Varactyl', '', 4, 'Caverne', 3, 12),
-(14, 'Ewok', '', 1, 'Foret', 6, 13),
-(15, 'Porg', '', 1, 'Falaises', 8, 14);
+(1, "Orray", "", 2, "Desert", 2, 6),
+(2, "Massiff", "http://localhost:8000/assets/images/beast/beast-5fcdfaf767e15.jpeg", 1, "Desert", 2, 6),
+(3, "Wampa", "http://localhost:8000/assets/images/beast/beast-5fcdfdf70e086.jpeg", 3, "Caverne", 5, 7),
+(4, "Tauntaun", "http://localhost:8000/assets/images/beast/beast-5fcdfdc7f3ab6.jpeg", 2, "Desert de Glace", 5, 7),
+(5, "Happabore", "http://localhost:8000/assets/images/beast/beast-5fcdfa41d965c.jpeg", 4, "Desert", 7, 8),
+(6, "Luggabeast", "http://localhost:8000/assets/images/beast/beast-5fcdfac80d7cf.jpeg", 2, "Desert", 7, 8),
+(7, "Wookie", "http://localhost:8000/assets/images/beast/beast-5fcdfe0f5b92f.jpeg", 2, "Foret", 3, 9),
+(8, "Mandalorien", "http://localhost:8000/assets/images/beast/beast-5fcdfadfc7f44.jpeg", 2, "Ville", 2, 3),
+(9, "Kaadu", "http://localhost:8000/assets/images/beast/beast-5fcdfa5825b87.jpeg", 2, "Plaine", 1, 10),
+(10, "Sando", "http://localhost:8000/assets/images/beast/beast-5fcdfd4388ac5.jpeg", 200, "Eau", 1, 10),
+(11, "Bantha", "http://localhost:8000/assets/images/beast/beast-5fcdf9d18935c.jpeg", 3, "Desert", 4, 11),
+(12, "Dewback", "http://localhost:8000/assets/images/beast/beast-5fcdfa02c376c.jpeg", 2, "Desert", 4, 11),
+(13, "Varactyl", "http://localhost:8000/assets/images/beast/beast-5fcdfddf6101c.jpeg", 4, "Caverne", 3, 12),
+(14, "Ewok", "http://localhost:8000/assets/images/beast/beast-5fcdfa2ac5127.jpeg", 1, "Foret", 6, 13),
+(15, "Porg", "http://localhost:8000/assets/images/beast/beast-5fcdfd1d8f526.jpeg", 1, "Falaises", 8, 14);
 
 -- --------------------------------------------------------
 
@@ -131,20 +131,20 @@ CREATE TABLE `planet` (
 --
 
 INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
-(1, 'Nar Kreeta', "/assets/images/planet/planet-5fcd3b4d03540.jpg"),
-(2, 'Moraband', "/assets/images/planet/planet-5fcd3b1c272c5.jpg"),
-(3, 'Mandalore', "/assets/images/planet/planet-5fcd3b03d339c.jpg"),
-(4, 'Coruscant', "/assets/images/planet/planet-5fcd3a41bedf1.jpg"),
-(5, 'Dagobah', "/assets/images/planet/planet-5fcd3a65d07dc.jpg"),
-(6, 'Geonosis', "/assets/images/planet/planet-5fcd3aa12f4f6.jpg"),
-(7, 'Hoth', "/assets/images/planet/planet-5fcd3abb47050.jpg"),
-(8, 'Jakku', "/assets/images/planet/planet-5fcd3ad3869ec.jpg"),
-(9, 'Kashyyyk', "/assets/images/planet/planet-5fcd3aec2b8a8.jpg"),
-(10, 'Naboo', "/assets/images/planet/planet-5fcd3b3558678.jpg"),
-(11, 'Tatooine', "/assets/images/planet/planet-5fcd3b673a639.jpg"),
-(12, 'Utapau', "/assets/images/planet/planet-5fcd3b7d14793.jpg"),
-(13, 'Endor', "/assets/images/planet/planet-5fcd3a8494903.jpg"),
-(14, 'Ahch-To', "/assets/images/planet/planet-5fcd3a12b7640.jpg");
+(1, "Nar Kreeta", "/assets/images/planet/planet-5fcd3b4d03540.jpg"),
+(2, "Moraband", "/assets/images/planet/planet-5fcd3b1c272c5.jpg"),
+(3, "Mandalore", "/assets/images/planet/planet-5fcd3b03d339c.jpg"),
+(4, "Coruscant", "/assets/images/planet/planet-5fcd3a41bedf1.jpg"),
+(5, "Dagobah", "/assets/images/planet/planet-5fcd3a65d07dc.jpg"),
+(6, "Geonosis", "/assets/images/planet/planet-5fcd3aa12f4f6.jpg"),
+(7, "Hoth", "/assets/images/planet/planet-5fcd3abb47050.jpg"),
+(8, "Jakku", "/assets/images/planet/planet-5fcd3ad3869ec.jpg"),
+(9, "Kashyyyk", "/assets/images/planet/planet-5fcd3aec2b8a8.jpg"),
+(10, "Naboo", "/assets/images/planet/planet-5fcd3b3558678.jpg"),
+(11, "Tatooine", "/assets/images/planet/planet-5fcd3b673a639.jpg"),
+(12, "Utapau", "/assets/images/planet/planet-5fcd3b7d14793.jpg"),
+(13, "Endor", "/assets/images/planet/planet-5fcd3a8494903.jpg"),
+(14, "Ahch-To", "/assets/images/planet/planet-5fcd3a12b7640.jpg");
 
 
 -- --------------------------------------------------------

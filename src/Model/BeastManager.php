@@ -7,12 +7,10 @@ class BeastManager extends AbstractManager
 
     const TABLE = 'beast';
 
-
     public function __construct()
     {
         parent::__construct(self::TABLE);
     }
-
 
     public function selectBeast(): array
     {
@@ -34,7 +32,6 @@ class BeastManager extends AbstractManager
         return $request->fetch();
     }
 
-
     public function insertBeast(array $beast): bool
     {
         $request = $this->pdo->prepare("INSERT INTO " .self::TABLE. 
@@ -49,15 +46,23 @@ class BeastManager extends AbstractManager
         return $request->execute();
     }
 
-
-    public function editBeast(array $beast, int $id): bool
+    public function editPictureBeast(array $beast, int $id): bool
     {
         $request = $this->pdo->prepare("UPDATE " .self::TABLE. 
-        " SET name =:name, picture=:picture, size=:size, area=:area, id_movie=:movie, id_planet=:planet 
+        " SET picture=:picture
+        WHERE " .self::TABLE. ".id=:id");
+        $request->bindValue(':id', $id, \PDO::PARAM_INT);
+        $request->bindValue(':picture', $beast['picture'], \PDO::PARAM_STR);
+        return $request->execute();
+    }
+
+    public function editDataBeast(array $beast, int $id): bool
+    {
+        $request = $this->pdo->prepare("UPDATE " .self::TABLE. 
+        " SET name =:name, size=:size, area=:area, id_movie=:movie, id_planet=:planet 
         WHERE " .self::TABLE. ".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $beast['name'], \PDO::PARAM_STR);
-        $request->bindValue(':picture', $beast['picture'], \PDO::PARAM_STR);
         $request->bindValue(':size', $beast['size'], \PDO::PARAM_STR);
         $request->bindValue(':area', $beast['area'], \PDO::PARAM_STR);
         $request->bindValue(':movie', $beast['movie'], \PDO::PARAM_INT);
@@ -65,12 +70,10 @@ class BeastManager extends AbstractManager
         return $request->execute();
     }
 
-
     public function deleteBeast(int $id): void
     {
         $request = $this->pdo->prepare("DELETE FROM ".self::TABLE." WHERE id=:id");
         $request->bindValue(":id", $id, \PDO::PARAM_INT);
         $request->execute();
     }
-
 }
