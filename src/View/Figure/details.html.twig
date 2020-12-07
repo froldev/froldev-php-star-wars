@@ -13,10 +13,16 @@
     </div>
     <div class="row detail">
         <figure class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <img src="{{figure.picture}}" alt="{{figure.name}}" class="img-fluid"/>
+            <div class="col-8 offset-2">
+                {% if figure.picture %}
+                    <img src="{{figure.picture}}" alt="{{figure.name}}" title="{{figure.name}}" class="img-fluid"/>
+                {% else %}
+                    <img src="{{noPicture}}" alt="Pas d'image" title="Pas d'image" class="img-fluid" />
+                {% endif %}
+            </div>
         </figure>
         <div class="col-12 col-md-8">
-        <div class="wrapper-data">
+            <div class="wrapper-data">
                 <h3 class="title">Nom : </h3>
                 <p>{{figure.name}}</p>
             </div>

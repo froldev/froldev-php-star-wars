@@ -7,19 +7,16 @@ class FigureManager extends AbstractManager
 
     const TABLE = 'figure';
 
-
     public function __construct()
     {
         parent::__construct(self::TABLE);
     }
-
 
     public function selectFigure(): array
     {
         $request = $this->pdo->query("SELECT * FROM ".self::TABLE." ORDER BY name");
         return $request->fetchAll();
     }
-
 
     public function selectFigureJoinMovieAndFaction(int $id): array
     {
@@ -35,7 +32,6 @@ class FigureManager extends AbstractManager
         return $request->fetch();
     }
 
-
     public function insertFigure(array $figure): bool
     {
         $request = $this->pdo->prepare("INSERT INTO " .self::TABLE. 
@@ -49,21 +45,28 @@ class FigureManager extends AbstractManager
         return $request->execute();
     }
 
-
-    public function editFigure(array $figure, int $id): bool
+    public function editPictureFigure(array $figure, int $id): bool
     {
         $request = $this->pdo->prepare("UPDATE ".self::TABLE." 
-        SET name=:name, picture=:picture, bio=:bio, id_movie=:movie, id_faction=:faction 
+        SET picture=:picture 
+        WHERE ".self::TABLE.".id=:id");
+        $request->bindValue(':id', $id, \PDO::PARAM_INT);
+        $request->bindValue(':picture', $figure['picture'], \PDO::PARAM_STR);
+        return $request->execute();
+    }
+
+    public function editDataFigure(array $figure, int $id): bool
+    {
+        $request = $this->pdo->prepare("UPDATE ".self::TABLE." 
+        SET name=:name, bio=:bio, id_movie=:movie, id_faction=:faction 
         WHERE ".self::TABLE.".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $figure['name'], \PDO::PARAM_STR);
-        $request->bindValue(':picture', $figure['picture'], \PDO::PARAM_STR);
         $request->bindValue(':bio', $figure['bio'], \PDO::PARAM_STR);
         $request->bindValue(':movie', $figure['movie'], \PDO::PARAM_INT);
         $request->bindValue(':faction', $figure['faction'], \PDO::PARAM_INT);
         return $request->execute();
     }
-
 
     public function deleteFigure(int $id): void
     {
@@ -71,5 +74,4 @@ class FigureManager extends AbstractManager
         $request->bindValue(":id", $id, \PDO::PARAM_INT);
         $request->execute();
     }
-
 }

@@ -2,7 +2,11 @@
     <form method="post" enctype="multipart/form-data" class="col-12 col-md-4 d-flex flex-column">
         <div class="form-row">
             <div class="form-group col-8 offset-2">
-                <img src="{{planet.picture}}" class="picture" title="{{planet.name}}">
+                {% if planet.picture %}
+                    <img src="{{planet.picture}}" class="picture" alt="{{planet.name}}" title="{{planet.name}}" />
+                {% else %}
+                    <img src="{{noPicture}}" class="picture" alt="Pas d'image" title="Pas d'image" />
+                {% endif %}
                 <input type="hidden" id="picture" name="picture" value="{{planet.picture}}" >
             </div>
         </div>

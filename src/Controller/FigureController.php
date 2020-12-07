@@ -26,9 +26,9 @@ class FigureController extends AbstractController
         
         return $this->twig->render('Figure/list.html.twig', [
           'figures' => $figures,
+          'noPicture' => self::EMPTY_PICTURE,
           ]);
     }
-
 
     /**
      * @param int $id
@@ -44,9 +44,9 @@ class FigureController extends AbstractController
 
       return $this->twig->render('Figure/details.html.twig', [
         'figure' => $figure,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
-
 
     /**
      * @return string
@@ -100,6 +100,7 @@ class FigureController extends AbstractController
         'factionError'  => $factionError,
         'movies'        => $movies,
         'factions'      => $factions,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -113,33 +114,71 @@ class FigureController extends AbstractController
     public function edit(int $id) : string
     {
 
-      $nameError = $bioError = $movieError = $factionError = null;
+      $nameError = $bioError = $movieError = $factionError = $pictureError = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
-        if (empty($_POST['name']) || !isset($_POST['name'])) {
-          $nameError = "Merci de saisir un nom de personnage";
-          $isValid = false;
-        }
-        if (empty($_POST['bio']) || !isset($_POST['bio'])) {
-          $bioError = "Merci de saisir une biographie";
-          $isValid = false;
-        }
-        if (empty($_POST['movie']) || !isset($_POST['movie'])) {
-          $movieError = "Merci de sélectionner un film";
-          $isValid = false;
-        }
-        if (empty($_POST['faction']) || !isset($_POST['faction'])) {
-          $factionError = "Merci de sélectionner une faction";
-          $isValid = false;
-        }
 
-        if ($isValid) {
-          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
-              $_POST["picture"] = self::EMPTY_PICTURE;
+        if (isset($_POST['modify-data'])) { // data
+
+          if (empty($_POST['name']) || !isset($_POST['name'])) {
+            $nameError = "Merci de saisir un nom de personnage";
+            $isValid = false;
+          }
+          if (empty($_POST['bio']) || !isset($_POST['bio'])) {
+            $bioError = "Merci de saisir une biographie";
+            $isValid = false;
+          }
+          if (empty($_POST['movie']) || !isset($_POST['movie'])) {
+            $movieError = "Merci de sélectionner un film";
+            $isValid = false;
+          }
+          if (empty($_POST['faction']) || !isset($_POST['faction'])) {
+            $factionError = "Merci de sélectionner une faction";
+            $isValid = false;
+          }
+
+          if ($isValid) {
+            $figureManager = new FigureManager();
+            $figureManager->editDataFigure($_POST, $id);
+            header('Location:/Figure/edit/'.$id);
+          }
+
+        } else { // picture
+
+          if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
+            $folder = 'figure';
+
+            $allowed = array('png', 'jpg', 'jpeg', 'gif');
+            $file_ext = explode('.', $_FILES['new-picture']['name']);
+            $file_ext = strtolower(end($file_ext));
+
+            $file_name_new = uniqid($folder.'-', false) . '.' . $file_ext;
+            $file_destination = 'assets/images/'.$folder.'/' . $file_name_new;
+
+            $filename = substr($_POST['picture'], 1);
+
+            if ($_FILES['new-picture']['size'] > 2097152) {
+              $pictureError = "La photo ne doit pas dépasser 2 Mo";
+              $isValid = false;
             }
-          $figureManager = new FigureManager();
-          $figureManager->editFigure($_POST, $id);
-          header('Location:/Figure/list/');
+            if(!in_array($file_ext, $allowed)) {
+              $pictureError = "La photo doit être au format jpg, jpeg, gif ou png";
+              $isValid = false;
+            }
+
+            if ($isValid) {
+              if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $file_destination)) {
+                $figureManager = new FigureManager();
+                $figureManager->editPictureFigure(['picture' => '/'.$file_destination], $id);
+                if (file_exists($filename)) {
+                  unlink($filename);
+                }
+                header('Location:/figure/edit/'.$id);
+              } else {
+                $pictureError = "Erreur durant l'importation de la photo";
+              }
+            }
+          }
         }
       }
 
@@ -157,12 +196,13 @@ class FigureController extends AbstractController
         'bioError'      => $bioError,
         'movieError'    => $movieError,
         'factionError'  => $factionError,
-        'figure'  => $figure,
-        'movies'  => $movies,
-        'factions' => $factions,
+        'pictureError'  => $pictureError,
+        'figure'        => $figure,
+        'movies'        => $movies,
+        'factions'      => $factions,
+        'noPicture'     => self::EMPTY_PICTURE,
       ]);
     }
-
 
     /**
      * @return string
