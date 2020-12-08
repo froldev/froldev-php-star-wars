@@ -103,6 +103,7 @@ class PlanetController extends AbstractController
           }
           $planetManager = new PlanetManager();
           $planetManager->insertPlanet($_POST);
+          $this->updateFolderPictures();
           header('Location:/planet/list/');
         }
       }
@@ -172,6 +173,7 @@ class PlanetController extends AbstractController
           }
           $planetManager = new PlanetManager();
           $planetManager->editPlanet($_POST, $id);
+          $this->updateFolderPictures();
           header('Location:/planet/list/');
         }
       }
@@ -196,6 +198,29 @@ class PlanetController extends AbstractController
     {
       $planetManager = new PlanetManager();
       $planet = $planetManager->deletePlanet($id);
+      $this->updateFolderPictures();
       header('Location: /planet/list/'.$id);
+    }
+
+    public function updateFolderPictures()
+    {
+      $folder = "planet";
+
+      $path = "/assets/images/".$folder."/";
+      $planetManager = new PlanetManager(); // pictures in bdd
+      $pictures = $planetManager->listOfPlanet();
+      foreach ($pictures as $key=>$value)
+      {
+        $pictureTable[$key] = trim(current(str_replace($path, " ", $value)));
+      }
+      $dir = substr($path, 1);; // pictures in folder
+      $scan = array_diff(scandir($dir), array('..', '.'));
+
+      $diff = array_diff($scan, $pictureTable); // differences
+      foreach ($diff as $filename){ // delete pictures in folder but not in bdd
+        if (file_exists(substr($path, 1).$filename)) {
+          unlink(substr($path, 1).$filename);
+        }
+      }
     }
 }
