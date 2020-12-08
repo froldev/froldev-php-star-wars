@@ -488,6 +488,29 @@ form label {
     box-shadow: none;
 }
 
+.main .label-picture {
+    font-family: inherit;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding: 5px;
+    border: none;
+    border-top: 1px solid #FFDE00;
+    background-color: #FFDE00 !important;
+    -webkit-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+    color: black;
+    background-color: #000;
+    border-radius: 0;
+    box-shadow: none;
+    height: 33px;
+}
+
+#new-picture:hover {
+    cursor: pointer;
+}
+
 .main ul {
     list-style: none;
     padding: 0;
