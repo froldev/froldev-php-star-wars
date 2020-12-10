@@ -7,14 +7,18 @@
         <h1 class="col-12">{{faction.name}} </h1>
     </div>
     <div class="row row-btn">
-        <form class="col-12" method="post" action="/faction/delete/{{figure.id}}">
+        <form class="col-12" method="post" action="/faction/delete/{{faction.id}}">
             <input type="submit" name="delete" value="supprimer" class="float-right btn sith">
         </form>
     </div>
     <div class="row detail">
         <figure class="col-12 col-md-4 d-flex justify-content-center align-items-center">
             <div class="col-8 offset-2">
-                <img src="{{faction.picture}}" alt="{{faction.name}}" class="img-fluid"/>
+                {% if faction.picture %}
+                    <img src="{{faction.picture}}" alt="{{faction.name}}" class="img-fluid"/>
+                {% else %}
+                    <img src="{{noPicture}}" alt="Pas d'image" class="img-fluid" />
+                {% endif %}
             </div>
         </figure>
         <div class="col-12 col-md-8 d-flex justify-content-center align-items-center">

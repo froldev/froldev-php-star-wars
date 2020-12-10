@@ -13,7 +13,11 @@
         {% for faction in factions %}
             <div class="col-md-4 col-sm-12 text-center card-view">
                 <a href="/faction/details/{{faction.id}}">
-                    <img src="{{faction.picture}}" alt="{{faction.name}}" border="0">
+                    {% if faction.picture %}
+                        <img src="{{faction.picture}}" alt="{{faction.name}}" border="0" />
+                    {% else %}
+                        <img src="{{noPicture}}" alt="Pas d'image" border="0"  />
+                    {% endif %}
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <h5>{{faction.name}}</h5>
                     </div>
