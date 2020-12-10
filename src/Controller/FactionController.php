@@ -102,9 +102,9 @@ class FactionController extends AbstractController
             $_POST["picture"] = self::EMPTY_PICTURE;
           }
           $factionManager = new FactionManager();
-          if ($factionManager->insertFaction($_POST)) {
-            header("Location:/faction/list");
-          }
+          $factionManager->insertFaction($_POST);
+          $this->updateFolderPictures();
+          header("Location:/faction/list");
         }
       }
 
@@ -174,6 +174,7 @@ class FactionController extends AbstractController
           }
           $factionManager = new FactionManager();
           $factionManager->editFaction($_POST, $id);
+          $this->updateFolderPictures();
           header('Location:/faction/list');
         }
       }
@@ -188,7 +189,6 @@ class FactionController extends AbstractController
       ]);
     }
 
-
     /**
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -199,6 +199,29 @@ class FactionController extends AbstractController
     {
       $factionManager = new FactionManager();
       $faction = $factionManager->deleteFaction($id);
+      $this->updateFolderPictures();
       header('Location: /faction/list/'.$id);
+    }
+
+    public function updateFolderPictures()
+    {
+      $folder = "faction";
+
+      $path = "/assets/images/".$folder."/";
+      $factionManager = new FactionManager(); // pictures in bdd
+      $pictures = $factionManager->listOfFaction();
+      foreach ($pictures as $key=>$value)
+      {
+        $pictureTable[$key] = trim(current(str_replace($path, " ", $value)));
+      }
+      $dir = substr($path, 1);; // pictures in folder
+      $scan = array_diff(scandir($dir), array('..', '.'));
+
+      $diff = array_diff($scan, $pictureTable); // differences
+      foreach ($diff as $filename){ // delete pictures in folder but not in bdd
+        if (file_exists(substr($path, 1).$filename)) {
+          unlink(substr($path, 1).$filename);
+        }
+      }
     }
 }

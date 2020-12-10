@@ -41,4 +41,10 @@ class PlanetManager extends AbstractManager
         $request->bindValue(":id", $id, \PDO::PARAM_INT);
         $request->execute();
     }
+
+    public function listOfPlanet(): array
+    {
+        $request = $this->pdo->query("SELECT planet FROM " .self::TABLE);
+        return $request->fetchAll();
+    }
 }
