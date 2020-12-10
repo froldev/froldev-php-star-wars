@@ -26,19 +26,12 @@ class FactionManager extends AbstractManager
         return $request->execute();
     }
 
-    public function editPictureFaction(array $faction, int $id): bool
+    public function editFaction(array $faction, int $id): bool
     {
-        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET picture=:picture WHERE " . self::TABLE . ".id=:id");
-        $request->bindValue(':id', $id, \PDO::PARAM_INT);
-        $request->bindValue(':picture', $faction['picture'], \PDO::PARAM_STR);
-        return $request->execute();
-    }
-
-    public function editDataFaction(array $faction, int $id): bool
-    {
-        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name=:name WHERE " . self::TABLE . ".id=:id");
+        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name=:name, picture=:picture WHERE " . self::TABLE . ".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $faction['name'], \PDO::PARAM_STR);
+        $request->bindValue(':picture', $faction['picture'], \PDO::PARAM_STR);
         return $request->execute();
     }
 
