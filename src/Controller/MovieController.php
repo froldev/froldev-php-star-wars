@@ -59,7 +59,7 @@ class MovieController extends AbstractController
 
         // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'planet';
+          $folder = 'movie';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
@@ -104,6 +104,7 @@ class MovieController extends AbstractController
           }
           $movieManager = new MovieManager();
           $movieManager->insertMovie($_POST);
+          $this->updateFolderPictures();
           header('Location:/movie/list');
         }
       }
@@ -174,6 +175,7 @@ class MovieController extends AbstractController
           }
           $movieManager = new MovieManager();
           $movieManager->editMovie($_POST, $id);
+          $this->updateFolderPictures();
           header('Location:/movie/list');
         }
       }
@@ -198,6 +200,29 @@ class MovieController extends AbstractController
     {
       $movieManager = new MovieManager();
       $movie = $movieManager->deleteMovie($id);
+      $this->updateFolderPictures();
       header('Location: /movie/list/'.$id);
+    }
+
+    public function updateFolderPictures()
+    {
+      $folder = "movie";
+
+      $path = "/assets/images/".$folder."/";
+      $movieManager = new MovieManager(); // pictures in bdd
+      $pictures = $movieManager->listOfMovie();
+      foreach ($pictures as $key=>$value)
+      {
+        $pictureTable[$key] = trim(current(str_replace($path, " ", $value)));
+      }
+      $dir = substr($path, 1);; // pictures in folder
+      $scan = array_diff(scandir($dir), array('..', '.'));
+
+      $diff = array_diff($scan, $pictureTable); // differences
+      foreach ($diff as $filename){ // delete pictures in folder but not in bdd
+        if (file_exists(substr($path, 1).$filename)) {
+          unlink(substr($path, 1).$filename);
+        }
+      }
     }
 }

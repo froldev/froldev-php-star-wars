@@ -41,4 +41,10 @@ class MovieManager extends AbstractManager
         $request->bindValue(":id", $id, \PDO::PARAM_INT);
         $request->execute();
     }
+
+    public function listOfMovie(): array
+    {
+        $request = $this->pdo->query("SELECT picture FROM " .self::TABLE);
+        return $request->fetchAll();
+    }
 }

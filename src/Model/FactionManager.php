@@ -44,7 +44,7 @@ class FactionManager extends AbstractManager
 
     public function listOfFaction(): array
     {
-        $request = $this->pdo->query("SELECT planet FROM " .self::TABLE);
+        $request = $this->pdo->query("SELECT picture FROM " .self::TABLE);
         return $request->fetchAll();
     }
 }

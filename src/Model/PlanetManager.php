@@ -44,7 +44,7 @@ class PlanetManager extends AbstractManager
 
     public function listOfPlanet(): array
     {
-        $request = $this->pdo->query("SELECT planet FROM " .self::TABLE);
+        $request = $this->pdo->query("SELECT picture FROM " .self::TABLE);
         return $request->fetchAll();
     }
 }
