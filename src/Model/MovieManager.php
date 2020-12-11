@@ -26,19 +26,12 @@ class MovieManager extends AbstractManager
         return $request->execute();
     }
 
-    public function editPictureMovie(array $movie, int $id): bool
+    public function editMovie(array $movie, int $id): bool
     {
-        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET picture=:picture WHERE " . self::TABLE . ".id=:id");
-        $request->bindValue(':id', $id, \PDO::PARAM_INT);
-        $request->bindValue(':picture', $movie['picture'], \PDO::PARAM_STR);
-        return $request->execute();
-    }
-
-    public function editDataMovie(array $movie, int $id): bool
-    {
-        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET title=:title WHERE " . self::TABLE . ".id=:id");
+        $request = $this->pdo->prepare("UPDATE " . self::TABLE . " SET title=:title, picture=:picture WHERE " . self::TABLE . ".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':title', $movie['title'], \PDO::PARAM_STR);
+        $request->bindValue(':picture', $movie['picture'], \PDO::PARAM_STR);
         return $request->execute();
     }
 
