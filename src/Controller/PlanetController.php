@@ -174,7 +174,7 @@ class PlanetController extends AbstractController
           $planetManager = new PlanetManager();
           $planetManager->editPlanet($_POST, $id);
           $this->updateFolderPictures();
-          header('Location:/planet/list/');
+          header('Location:/planet/list');
         }
       }
 

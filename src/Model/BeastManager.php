@@ -46,23 +46,14 @@ class BeastManager extends AbstractManager
         return $request->execute();
     }
 
-    public function editPictureBeast(array $beast, int $id): bool
+    public function editBeast(array $beast, int $id): bool
     {
         $request = $this->pdo->prepare("UPDATE " .self::TABLE. 
-        " SET picture=:picture
-        WHERE " .self::TABLE. ".id=:id");
-        $request->bindValue(':id', $id, \PDO::PARAM_INT);
-        $request->bindValue(':picture', $beast['picture'], \PDO::PARAM_STR);
-        return $request->execute();
-    }
-
-    public function editDataBeast(array $beast, int $id): bool
-    {
-        $request = $this->pdo->prepare("UPDATE " .self::TABLE. 
-        " SET name =:name, size=:size, area=:area, id_movie=:movie, id_planet=:planet 
+        " SET name =:name, picture=:picture, size=:size, area=:area, id_movie=:movie, id_planet=:planet 
         WHERE " .self::TABLE. ".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $beast['name'], \PDO::PARAM_STR);
+        $request->bindValue(':picture', $beast['picture'], \PDO::PARAM_STR);
         $request->bindValue(':size', $beast['size'], \PDO::PARAM_STR);
         $request->bindValue(':area', $beast['area'], \PDO::PARAM_STR);
         $request->bindValue(':movie', $beast['movie'], \PDO::PARAM_INT);

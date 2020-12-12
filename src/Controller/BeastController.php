@@ -35,9 +35,46 @@ class BeastController extends AbstractController
 
     public function add() : string
     {
-      $nameError = $sizeError = $areaError = $movieError = $planetError = null;
+      $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
+
+        // download picture
+        if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
+          $folder = 'beast';
+
+          $allowed = array('png', 'jpg', 'jpeg', 'gif');
+          $file_ext = explode('.', $_FILES['new-picture']['name']);
+          $file_ext = strtolower(end($file_ext));
+
+          $file_name_new = uniqid($folder.'-', false) . '.' . $file_ext;
+          $file_destination = 'assets/images/'.$folder.'/' . $file_name_new;
+
+          $filename = substr($_FILES['new-picture']['name'], 1);
+
+          if ($_FILES['new-picture']['size'] > 2097152) {
+            $pictureError = "La photo ne doit pas dépasser 2 Mo";
+            $isValid = false;
+          }
+          if(!in_array($file_ext, $allowed)) {
+            $pictureError = "La photo doit être au format jpg, jpeg, gif ou png";
+            $isValid = false;
+          }
+
+          if ($isValid) {
+            if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $file_destination)) {
+              $_POST['picture'] = "/".$file_destination;
+              if (file_exists($filename)) {
+                unlink($filename);
+              }
+            } else {
+              $pictureError = "Erreur durant l'importation de la photo";
+              $isValid = false;
+            }
+          }
+        }
+        
+        // save data
         if (empty($_POST['name']) || !isset($_POST['name'])) {
           $nameError = "Merci de saisir un nom";
           $isValid = false;
@@ -84,81 +121,80 @@ class BeastController extends AbstractController
         'planetError' => $planetError,
         'movies'      => $movies,
         'planets'     => $planets,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'   => self::EMPTY_PICTURE,
       ]);
     }
 
     public function edit(int $id) : string
     {
-      $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = null;
+      $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
 
-        if (isset($_POST['modify-data'])) { // data
+        // download picture
+        if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
+          $folder = 'beast';
 
-          if (empty($_POST['name']) || !isset($_POST['name'])) {
-            $nameError = "Merci de saisir un nom";
+          $allowed = array('png', 'jpg', 'jpeg', 'gif');
+          $file_ext = explode('.', $_FILES['new-picture']['name']);
+          $file_ext = strtolower(end($file_ext));
+
+          $file_name_new = uniqid($folder.'-', false) . '.' . $file_ext;
+          $file_destination = 'assets/images/'.$folder.'/' . $file_name_new;
+
+          $filename = substr($_POST['picture'], 1);
+
+          if ($_FILES['new-picture']['size'] > 2097152) {
+            $pictureError = "La photo ne doit pas dépasser 2 Mo";
             $isValid = false;
           }
-          if (empty($_POST['size']) || !isset($_POST['size'])) {
-            $sizeError = "Merci de saisir une taille en mètres";
-            $isValid = false;
-          }
-          if (empty($_POST['area']) || !isset($_POST['area'])) {
-            $areaError = "Merci de saisir une surface";
-            $isValid = false;
-          }
-          if (empty($_POST['movie']) || !isset($_POST['movie'])) {
-            $movieError = "Merci de sélectionner le film de la première apparition";
-            $isValid = false;
-          }
-          if (empty($_POST['planet']) || !isset($_POST['planet'])) {
-            $planetError = "Merci de sélectionner une planète";
+          if(!in_array($file_ext, $allowed)) {
+            $pictureError = "La photo doit être au format jpg, jpeg, gif ou png";
             $isValid = false;
           }
 
           if ($isValid) {
-            $beastManager = new BeastManager();
-          $beastManager->editDataBeast($_POST, $id);
-          header('Location:/beast/edit/'.$id);
-          }
-
-        } else { // picture
-
-          if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-            $folder = 'beast';
-
-            $allowed = array('png', 'jpg', 'jpeg', 'gif');
-            $file_ext = explode('.', $_FILES['new-picture']['name']);
-            $file_ext = strtolower(end($file_ext));
-
-            $file_name_new = uniqid($folder.'-', false) . '.' . $file_ext;
-            $file_destination = 'assets/images/'.$folder.'/' . $file_name_new;
-
-            $filename = substr($_POST['picture'], 1);
-
-            if ($_FILES['new-picture']['size'] > 2097152) {
-              $pictureError = "La photo ne doit pas dépasser 2 Mo";
-              $isValid = false;
-            }
-            if(!in_array($file_ext, $allowed)) {
-              $pictureError = "La photo doit être au format jpg, jpeg, gif ou png";
-              $isValid = false;
-            }
-
-            if ($isValid) {
-              if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $file_destination)) {
-                $beastManager = new BeastManager();
-                $beastManager->editPictureBeast(['picture' => '/'.$file_destination], $id);
-                if (file_exists($filename)) {
-                  unlink($filename);
-                }
-                header('Location:/beast/edit/'.$id);
-              } else {
-                $pictureError = "Erreur durant l'importation de la photo";
+            if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $file_destination)) {
+              $_POST['picture'] = "/".$file_destination;
+              if (file_exists($filename)) {
+                unlink($filename);
               }
+            } else {
+              $pictureError = "Erreur durant l'importation de la photo";
+              $isValid = false;
             }
           }
+        }
+        
+        // save data
+        if (empty($_POST['name']) || !isset($_POST['name'])) {
+          $nameError = "Merci de saisir un nom";
+          $isValid = false;
+        }
+        if (empty($_POST['size']) || !isset($_POST['size'])) {
+          $sizeError = "Merci de saisir une taille en mètres";
+          $isValid = false;
+        }
+        if (empty($_POST['area']) || !isset($_POST['area'])) {
+          $areaError = "Merci de saisir une surface";
+          $isValid = false;
+        }
+        if (empty($_POST['movie']) || !isset($_POST['movie'])) {
+          $movieError = "Merci de sélectionner le film de la première apparition";
+          $isValid = false;
+        }
+        if (empty($_POST['planet']) || !isset($_POST['planet'])) {
+          $planetError = "Merci de sélectionner une planète";
+          $isValid = false;
+        }
+
+        if ($isValid) {
+          if (empty($_POST['picture']) || !isset($_POST['picture'])) {
+            $_POST["picture"] = self::EMPTY_PICTURE;
+          }
+          $beastManager = new BeastManager();
+          $beastManager->editBeast($_POST, $id);
+          header('Location:/beast/list');
         }
       }
 
@@ -181,7 +217,6 @@ class BeastController extends AbstractController
         'beast'         => $beast,
         'movies'        => $movies,
         'planets'       => $planets,
-        'noPicture'     => self::EMPTY_PICTURE,
       ]);
     }
 

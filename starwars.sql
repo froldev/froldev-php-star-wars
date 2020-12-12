@@ -98,7 +98,7 @@ CREATE TABLE `beast` (
 --
 
 INSERT INTO `beast` (`id`, `name`, `picture`, `size`, `area`, `id_movie`, `id_planet`) VALUES
-(1, "Orray", "", 2, "Desert", 2, 6),
+(1, "Orray", "/assets/images/beast/beast-5fd50ebbee80d.jpeg", 2, "Desert", 2, 6),
 (2, "Massiff", "/assets/images/beast/beast-5fcdfaf767e15.jpeg", 1, "Desert", 2, 6),
 (3, "Wampa", "/assets/images/beast/beast-5fcdfdf70e086.jpeg", 3, "Caverne", 5, 7),
 (4, "Tauntaun", "/assets/images/beast/beast-5fcdfdc7f3ab6.jpeg", 2, "Desert de Glace", 5, 7),
