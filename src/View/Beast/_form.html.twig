@@ -1,81 +1,63 @@
-<div class="row mb-4">
-    <form method="post" enctype="multipart/form-data" class="col-12 col-md-4 d-flex flex-column">
-        <div class="form-row">
-            <div class="form-group col-8 offset-2">
-                {% if beast.picture %}
-                    <img src="{{beast.picture}}" class="picture" alt="{{beast.name}}" title="{{beast.name}}">
-                {% else %}
-                    <img src="{{noPicture}}" class="picture" alt="Pas d'image" title="Pas d'image" >
-                {% endif %}
-                <input type="hidden" id="picture" name="picture" value="{{beast.picture}}" >
+<form method="post" enctype="multipart/form-data" class="mb-3" >
+    <div class="form-row">
+        <div class="form-group col-12 col-md-6">
+            <label for="name">nom :</label>
+            <input type="text" class="form-control" name="name" value="{{beast.name}}" >
+            <div class="invalid-feedback sith">
+                {{ nameError }}
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-12 d-flex flex-column">
-                <input type="file" id="new-picture" name="new-picture" />
-                <div class="invalid-feedback sith">
-                    {{ nameError }}
-                </div>
+        <div class="form-group col-12 col-md-6">
+            <label for="new-picture">image :</label>
+            <label class="label-picture col-12">{{beast.picture}}</label>
+            <input type="hidden" name="picture" value="{{beast.picture}}" >
+            <input type="file" id="new-picture" name="new-picture" class="form-control"  />
+            <div class="invalid-feedback sith">
+                {{ pictureError }}
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-12 d-flex justify-content-center">
-                <input type="submit" value="Valider l'image" class="btn consular"/>
+        <div class="form-group col-12 col-md-6">
+            <label for="size">taille (en mètre):</label>
+            <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
+            <div class="invalid-feedback sith">
+                {{ sizeError }}
             </div>
         </div>
-    </form>
-    <form method="post" class="col-12 col-md-8 d-flex flex-column">
-        <div class="form-row">
-            <div class="form-group col-12">
-                <label for="title">Nom :</label>
-                <input type="text" class="form-control" name="name" value="{{beast.name}}" >
-                <div class="invalid-feedback sith">
-                    {{ nameError }}
-                </div>
-            </div>
-            <div class="form-group col-12">
-                <label for="size">taille (en mètre):</label>
-                <input type="text" class="form-control" name="size" id="size" value="{{beast.size}}" />
-                <div class="invalid-feedback sith">
-                    {{ sizeError }}
-                </div>
-            </div>
-            <div class="form-group col-12">
-                <label for="planet">planète :</label>
-                <select name="planet" class="custom-select" id="planet">
-                    <option value=""></option>
-                    {% for planet in planets %}
-                    <option value="{{planet.id}}" {{ beast.id_planet == planet.id ? "selected" }}>{{planet.name}}</option>
-                    {% endfor %}
-                </select>
-                <div class="invalid-feedback sith">
-                    {{ planetError }}
-                </div>
-            </div>
-            <div class="form-group col-12">
-                <label for="area">surface :</label>
-                <input type="text" class="form-control" name="area" value="{{beast.area}}" >
-                <div class="invalid-feedback sith">
-                    {{ areaError }}
-                </div>
-            </div>
-            <div class="form-group col-12">
-                <label for="movies">première apparition :</label>
-                <select name="movie" class="custom-select" id="movie">
-                    <option value=""></option>
-                    {% for movie in movies %}
-                    <option value="{{movie.id}}" {{ beast.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
-                    {% endfor %}
-                </select>
-                <div class="invalid-feedback sith">
-                    {{ movieError }}
-                </div>
+        <div class="form-group col-12 col-md-6">
+            <label for="planet">planète :</label>
+            <select name="planet" class="custom-select" id="planet">
+                <option value=""></option>
+                {% for planet in planets %}
+                <option value="{{planet.id}}" {{ beast.id_planet == planet.id ? "selected" }}>{{planet.name}}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback sith">
+                {{ planetError }}
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-12 d-flex justify-content-center">
-                <input type="submit" name="modify-data" value="Valider les données" class="consular">
+        <div class="form-group col-12 col-md-6">
+            <label for="area">surface :</label>
+            <input type="text" class="form-control" name="area" value="{{beast.area}}" >
+            <div class="invalid-feedback sith">
+                {{ areaError }}
             </div>
         </div>
-    </form>
-</div>
+        <div class="form-group col-12 col-md-6">
+            <label for="movies">première apparition :</label>
+            <select name="movie" class="custom-select" id="movie">
+                <option value=""></option>
+                {% for movie in movies %}
+                <option value="{{movie.id}}" {{ beast.id_movie == movie.id ? "selected" }}>{{movie.title}}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback sith">
+                {{ movieError }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12">
+            <input type="submit" value="Valider" class="float-right consular">
+        </div>
+    </div>
+</form>
