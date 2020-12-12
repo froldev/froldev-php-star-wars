@@ -67,4 +67,10 @@ class BeastManager extends AbstractManager
         $request->bindValue(":id", $id, \PDO::PARAM_INT);
         $request->execute();
     }
+
+    public function listOfBeast(): array
+    {
+        $request = $this->pdo->query("SELECT picture FROM " .self::TABLE);
+        return $request->fetchAll();
+    }
 }

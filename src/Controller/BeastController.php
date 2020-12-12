@@ -101,9 +101,9 @@ class BeastController extends AbstractController
             $_POST["picture"] = self::EMPTY_PICTURE;
           }
           $beastManager = new BeastManager();
-          if ($beastManager->insertBeast($_POST)) {
-            header("Location:/beast/list");
-          }
+          $beastManager->editBeast($_POST, $id);
+          $this->updateFolderPictures();
+          header('Location:/beast/list');
         }
       }
 
@@ -194,6 +194,7 @@ class BeastController extends AbstractController
           }
           $beastManager = new BeastManager();
           $beastManager->editBeast($_POST, $id);
+          $this->updateFolderPictures();
           header('Location:/beast/list');
         }
       }
@@ -220,11 +221,33 @@ class BeastController extends AbstractController
       ]);
     }
 
-
     public function delete(int $id): void
     {
       $beastManager = new BeastManager();
       $beast = $beastManager->deleteBeast($id);
+      $this->updateFolderPictures();
       header('Location: /beast/list/'.$id);
+    }
+
+    public function updateFolderPictures()
+    {
+      $folder = "beast";
+
+      $path = "/assets/images/".$folder."/";
+      $beastManager = new BeastManager(); // pictures in bdd
+      $pictures = $beastManager->listOfBeast();
+      foreach ($pictures as $key=>$value)
+      {
+        $pictureTable[$key] = trim(current(str_replace($path, " ", $value)));
+      }
+      $dir = substr($path, 1);; // pictures in folder
+      $scan = array_diff(scandir($dir), array('..', '.'));
+
+      $diff = array_diff($scan, $pictureTable); // differences
+      foreach ($diff as $filename){ // delete pictures in folder but not in bdd
+        if (file_exists(substr($path, 1).$filename)) {
+          unlink(substr($path, 1).$filename);
+        }
+      }
     }
 }
