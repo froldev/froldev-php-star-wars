@@ -24,6 +24,7 @@ class FactionController extends AbstractController
 
         return $this->twig->render('Faction/list.html.twig', [
           'factions' => $factions,
+          'noPicture' => self::EMPTY_PICTURE,
           ]);
     }
 
@@ -41,6 +42,7 @@ class FactionController extends AbstractController
 
       return $this->twig->render('Faction/details.html.twig', [
         'faction' => $faction,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -111,6 +113,7 @@ class FactionController extends AbstractController
       return $this->twig->render('Faction/add.html.twig', [
         'nameError' => $nameError,
         'pictureError'  => $pictureError,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -186,6 +189,7 @@ class FactionController extends AbstractController
         'nameError' => $nameError,
         'pictureError'   => $pictureError,
         'faction' => $faction,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 

@@ -24,6 +24,7 @@ class MovieController extends AbstractController
 
         return $this->twig->render('Movie/list.html.twig', [
           'movies' => $movies,
+          'noPicture' => self::EMPTY_PICTURE,
           ]);
     }
 
@@ -41,6 +42,7 @@ class MovieController extends AbstractController
 
       return $this->twig->render('Movie/details.html.twig', [
         'movie' => $movie,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -111,7 +113,8 @@ class MovieController extends AbstractController
 
       return $this->twig->render('Movie/edit.html.twig', [
         'titleError'      => $titleError,
-        'pictureError'    => $pictureError
+        'pictureError'    => $pictureError,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -187,6 +190,7 @@ class MovieController extends AbstractController
         'titleError'      => $titleError,
         'pictureError'    => $pictureError,
         'movie'           => $movie,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 

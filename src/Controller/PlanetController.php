@@ -24,6 +24,7 @@ class PlanetController extends AbstractController
 
         return $this->twig->render('Planet/list.html.twig', [
           'planets' => $planets,
+          'noPicture' => self::EMPTY_PICTURE,
           ]);
     }
 
@@ -41,6 +42,7 @@ class PlanetController extends AbstractController
 
       return $this->twig->render('Planet/details.html.twig', [
         'planet' => $planet,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -111,6 +113,7 @@ class PlanetController extends AbstractController
       return $this->twig->render('Planet/edit.html.twig', [
         'nameError'     => $nameError,
         'pictureError'  => $pictureError,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -185,6 +188,7 @@ class PlanetController extends AbstractController
         'nameError'     => $nameError,
         'pictureError'  => $pictureError,
         'planet'        => $planet,
+        'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
