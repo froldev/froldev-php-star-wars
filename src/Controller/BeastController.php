@@ -128,12 +128,13 @@ class BeastController extends AbstractController
     public function edit(int $id) : string
     {
       $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = $pictureError = $file_destination = null;
+      $folder = 'beast';
+
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
 
         // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'beast';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
@@ -208,6 +209,8 @@ class BeastController extends AbstractController
       $planetManager = new PlanetManager();
       $planets = $planetManager->selectPlanet();
 
+      $pictureName = (str_replace('/assets/images/'.$folder.'/', '', $beast['picture']));
+
       return $this->twig->render('Beast/edit.html.twig', [
         'nameError'     => $nameError,
         'sizeError'     => $sizeError,
@@ -218,6 +221,7 @@ class BeastController extends AbstractController
         'beast'         => $beast,
         'movies'        => $movies,
         'planets'       => $planets,
+        'pictureName'   => $pictureName,
       ]);
     }
 
