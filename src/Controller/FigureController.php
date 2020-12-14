@@ -119,6 +119,7 @@ class FigureController extends AbstractController
           }
           $figureManager = new FigureManager();
           $figureManager->insertFigure($_POST);
+          $this->updateFolderPictures();
           header("Location:/Figure/list");
         }
       }
@@ -214,6 +215,7 @@ class FigureController extends AbstractController
           }
           $figureManager = new FigureManager();
           $figureManager->editFigure($_POST, $id);
+          $this->updateFolderPictures();
           header('Location:/Figure/list');
         }
       }
@@ -250,6 +252,29 @@ class FigureController extends AbstractController
     {
       $figureManager = new FigureManager();
       $figure = $figureManager->deleteFigure($id);
+      $this->updateFolderPictures();
       header('Location: /Figure/list/'.$id);
+    }
+
+    public function updateFolderPictures()
+    {
+      $folder = "movie";
+
+      $path = "/assets/images/".$folder."/";
+      $figureManager = new FigureManager(); // pictures in bdd
+      $pictures = $figureManager->listOfMovie();
+      foreach ($pictures as $key=>$value)
+      {
+        $pictureTable[$key] = trim(current(str_replace($path, " ", $value)));
+      }
+      $dir = substr($path, 1);; // pictures in folder
+      $scan = array_diff(scandir($dir), array('..', '.'));
+
+      $diff = array_diff($scan, $pictureTable); // differences
+      foreach ($diff as $filename){ // delete pictures in folder but not in bdd
+        if (file_exists(substr($path, 1).$filename)) {
+          unlink(substr($path, 1).$filename);
+        }
+      }
     }
 }
