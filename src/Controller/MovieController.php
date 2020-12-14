@@ -128,12 +128,13 @@ class MovieController extends AbstractController
     public function edit(int $id) : string
     {
       $titleError =  $pictureError = $file_destination = null;
+      $folder = 'movie';
+
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
 
         // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'movie';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
@@ -186,11 +187,14 @@ class MovieController extends AbstractController
       $movieManager = new MovieManager();
       $movie = $movieManager->selectOneById($id);
 
+      $pictureName = (str_replace('/assets/images/'.$folder.'/', '', $movie['picture']));
+
       return $this->twig->render('Movie/edit.html.twig', [
         'titleError'      => $titleError,
         'pictureError'    => $pictureError,
         'movie'           => $movie,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'       => self::EMPTY_PICTURE,
+        'pictureName'     => $pictureName,
       ]);
     }
 
