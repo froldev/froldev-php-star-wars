@@ -153,12 +153,13 @@ class FigureController extends AbstractController
     {
 
       $nameError = $bioError = $movieError = $factionError = $pictureError = $file_destination = null;
+      $folder = 'figure';
+
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
 
         // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'figure';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
@@ -229,6 +230,8 @@ class FigureController extends AbstractController
       $factionManager = new FactionManager();
       $factions = $factionManager->selectFaction();
 
+      $pictureName = (str_replace('/assets/images/'.$folder.'/', '', $figure['picture']));
+
       return $this->twig->render('Figure/edit.html.twig', [
         'nameError'     => $nameError,
         'bioError'      => $bioError,
@@ -239,6 +242,7 @@ class FigureController extends AbstractController
         'movies'        => $movies,
         'factions'      => $factions,
         'noPicture'     => self::EMPTY_PICTURE,
+        'pictureName'   => $pictureName,
       ]);
     }
 

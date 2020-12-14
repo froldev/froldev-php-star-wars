@@ -221,7 +221,7 @@ class BeastController extends AbstractController
         'beast'         => $beast,
         'movies'        => $movies,
         'planets'       => $planets,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'     => self::EMPTY_PICTURE,
         'pictureName'   => $pictureName,
       ]);
     }
