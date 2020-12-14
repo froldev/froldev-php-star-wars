@@ -9,8 +9,8 @@
         </div>
         <div class="form-group col-12 col-md-6">
             <label for="new-picture">image :</label>
-            <label class="label-picture col-12">{{faction.picture}}</label>
-            <input type="hidden" name="picture" value="{{faction.picture}}" >
+            <label class="label-picture col-12">{{ pictureName }}</label>
+            <input type="hidden" name="picture" value="{{ faction.picture }}" >
             <input type="file" id="new-picture" name="new-picture" class="form-control"  />
             <div class="invalid-feedback sith">
                 {{ pictureError }}

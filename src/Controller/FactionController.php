@@ -111,9 +111,9 @@ class FactionController extends AbstractController
       }
 
       return $this->twig->render('Faction/add.html.twig', [
-        'nameError' => $nameError,
+        'nameError'     => $nameError,
         'pictureError'  => $pictureError,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'     => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -127,12 +127,13 @@ class FactionController extends AbstractController
     public function edit(int $id) : string
     {
       $nameError = $pictureError = $file_destination = null;
+      $folder = 'faction';
+
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
-
+        
           // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'faction';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
@@ -185,11 +186,14 @@ class FactionController extends AbstractController
       $factionManager = new FactionManager();
       $faction = $factionManager->selectOneById($id);
 
+      $pictureName = (str_replace('/assets/images/'.$folder.'/', '', $faction['picture']));
+
       return $this->twig->render('Faction/edit.html.twig', [
-        'nameError' => $nameError,
-        'pictureError'   => $pictureError,
-        'faction' => $faction,
-        'noPicture' => self::EMPTY_PICTURE,
+        'nameError'       => $nameError,
+        'pictureError'    => $pictureError,
+        'faction'         => $faction,
+        'noPicture'       => self::EMPTY_PICTURE,
+        'pictureName'     => $pictureName,
       ]);
     }
 
