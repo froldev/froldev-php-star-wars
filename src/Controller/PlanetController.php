@@ -126,12 +126,13 @@ class PlanetController extends AbstractController
     public function edit(int $id) : string
     {
       $nameError = $pictureError = $file_destination = null;
+      $folder = 'planet';
+
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
 
         // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'planet';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
@@ -184,11 +185,14 @@ class PlanetController extends AbstractController
       $planetManager = new PlanetManager();
       $planet = $planetManager->selectOneById($id);
 
+      $pictureName = (str_replace('/assets/images/'.$folder.'/', '', $planet['picture']));
+
       return $this->twig->render('Planet/edit.html.twig', [
         'nameError'     => $nameError,
         'pictureError'  => $pictureError,
         'planet'        => $planet,
         'noPicture' => self::EMPTY_PICTURE,
+        'pictureName'   => $pictureName,
       ]);
     }
 
