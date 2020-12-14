@@ -45,23 +45,14 @@ class FigureManager extends AbstractManager
         return $request->execute();
     }
 
-    public function editPictureFigure(array $figure, int $id): bool
+    public function editFigure(array $figure, int $id): bool
     {
         $request = $this->pdo->prepare("UPDATE ".self::TABLE." 
-        SET picture=:picture 
-        WHERE ".self::TABLE.".id=:id");
-        $request->bindValue(':id', $id, \PDO::PARAM_INT);
-        $request->bindValue(':picture', $figure['picture'], \PDO::PARAM_STR);
-        return $request->execute();
-    }
-
-    public function editDataFigure(array $figure, int $id): bool
-    {
-        $request = $this->pdo->prepare("UPDATE ".self::TABLE." 
-        SET name=:name, bio=:bio, id_movie=:movie, id_faction=:faction 
+        SET name=:name, picture=:picture, bio=:bio, id_movie=:movie, id_faction=:faction 
         WHERE ".self::TABLE.".id=:id");
         $request->bindValue(':id', $id, \PDO::PARAM_INT);
         $request->bindValue(':name', $figure['name'], \PDO::PARAM_STR);
+        $request->bindValue(':picture', $figure['picture'], \PDO::PARAM_STR);
         $request->bindValue(':bio', $figure['bio'], \PDO::PARAM_STR);
         $request->bindValue(':movie', $figure['movie'], \PDO::PARAM_INT);
         $request->bindValue(':faction', $figure['faction'], \PDO::PARAM_INT);
