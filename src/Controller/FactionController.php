@@ -17,15 +17,15 @@ class FactionController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function list() : string
+    public function list(): string
     {
-        $factionsManager = new FactionManager();
-        $factions = $factionsManager->selectFaction();
+      $factionsManager = new FactionManager();
+      $factions = $factionsManager->selectFaction();
 
-        return $this->twig->render('Faction/list.html.twig', [
-          'factions' => $factions,
-          'noPicture' => self::EMPTY_PICTURE,
-          ]);
+      return $this->twig->render('Faction/list.html.twig', [
+        'factions' => $factions,
+        'noPicture' => self::EMPTY_PICTURE,
+        ]);
     }
 
      /**
@@ -35,7 +35,7 @@ class FactionController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function details(int $id)  : string
+    public function details(int $id): string
     {
       $factionManager = new FactionManager();
       $faction = $factionManager->selectOneById($id);
@@ -53,7 +53,7 @@ class FactionController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add() : string
+    public function add(): string
     {
       $nameError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -124,7 +124,7 @@ class FactionController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function edit(int $id) : string
+    public function edit(int $id): string
     {
       $nameError = $pictureError = $file_destination = null;
       $folder = 'faction';
@@ -211,7 +211,7 @@ class FactionController extends AbstractController
       header('Location: /faction/list/'.$id);
     }
 
-    public function updateFolderPictures()
+    public function updateFolderPictures(): string
     {
       $folder = "faction";
 

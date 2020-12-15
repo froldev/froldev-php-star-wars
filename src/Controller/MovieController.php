@@ -17,15 +17,15 @@ class MovieController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function list() : string
+    public function list(): string
     {
-        $moviesManager = new MovieManager();
-        $movies = $moviesManager->selectMovie();
+      $moviesManager = new MovieManager();
+      $movies = $moviesManager->selectMovie();
 
-        return $this->twig->render('Movie/list.html.twig', [
-          'movies' => $movies,
-          'noPicture' => self::EMPTY_PICTURE,
-          ]);
+      return $this->twig->render('Movie/list.html.twig', [
+        'movies'    => $movies,
+        'noPicture' => self::EMPTY_PICTURE,
+      ]);
     }
 
      /**
@@ -35,13 +35,13 @@ class MovieController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function details(int $id)  : string
+    public function details(int $id): string
     {
       $movieManager = new MovieManager();
       $movie = $movieManager->selectOneById($id);
 
       return $this->twig->render('Movie/details.html.twig', [
-        'movie' => $movie,
+        'movie'     => $movie,
         'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
@@ -53,7 +53,7 @@ class MovieController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add() : string
+    public function add(): string
     {
       $titleError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -114,7 +114,7 @@ class MovieController extends AbstractController
       return $this->twig->render('Movie/edit.html.twig', [
         'titleError'      => $titleError,
         'pictureError'    => $pictureError,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'       => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -125,7 +125,7 @@ class MovieController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function edit(int $id) : string
+    public function edit(int $id): string
     {
       $titleError =  $pictureError = $file_destination = null;
       $folder = 'movie';
@@ -212,7 +212,7 @@ class MovieController extends AbstractController
       header('Location: /movie/list/'.$id);
     }
 
-    public function updateFolderPictures()
+    public function updateFolderPictures(): string
     {
       $folder = "movie";
 

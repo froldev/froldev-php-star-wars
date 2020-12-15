@@ -12,28 +12,29 @@ use App\Model\PlanetManager;
  */
 class BeastController extends AbstractController
 {
-    public function list() : string
+    public function list(): string
     {
-        $beastsManager = new BeastManager();
-        $beasts = $beastsManager->selectBeast();
+      $beastsManager = new BeastManager();
+      $beasts = $beastsManager->selectBeast();
 
-        return $this->twig->render('Beast/list.html.twig', [
-          'beasts' => $beasts,
-          'noPicture' => self::EMPTY_PICTURE,
-          ]);
+      return $this->twig->render('Beast/list.html.twig', [
+        'beasts'    => $beasts,
+        'noPicture' => self::EMPTY_PICTURE,
+        ]);
     }
 
-    public function details(int $id)  : string
+    public function details(int $id): string
     {
       $beastsManager = new BeastManager();
       $beast = $beastsManager->selectBeastJoinMovieAndPlanet($id);
+
       return $this->twig->render('Beast/details.html.twig', [
-        'beast' => $beast,
+        'beast'     => $beast,
         'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
 
-    public function add() : string
+    public function add(): string
     {
       $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -125,7 +126,7 @@ class BeastController extends AbstractController
       ]);
     }
 
-    public function edit(int $id) : string
+    public function edit(int $id): string
     {
       $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = $pictureError = $file_destination = null;
       $folder = 'beast';
@@ -240,7 +241,7 @@ class BeastController extends AbstractController
       header('Location: /beast/list/'.$id);
     }
 
-    public function updateFolderPictures()
+    public function updateFolderPictures(): string
     {
       $folder = "beast";
 

@@ -19,15 +19,15 @@ class FigureController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function list() : string
+    public function list(): string
     {
-        $figuresManager = new FigureManager();
-        $figures = $figuresManager->selectFigure();
-        
-        return $this->twig->render('Figure/list.html.twig', [
-          'figures' => $figures,
-          'noPicture' => self::EMPTY_PICTURE,
-          ]);
+      $figuresManager = new FigureManager();
+      $figures = $figuresManager->selectFigure();
+      
+      return $this->twig->render('Figure/list.html.twig', [
+        'figures'   => $figures,
+        'noPicture' => self::EMPTY_PICTURE,
+      ]);
     }
 
     /**
@@ -37,13 +37,13 @@ class FigureController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function details(int $id)  : string
+    public function details(int $id): string
     {
       $figureManager = new FigureManager();
       $figure = $figureManager->selectFigureJoinMovieAndFaction($id);
 
       return $this->twig->render('Figure/details.html.twig', [
-        'figure' => $figure,
+        'figure'    => $figure,
         'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
@@ -54,7 +54,7 @@ class FigureController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add() : string
+    public function add(): string
     {
       $nameError = $bioError = $movieError = $factionError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -149,7 +149,7 @@ class FigureController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function edit(int $id) : string
+    public function edit(int $id): string
     {
 
       $nameError = $bioError = $movieError = $factionError = $pictureError = $file_destination = null;
@@ -260,7 +260,7 @@ class FigureController extends AbstractController
       header('Location: /Figure/list/'.$id);
     }
 
-    public function updateFolderPictures()
+    public function updateFolderPictures(): string
     {
       $folder = "movie";
 

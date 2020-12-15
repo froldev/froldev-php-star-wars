@@ -17,15 +17,15 @@ class PlanetController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function list() : string
+    public function list(): string
     {
-        $planetsManager = new PlanetManager();
-        $planets = $planetsManager->selectPlanet();
+      $planetsManager = new PlanetManager();
+      $planets = $planetsManager->selectPlanet();
 
-        return $this->twig->render('Planet/list.html.twig', [
-          'planets' => $planets,
-          'noPicture' => self::EMPTY_PICTURE,
-          ]);
+      return $this->twig->render('Planet/list.html.twig', [
+        'planets'   => $planets,
+        'noPicture' => self::EMPTY_PICTURE,
+      ]);
     }
 
      /**
@@ -35,13 +35,13 @@ class PlanetController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function details(int $id)  : string
+    public function details(int $id): string
     {
       $planetManager = new PlanetManager();
       $planet = $planetManager->selectOneById($id);
 
       return $this->twig->render('Planet/details.html.twig', [
-        'planet' => $planet,
+        'planet'    => $planet,
         'noPicture' => self::EMPTY_PICTURE,
       ]);
     }
@@ -52,7 +52,7 @@ class PlanetController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add() : string
+    public function add(): string
     {
       $nameError = $pictureError = $file_destination = null;
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -113,7 +113,7 @@ class PlanetController extends AbstractController
       return $this->twig->render('Planet/edit.html.twig', [
         'nameError'     => $nameError,
         'pictureError'  => $pictureError,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'     => self::EMPTY_PICTURE,
       ]);
     }
 
@@ -123,7 +123,7 @@ class PlanetController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function edit(int $id) : string
+    public function edit(int $id): string
     {
       $nameError = $pictureError = $file_destination = null;
       $folder = 'planet';
@@ -191,7 +191,7 @@ class PlanetController extends AbstractController
         'nameError'     => $nameError,
         'pictureError'  => $pictureError,
         'planet'        => $planet,
-        'noPicture' => self::EMPTY_PICTURE,
+        'noPicture'     => self::EMPTY_PICTURE,
         'pictureName'   => $pictureName,
       ]);
     }
@@ -210,7 +210,7 @@ class PlanetController extends AbstractController
       header('Location: /planet/list/'.$id);
     }
 
-    public function updateFolderPictures()
+    public function updateFolderPictures(): string
     {
       $folder = "planet";
 
