@@ -164,8 +164,8 @@ CREATE TABLE `faction` (
 --
 
 INSERT INTO `faction` (`id`, `name`, `picture`) VALUES
-(1, "Alliance Rebelle", ""),
-(2, "Empire", ""),
+(1, "Alliance Rebelle", "/assets/images/faction/faction-5fd918615e9eb.jpg"),
+(2, "Empire", "/assets/images/faction/faction-5fd9187a3bc27.jpg"),
 (3, "Aucune", "")
 ;
 
