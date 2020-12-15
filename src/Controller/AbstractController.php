@@ -18,7 +18,6 @@ abstract class AbstractController
 
     const EMPTY_PICTURE = "/assets/images/no-picture.jpg";
 
-
     /**
      *  Initializes this class.
      */

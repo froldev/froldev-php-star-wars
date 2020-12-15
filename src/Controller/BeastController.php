@@ -12,6 +12,9 @@ use App\Model\PlanetManager;
  */
 class BeastController extends AbstractController
 {
+
+  const FOLDER = 'beast';
+
     public function list(): string
     {
       $beastsManager = new BeastManager();
@@ -42,14 +45,13 @@ class BeastController extends AbstractController
 
         // download picture
         if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
-          $folder = 'beast';
 
           $allowed = array('png', 'jpg', 'jpeg', 'gif');
           $file_ext = explode('.', $_FILES['new-picture']['name']);
           $file_ext = strtolower(end($file_ext));
 
-          $file_name_new = uniqid($folder.'-', false) . '.' . $file_ext;
-          $file_destination = 'assets/images/'.$folder.'/' . $file_name_new;
+          $file_name_new = uniqid(self::FOLDER.'-', false) . '.' . $file_ext;
+          $file_destination = 'assets/images/'. self::FOLDER .'/' . $file_name_new;
 
           $filename = substr($_FILES['new-picture']['name'], 1);
 
@@ -129,7 +131,6 @@ class BeastController extends AbstractController
     public function edit(int $id): string
     {
       $nameError = $sizeError = $areaError = $movieError = $planetError = $pictureError = $pictureError = $file_destination = null;
-      $folder = 'beast';
 
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $isValid = true;
@@ -141,8 +142,8 @@ class BeastController extends AbstractController
           $file_ext = explode('.', $_FILES['new-picture']['name']);
           $file_ext = strtolower(end($file_ext));
 
-          $file_name_new = uniqid($folder.'-', false) . '.' . $file_ext;
-          $file_destination = 'assets/images/'.$folder.'/' . $file_name_new;
+          $file_name_new = uniqid( self::FOLDER .'-', false) . '.' . $file_ext;
+          $file_destination = 'assets/images/'. self::FOLDER .'/' . $file_name_new;
 
           $filename = substr($_POST['picture'], 1);
 
@@ -210,7 +211,7 @@ class BeastController extends AbstractController
       $planetManager = new PlanetManager();
       $planets = $planetManager->selectPlanet();
 
-      $pictureName = (str_replace('/assets/images/'.$folder.'/', '', $beast['picture']));
+      $pictureName = (str_replace('/assets/images/'. self::FOLDER .'/', '', $beast['picture']));
 
       return $this->twig->render('Beast/edit.html.twig', [
         'nameError'     => $nameError,
@@ -228,7 +229,7 @@ class BeastController extends AbstractController
     }
 
     /**
-     * @return string
+     * @return void
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
@@ -241,11 +242,15 @@ class BeastController extends AbstractController
       header('Location: /beast/list/'.$id);
     }
 
-    public function updateFolderPictures(): string
+    /**
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function updateFolderPictures(): void
     {
-      $folder = "beast";
-
-      $path = "/assets/images/".$folder."/";
+      $path = "/assets/images/". self::FOLDER ."/";
       $beastManager = new BeastManager(); // pictures in bdd
       $pictures = $beastManager->listOfBeast();
       foreach ($pictures as $key=>$value)

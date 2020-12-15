@@ -199,7 +199,7 @@ class MovieController extends AbstractController
     }
 
     /**
-     * @return string
+     * @return void
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
@@ -212,7 +212,13 @@ class MovieController extends AbstractController
       header('Location: /movie/list/'.$id);
     }
 
-    public function updateFolderPictures(): string
+    /**
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function updateFolderPictures(): void
     {
       $folder = "movie";
 

@@ -210,7 +210,13 @@ class PlanetController extends AbstractController
       header('Location: /planet/list/'.$id);
     }
 
-    public function updateFolderPictures(): string
+    /**
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function updateFolderPictures(): void
     {
       $folder = "planet";
 

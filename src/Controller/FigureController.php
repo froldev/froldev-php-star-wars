@@ -247,7 +247,7 @@ class FigureController extends AbstractController
     }
 
     /**
-     * @return string
+     * @return void
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
@@ -260,7 +260,13 @@ class FigureController extends AbstractController
       header('Location: /Figure/list/'.$id);
     }
 
-    public function updateFolderPictures(): string
+    /**
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function updateFolderPictures(): void
     {
       $folder = "movie";
 

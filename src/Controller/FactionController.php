@@ -46,7 +46,6 @@ class FactionController extends AbstractController
       ]);
     }
 
-
     /**
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -116,7 +115,6 @@ class FactionController extends AbstractController
         'noPicture'     => self::EMPTY_PICTURE,
       ]);
     }
-
 
     /**
      * @return string
@@ -211,7 +209,13 @@ class FactionController extends AbstractController
       header('Location: /faction/list/'.$id);
     }
 
-    public function updateFolderPictures(): string
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function updateFolderPictures(): void
     {
       $folder = "faction";
 
