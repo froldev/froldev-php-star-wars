@@ -98,21 +98,21 @@ CREATE TABLE `beast` (
 --
 
 INSERT INTO `beast` (`id`, `name`, `picture`, `size`, `area`, `id_movie`, `id_planet`) VALUES
-(1, "Orray", "", 2, "Desert", 2, 6),
-(2, "Massiff", "", 1, "Desert", 2, 6),
-(3, "Wampa", "", 3, "Caverne", 5, 7),
-(4, "Tauntaun", "", 2, "Desert de Glace", 5, 7),
-(5, "Happabore", "", 4, "Desert", 7, 8),
-(6, "Luggabeast", "", 2, "Desert", 7, 8),
-(7, "Wookie", "", 2, "Foret", 3, 9),
-(8, "Mandalorien", "", 2, "Ville", 2, 3),
-(9, "Kaadu", "", 2, "Plaine", 1, 10),
-(10, "Sando", "", 200, "Eau", 1, 10),
-(11, "Bantha", "", 3, "Desert", 4, 11),
-(12, "Dewback", "", 2, "Desert", 4, 11),
-(13, "Varactyl", "", 4, "Caverne", 3, 12),
-(14, "Ewok", "", 1, "Foret", 6, 13),
-(15, "Porg", "", 1, "Falaises", 8, 14);
+(1, "Orray", "/assets/images/beast/beast-5fd90378956d3.jpeg", 2, "Desert", 2, 6),
+(2, "Massiff", "/assets/images/beast/beast-5fd9040eb6eb4.jpeg", 1, "Desert", 2, 6),
+(3, "Wampa", "/assets/images/beast/beast-5fd904284b2c8.jpeg", 3, "Caverne", 5, 7),
+(4, "Tauntaun", "/assets/images/beast/beast-5fd90458d42b5.jpeg", 2, "Desert de Glace", 5, 7),
+(5, "Happabore", "/assets/images/beast/beast-5fd9047c41016.jpeg", 4, "Desert", 7, 8),
+(6, "Luggabeast", "/assets/images/beast/beast-5fd9048f5c2e7.jpeg", 2, "Desert", 7, 8),
+(7, "Wookie", "/assets/images/beast/beast-5fd904dd6ee7d.jpeg", 2, "Foret", 3, 9),
+(8, "Mandalorien", "/assets/images/beast/beast-5fd904f513e22.jpeg", 2, "Ville", 2, 3),
+(9, "Kaadu", "/assets/images/beast/beast-5fd9050933ea8.jpeg", 2, "Plaine", 1, 10),
+(10, "Sando", "/assets/images/beast/beast-5fd90520f391e.jpeg", 200, "Eau", 1, 10),
+(11, "Bantha", "/assets/images/beast/beast-5fd9053c47a9d.jpeg", 3, "Desert", 4, 11),
+(12, "Dewback", "/assets/images/beast/beast-5fd9059a75771.jpeg", 2, "Desert", 4, 11),
+(13, "Varactyl", "/assets/images/beast/beast-5fd905af08d2f.jpeg", 4, "Caverne", 3, 12),
+(14, "Ewok", "/assets/images/beast/beast-5fd905c5f360c.jpeg", 1, "Foret", 6, 13),
+(15, "Porg", "/assets/images/beast/beast-5fd905da7730d.jpeg", 1, "Falaises", 8, 14);
 
 -- --------------------------------------------------------
 
