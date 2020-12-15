@@ -56,18 +56,18 @@ class FactionController extends AbstractController
    */
   public function add(): string
   {
-    $nameError = $pictureError = $file_destination = null;
+    $nameError = $pictureError = $fileDestination = null;
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $isValid = true;
 
       // download picture
       if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
         $allowed = array('png', 'jpg', 'jpeg', 'gif');
-        $file_ext = explode('.', $_FILES['new-picture']['name']);
-        $file_ext = strtolower(end($file_ext));
+        $fileExt = explode('.', $_FILES['new-picture']['name']);
+        $fileExt = strtolower(end($fileExt));
 
-        $file_name_new = uniqid( self::FOLDER .'-', false) . '.' . $file_ext;
-        $file_destination = 'assets/images/'. self::FOLDER .'/' . $file_name_new;
+        $fileNameNew = uniqid( self::FOLDER .'-', false) . '.' . $fileExt;
+        $fileDestination = 'assets/images/'. self::FOLDER .'/' . $fileNameNew;
 
         $filename = substr($_FILES['new-picture']['name'], 1);
 
@@ -75,14 +75,14 @@ class FactionController extends AbstractController
           $pictureError = "La photo ne doit pas dépasser 2 Mo";
           $isValid = false;
         }
-        if(!in_array($file_ext, $allowed)) {
+        if(!in_array($fileExt, $allowed)) {
           $pictureError = "La photo doit être au format jpg, jpeg, gif ou png";
           $isValid = false;
         }
 
         if ($isValid) {
-          if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $file_destination)) {
-            $_POST['picture'] = "/".$file_destination;
+          if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $fileDestination)) {
+            $_POST['picture'] = "/".$fileDestination;
             if (file_exists($filename)) {
               unlink($filename);
             }
@@ -124,7 +124,7 @@ class FactionController extends AbstractController
    */
   public function edit(int $id): string
   {
-    $nameError = $pictureError = $file_destination = null;
+    $nameError = $pictureError = $fileDestination = null;
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $isValid = true;
@@ -132,11 +132,11 @@ class FactionController extends AbstractController
         // download picture
       if (!empty($_FILES['new-picture']['name']) && isset($_FILES['new-picture'])) {
         $allowed = array('png', 'jpg', 'jpeg', 'gif');
-        $file_ext = explode('.', $_FILES['new-picture']['name']);
-        $file_ext = strtolower(end($file_ext));
+        $fileExt = explode('.', $_FILES['new-picture']['name']);
+        $fileExt = strtolower(end($fileExt));
 
-        $file_name_new = uniqid( self::FOLDER .'-', false) . '.' . $file_ext;
-        $file_destination = 'assets/images/'. self::FOLDER .'/' . $file_name_new;
+        $fileNameNew = uniqid( self::FOLDER .'-', false) . '.' . $fileExt;
+        $fileDestination = 'assets/images/'. self::FOLDER .'/' . $fileNameNew;
 
         $filename = substr($_POST['picture'], 1);
 
@@ -144,14 +144,14 @@ class FactionController extends AbstractController
           $pictureError = "La photo ne doit pas dépasser 2 Mo";
           $isValid = false;
         }
-        if(!in_array($file_ext, $allowed)) {
+        if(!in_array($fileExt, $allowed)) {
           $pictureError = "La photo doit être au format jpg, jpeg, gif ou png";
           $isValid = false;
         }
 
         if ($isValid) {
-          if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $file_destination)) {
-            $_POST['picture'] = "/".$file_destination;
+          if (move_uploaded_file($_FILES['new-picture']['tmp_name'], $fileDestination)) {
+            $_POST['picture'] = "/".$fileDestination;
             if (file_exists($filename)) {
               unlink($filename);
             }
