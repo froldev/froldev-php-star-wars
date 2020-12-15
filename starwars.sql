@@ -131,20 +131,20 @@ CREATE TABLE `planet` (
 --
 
 INSERT INTO `planet` (`id`, `name`, `picture`) VALUES
-(1, "Nar Kreeta", ""),
-(2, "Moraband", ""),
-(3, "Mandalore", ""),
-(4, "Coruscant", ""),
-(5, "Dagobah", ""),
-(6, "Geonosis", ""),
-(7, "Hoth", ""),
-(8, "Jakku", ""),
-(9, "Kashyyyk", ""),
-(10, "Naboo", ""),
-(11, "Tatooine", ""),
-(12, "Utapau", ""),
-(13, "Endor", ""),
-(14, "Ahch-To", "");
+(1, "Nar Kreeta", "/assets/images/planet/planet-5fd91297d6910.jpg"),
+(2, "Moraband", "/assets/images/planet/planet-5fd912b33686e.jpg"),
+(3, "Mandalore", "/assets/images/planet/planet-5fd912c9b6876.jpg"),
+(4, "Coruscant", "/assets/images/planet/planet-5fd91346a93e1.jpg"),
+(5, "Dagobah", "/assets/images/planet/planet-5fd9135a6b851.jpg"),
+(6, "Geonosis", "/assets/images/planet/planet-5fd9136d0399a.jpg"),
+(7, "Hoth", "/assets/images/planet/planet-5fd913ab67b6a.jpg"),
+(8, "Jakku", "/assets/images/planet/planet-5fd913c266b09.jpg"),
+(9, "Kashyyyk", "/assets/images/planet/planet-5fd913d70b7cb.jpg"),
+(10, "Naboo", "/assets/images/planet/planet-5fd9141896514.jpg"),
+(11, "Tatooine", "/assets/images/planet/planet-5fd9142d49ae6.jpg"),
+(12, "Utapau", "/assets/images/planet/planet-5fd9143f6c7ac.jpg"),
+(13, "Endor", "/assets/images/planet/planet-5fd9147e7ca1e.jpg"),
+(14, "Ahch-To", "/assets/images/planet/planet-5fd9148f9441f.jpg");
 
 
 -- --------------------------------------------------------
