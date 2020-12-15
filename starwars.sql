@@ -70,15 +70,15 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`id`, `title`, `picture`) VALUES
-(1, "Episode 1 : La Menace Fantôme", ""),
-(2, "Episode 2 : L'Attaque des Clones", ""),
-(3, "Episode 3 : La Revanche Des Siths", ""),
-(4, "Episode 4 : Un Nouvel Espoir", ""),
-(5, "Episode 5 : L'Empire Contre-Attaque", ""),
-(6, "Episode 6 : Le Retour Du Jedi", ""),
-(7, "Episode 7 : Le Réveil De La Force", ""),
-(8, "Episode 8 : Les Derniers Jedis", ""),
-(9, "Episode 9 : L'Ascension de Skywalker", "")
+(1, "Episode 1 : La Menace Fantôme", "/assets/images/movie/movie-5fd901f55244c.jpeg"),
+(2, "Episode 2 : L'Attaque des Clones", "/assets/images/movie/movie-5fd90206b68d0.jpeg"),
+(3, "Episode 3 : La Revanche Des Siths", "/assets/images/movie/movie-5fd902166d682.jpeg"),
+(4, "Episode 4 : Un Nouvel Espoir", "/assets/images/movie/movie-5fd90228a1715.jpeg"),
+(5, "Episode 5 : L'Empire Contre-Attaque", "/assets/images/movie/movie-5fd9023948046.jpeg"),
+(6, "Episode 6 : Le Retour Du Jedi", "/assets/images/movie/movie-5fd90248deb84.jpeg"),
+(7, "Episode 7 : Le Réveil De La Force", "/assets/images/movie/movie-5fd902b58a603.jpeg"),
+(8, "Episode 8 : Les Derniers Jedis", "/assets/images/movie/movie-5fd902c5d2386.jpeg"),
+(9, "Episode 9 : L'Ascension de Skywalker", "/assets/images/movie/movie-5fd902d766dc2.jpeg")
 ;
 
 -- --------------------------------------------------------
