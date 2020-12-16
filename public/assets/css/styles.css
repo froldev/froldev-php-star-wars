@@ -14,19 +14,19 @@
     src: url("../font/Biko_Regular.7cf27339.otf");
 }
 
-/* colors */
+/* color */
 :root {
-    --light: #FFF !important;
-    --dark: #000 !important;
-    --jedi: #071EFF !important;
-    --sith: #FF0000 !important;
-    --consular: #53A71C !important;
-    --sentinel: #EDB800 !important;
+    --light: #FFF;
+    --dark: #000;
+    --jedi: #071EFF;
+    --sith: #FF0000;
+    --consular: #53A71C;
+    --sentinel: #EDB800;
     --sentinel-transparent: rgba(237, 184, 0, 0.7) !important;
-    --hope: #4BD6EE !important;
-    --despair: #808080 !important;
-    --galaxy: rgba(255, 255, 255, 0.3) !important;
-    --shadow: Radial-gradient(closest-side, rgba(0, 0, 0, 0.75), 50%, transparent) !important;
+    --hope: #4BD6EE;
+    --despair: #505A5C;
+    --galaxy: rgba(255, 255, 255, 0.3);
+    --shadow: Radial-gradient(closest-side, rgba(0, 0, 0, 0.75), 50%, transparent);
 }
 
 /* general */
@@ -217,12 +217,12 @@ footer {
 }
 
 .jedi {
-    color: var(--jedi);
-    border-color: var(--jedi);
+    color: var(--jedi) !important;
+    border-color: var(--jedi) !important;
 }
 .jedi:hover {
-    color: var(--dark);
-    background-color: var(--jedi);
+    color: var(--dark) !important;
+    background-color: var(--jedi) !important;
     animation: jedi 2s infinite;
     -moz-animation: jedi 2s infinite;
     -webkit-animation: jedi 2s infinite;
@@ -231,12 +231,12 @@ footer {
 }
 
 .sith {
-    color: var(--sith);
-    border-color: var(--sith);
+    color: var(--sith) !important;
+    border-color: var(--sith) !important;
 }
 .sith:hover {
-    color: var(--dark);
-    background-color: var(--sith);
+    color: var(--dark) !important;
+    background-color: var(--sith) !important;
     animation: sith 2s infinite;
     -moz-animation: sith 2s infinite;
     -webkit-animation: sith 2s infinite;
@@ -245,12 +245,12 @@ footer {
 }
 
 .consular {
-    color: var(--consular);
-    border-color: var(--consular);
+    color: var(--consular) !important;
+    border-color: var(--consular) !important;
 }
 .consular:hover {
-    color: var(--dark);
-    background-color: var(--consular);
+    color: var(--dark) !important;
+    background-color: var(--consular) !important;
     animation: consular 2s infinite;
     -moz-animation: consular 2s infinite;
     -webkit-animation: consular 2s infinite;
@@ -259,12 +259,12 @@ footer {
 }
 
 .sentinel {
-    color: var(--light);
-    border-color: var(--sentinel);
+    color: var(--light) !important;
+    border-color: var(--sentinel) !important;
 }
 .sentinel:hover {
-    color: var(--dark);
-    background-color: var(--sentinel);
+    color: var(--dark) !important;
+    background-color: var(--sentinel) !important;
     animation: sentinel 2s infinite;
     -moz-animation: sentinel 2s infinite;
     -webkit-animation: sentinel 2s infinite;
@@ -273,7 +273,9 @@ footer {
 }
 
 /* cards list */
-.card-view { perspective: 1000px; }
+.card-view {
+    perspective: 1000px;
+}
 
 .card-view img {
     width: 280px;
@@ -368,7 +370,9 @@ footer {
     width: 100%;
 }
 
-.invalid-feedback{ display:block; }
+.invalid-feedback{
+    display:block;
+}
 
 .btn,
 .main input,
@@ -400,7 +404,9 @@ footer {
     cursor: pointer;
 }
 
-.main .form-control { border-radius: 0; }
+.main .form-control {
+    border-radius: 0;
+}
 
 .main .form-control:focus,
 .main input:focus,
@@ -427,7 +433,7 @@ footer {
     padding: 5px;
     border: none;
     border-top: 1px solid var(--sentinel);
-    background-color: var(--sentinel);
+    background-color: var(--sentinel) !important;
     -webkit-transition: all .5s linear;
     -o-transition: all .5s linear;
     transition: all .5s linear;
@@ -438,7 +444,9 @@ footer {
     height: 33px;
 }
 
-.main #new-picture:hover { cursor: pointer; }
+.main #new-picture:hover {
+    cursor: pointer;
+}
 
 .main nav {
     margin: 1rem auto;
@@ -467,7 +475,18 @@ footer {
     padding: 0 20px;
 }
 
-.main .row-btn { margin-bottom: 40px; }
+.main .row-btn {
+    margin-bottom: 40px;
+}
+
+.main .detail-row {
+    display: flex;
+    padding: 10px 0;
+}
+
+.main .detail-name {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
 nav.row {
     background-color: var(--dark);
