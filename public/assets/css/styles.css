@@ -24,7 +24,7 @@
     --sentinel: #EDB800;
     --sentinel-transparent: rgba(237, 184, 0, 0.7) !important;
     --hope: #4BD6EE;
-    --despair: #505A5C;
+    --despair: #808080;
     --galaxy: rgba(255, 255, 255, 0.3);
     --shadow: Radial-gradient(closest-side, rgba(0, 0, 0, 0.75), 50%, transparent);
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .main {
-    min-height: 100vh;
+    min-height: 80vh;
     margin-top: 40px;
 }
 
@@ -155,6 +155,10 @@ footer {
     position: absolute;
     z-index: 1;
     animation: intro 6s ease-out 1s;
+    -moz-animation: intro 6s ease-out 1s;
+    -webkit-animation: intro 6s ease-out 1s;
+    -o-animation: intro 6s ease-out 1s;
+    -ms-animation: intro 6s ease-out 1s;
     color: var(--hope);
     font-weight: 400;
     font-size: 300%;
@@ -172,6 +176,10 @@ footer {
     z-index: 1;
     top: 40%;
     animation: logo 9s ease-out 9s;
+    -moz-animation: logo 9s ease-out 9s;
+    -webkit-animation: logo 9s ease-out 9s;
+    -o-animation: logo 9s ease-out 9s;
+    -ms-animation: logo 9s ease-out 9s;
     opacity: 0;
 }
 
@@ -184,7 +192,7 @@ footer {
     font-weight: bold;
     overflow: hidden;
     font-size: 350%;
-    height: 50em;
+    height: 120em;
     width: 18em;
     bottom: 0;
     left: 50%;
@@ -201,7 +209,11 @@ footer {
 
 /* Set the scrolling animation and position it */
 #board-content {
-    animation: scroll 150s linear infinite 16s;
+    animation: scroll 250s linear infinite 16s;
+    -moz-animation: scroll 250s linear infinite 16s;
+    -webkit-animation: scroll 250s linear infinite 16s;
+    -o-animation: scroll 250s linear infinite 16s;
+    -ms-animation: scroll 250s linear infinite 16s;
     position: absolute;
     top: 100%;
 }
@@ -385,9 +397,11 @@ footer {
     border-top: 1px solid var(--sentinel);
     border-bottom: 1px solid var(--sentinel);
     background-color: transparent;
-    -webkit-transition: all .5s linear;
-    -o-transition: all .5s linear;
     transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
     color: var(--light);
     background-color: var(--dark);
     border-radius: 0;
@@ -434,9 +448,11 @@ footer {
     border: none;
     border-top: 1px solid var(--sentinel);
     background-color: var(--sentinel) !important;
-    -webkit-transition: all .5s linear;
-    -o-transition: all .5s linear;
     transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
     color: black;
     background-color: var(--dark);
     border-radius: 0;
