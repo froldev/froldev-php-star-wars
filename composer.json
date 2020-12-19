@@ -1,10 +1,10 @@
 {
-    "name": "aurel/simple-mvc",
-    "description": "Simple from scratch PHP MVC",
+    "name": "frol/star-wars",
+    "description": "To be a Jedi with PHP MVC",
     "authors": [
         {
-            "name": "Aurelien",
-            "email": "barbier.aurelien@wildcodeschool.fr"
+            "name": "Fred",
+            "email": "frol.developpement@gmail.com"
         }
     ],
     "minimum-stability": "stable",
