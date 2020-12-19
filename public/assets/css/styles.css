@@ -36,7 +36,7 @@
 }
 
 body {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--light);
     letter-spacing: 1px;
     background-color: var(--dark);
@@ -49,6 +49,11 @@ body {
     font-family: biko, Arial, Helvetica, sans-serif;
 }
 
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
 .main {
     min-height: 80vh;
     margin-top: 40px;
@@ -57,8 +62,12 @@ body {
 h1 {
     color: var(--sentinel);
     font-family: starjout;
-    margin: 40px;
+    margin: 40px 0;
     text-transform: lowercase;
+    display: flex;
+    justify-content: center;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 h2, h3 {
@@ -69,12 +78,12 @@ h2, h3 {
 }
 
 h2 {
-    font-size: 70px;
+    font-size: 50px;
     margin: 25px 0 60px 0;
 }
 
 h3 {
-    font-size: 60px;
+    font-size: 40px;
     margin-top: 200px;
 }
 
@@ -116,10 +125,8 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     font-family: starjedi;
-    color: var(--dark);
 }
 
 /* Navbar */
@@ -134,14 +141,18 @@ footer {
 
 .navbar-dark .navbar-nav .nav-link {
     color: var(--dark);
-    font-size: 20px;
+    font-size: 16px;
     padding:10px;
     margin: 0 10px;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: var(--sentinel);
+    color: var(--sentinel) !important;
     background-color: var(--dark);
+}
+
+.navbar-toggler-icon {
+    background-color: var(--dark) !important;
 }
 
 /* home */
@@ -161,7 +172,7 @@ footer {
     -ms-animation: intro 6s ease-out 1s;
     color: var(--hope);
     font-weight: 400;
-    font-size: 300%;
+    font-size: 200%;
     opacity: 0;
     top: 40%;
 }
@@ -188,14 +199,14 @@ footer {
     transform-origin: 50% 100%;
     text-align: justify;
     position: absolute;
-    margin-left: -9em;
     font-weight: bold;
     overflow: hidden;
     font-size: 350%;
     height: 120em;
-    width: 18em;
+    width: 100%;
     bottom: 0;
-    left: 50%;
+    padding-right: 0 !important;
+    padding-left:  0 !important;
 }
 
 #board:after {
@@ -216,10 +227,12 @@ footer {
     -ms-animation: scroll 250s linear infinite 16s;
     position: absolute;
     top: 100%;
+    width: 100%;
 }
 
 #board p {
     color: var(--sentinel);
+    font-size: 20px;
     margin-bottom: 50px;
 }
 
@@ -287,6 +300,8 @@ footer {
 /* cards list */
 .card-view {
     perspective: 1000px;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 .card-view img {
@@ -357,6 +372,7 @@ footer {
     height: 40px;
     width: 100%;
     background: var(--despair);
+    border: 1px solid var(--sentinel);
     -webkit-transform: rotateX(90deg);
     -moz-transform: rotateX(90deg);
     -ms-transform: rotateX(90deg);
@@ -475,7 +491,6 @@ footer {
     padding: 2vw 1vw;
     background-color: var(--galaxy);
     border: 1px solid var(--sentinel);
-    font-size: 1.05rem;
     margin-bottom: 40px;
 }
 
@@ -489,10 +504,11 @@ footer {
 .wrapper-data .title,
 .wrapper-data p {
     padding: 0 20px;
+    text-align: justify;
 }
 
 .main .row-btn {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .main .detail-row {
@@ -542,29 +558,29 @@ nav.row {
 }
 
 @keyframes logo {
-    0% { width: 18em; transform: scale(2.75); opacity: 1; }
-    50% { opacity: 1; width: 18em; }
-    100% { opacity: 0; transform: scale(0.1); width: 18em; }
+    0% { width: 30%; transform: scale(2); opacity: 1; }
+    50% { width: 30%; transform: scale(1);opacity: 1; }
+    100% { width: 30%; transform: scale(0.1); opacity: 0; }
 }
 @-moz-keyframes logo {
-    0% { width: 18em; transform: scale(2.75); opacity: 1; }
-    50% { opacity: 1; width: 18em; }
-    100% { opacity: 0; transform: scale(0.1); width: 18em; }
+    0% { width: 30%; transform: scale(2); opacity: 1; }
+    50% { width: 30%; transform: scale(1);opacity: 1; }
+    100% { width: 30%; transform: scale(0.1); opacity: 0; }
 }
 @-webkit-keyframes logo {
-    0% { width: 18em; transform: scale(2.75); opacity: 1; }
-    50% { opacity: 1; width: 18em; }
-    100% { opacity: 0; transform: scale(0.1); width: 18em; }
+    0% { width: 30%; transform: scale(2); opacity: 1; }
+    50% { width: 30%; transform: scale(1);opacity: 1; }
+    100% { width: 30%; transform: scale(0.1); opacity: 0; }
 }
 @-o-keyframes logo {
-    0% { width: 18em; transform: scale(2.75); opacity: 1; }
-    50% { opacity: 1; width: 18em; }
-    100% { opacity: 0; transform: scale(0.1); width: 18em; }
+    0% { width: 30%; transform: scale(2); opacity: 1; }
+    50% { width: 30%; transform: scale(1);opacity: 1; }
+    100% { width: 30%; transform: scale(0.1); opacity: 0; }
 }
 @-ms-keyframes logo {
-    0% { width: 18em; transform: scale(2.75); opacity: 1; }
-    50% { opacity: 1; width: 18em; }
-    100% { opacity: 0; transform: scale(0.1); width: 18em; }
+    0% { width: 30%; transform: scale(2); opacity: 1; }
+    50% { width: 30%; transform: scale(1);opacity: 1; }
+    100% { width: 30%; transform: scale(0.1); opacity: 0; }
 }
 
 @keyframes scroll {
@@ -690,4 +706,53 @@ nav.row {
 	from { box-shadow: 0 0 20px var(--sentinel); }
 	50% { box-shadow: 0 0 60px var(--sentinel); }
 	to { box-shadow: 0 0 20px var(--sentinel); }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    body,
+    footer {
+        font-size: 14px;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: 60px;
+    }
+    h3 {
+        font-size: 50px;
+    }
+    #far-far-away {
+        font-size: 250%;
+    }
+    #board {
+        width: 80%;
+    }
+    #board p {
+        font-size: 40px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body, 
+    footer {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: 70px;
+    }
+    h3 {
+        font-size: 60px;
+    }
+    #far-far-away {
+        font-size: 300%;
+    }
+    #board {
+        width: 60%;
+    }
+    #board p {
+        font-size: 40px;
+    }
 }
