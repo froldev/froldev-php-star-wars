@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository is the beginning of your new month challenge based on your favorite PHP MVC structure.
+This repository is the Star Wars Website based on your favorite PHP MVC structure.
 
 It still uses some cool vendors/libraries such as FastRouter (fast request php router), Twig and PHP_CodeSniffer.
 For this one, we add our new friend : PHPUnit.
