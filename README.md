@@ -1,23 +1,42 @@
 # Star Wars | May the force be with you
 
-## Description
+![](https://github.com/froldev/php-star-wars/blob/master/presentation-starwars.png)
 
-This repository is the Star Wars Website based on your favorite PHP MVC structure.
+## Requirements
 
-It still uses some cool vendors/libraries such as FastRouter (fast request php router), Twig and PHP_CodeSniffer.
-For this one, we add our new friend : PHPUnit.
+- Php ^7.2 http://php.net/manual/fr/install.php;
 
-## Steps
+## Installation
 
-1. Clone this repository from Github.
-2. Run `composer install`.
-3. Create *config/db.php* from *config/db.php.dist* file and add your DB parameters.
+1. Clone the current repository.
+
+```bash
+$ git clone https://github.com/froldev/symfony-pirats.git
+```
+
+2. Run composer.
+
+```bash
+$ composer install
+```
+
+3. Create _config/db.php_ from _config/db.php.dist_ file and add your DB parameters.
+
 ```php
 define('APP_DB_HOST', 'your_db_host');
 define('APP_DB_NAME', 'your_db_name');
 define('APP_DB_USER', 'your_db_user_wich_is_not_root');
 define('APP_DB_PWD', 'your_db_password');
 ```
-4. Create a new database on your local server and import `starwars.sql` in your SQL server,
-5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter, mean your localhost will target the `/public` folder.
-6. Go to [http://localhost:8000](http://localhost:8000) with your favorite browser.
+
+4. Import `starwars.sql` in your SQL server to create DataBase and import Data.
+
+```bash
+$ mysql -u root -p < starwars.sql
+```
+
+## Usage
+
+1. Run the internal PHP webserver with `php -S localhost:8000 -t public/`.
+
+2. Go to [http://localhost:8000](http://localhost:8000) with your favorite browser and see, add, update and remove your satr Wars.
