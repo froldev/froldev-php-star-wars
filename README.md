@@ -39,4 +39,4 @@ $ mysql -u root -p < starwars.sql
 
 1. Run the internal PHP webserver with `php -S localhost:8000 -t public/`.
 
-2. Go to [http://localhost:8000](http://localhost:8000) with your favorite browser and see, add, update and remove your satr Wars.
+2. Go to [http://localhost:8000](http://localhost:8000) with your favorite browser and see, add, update and remove your Star Wars.
