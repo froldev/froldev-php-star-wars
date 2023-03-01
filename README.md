@@ -11,7 +11,7 @@
 1. Clone the current repository.
 
 ```bash
-$ git clone https://github.com/froldev/symfony-pirats.git
+$ git clone https://github.com/froldev/froldev-php-star-wars
 ```
 
 2. Run composer.
